@@ -1,1 +1,56 @@
-<p>header works!</p>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <!-- Logo -->
+            <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+                <img src="assets/logos/logo.png" alt="PixelNova" class="logo">
+            </a>
+
+            <!-- Botón Hamburguesa (para móviles) -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Enlaces del menú -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
+                      </li>
+                      
+                      
+                    <li class="nav-item dropdown">
+                        
+                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Servicios
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                            <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active">Webs a medida para tu empresa</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active">Funcionalidades extras para tu web</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li class="dropdown-submenu">
+                                <a class="dropdown-item dropdown-toggle" routerLink="/services/video" routerLinkActive="active">Vídeo Aéreo</a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item"
+                                            routerLink="/services/video/inmobiliaria" routerLinkActive="active">Inmobiliaria</a></li>
+                                    <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active">Turismo</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="social-icons">
+            <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
+                <i class="bi bi-youtube"></i>
+            </a>
+        </div>
+    </nav>
+</header>

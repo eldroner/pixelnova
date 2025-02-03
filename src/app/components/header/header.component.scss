@@ -1,0 +1,89 @@
+.navbar {
+    font-size: 1.1rem;
+  
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  
+    .nav-link {
+      transition: color 0.3s ease-in-out;
+  
+      &:hover {
+        color: #ff4747 !important;  // Color de hover personalizado
+      }
+    }
+  }
+
+  .logo {
+    height: 85px;  // Ajusta según necesites
+    width: auto;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    
+    .social-link {
+      text-decoration: none;
+      font-size: 1.5rem;  // Tamaño de los iconos
+      color: white;
+      transition: color 0.3s;
+      margin-right: 50px;
+  
+      &:hover {
+        color: #ff4747; // Color de hover para YouTube
+      }
+    }
+  }
+
+  .dropdown-menu {
+    background-color: #222;
+    border: none;
+  
+    .dropdown-item {
+      color: white;
+      transition: background 0.3s;
+  
+      &:hover {
+        background-color: #ff4747;
+        color: white;
+      }
+    }
+  }
+  
+  // Asegurar que el submenú se despliega bien
+  .dropdown-submenu {
+    position: relative;
+  
+    .dropdown-menu {
+      position: absolute;
+      top: 0;
+      left: 100%;
+      margin-top: -5px;
+      display: none;
+    }
+  
+    &:hover > .dropdown-menu {
+      display: block;
+    }
+  }
+
+  .navbar-nav {
+    .nav-link {
+      color: rgba(255, 255, 255, 0.75); // Color por defecto
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 5px;
+  
+      &:hover {
+        color: white; // Cambio de color al pasar el mouse
+      }
+    }
+  
+    .nav-link.active {
+      color: white !important;  // Color blanco cuando está activo
+      font-weight: bold;
+      border-bottom: 3px solid #ff4747;  // Subrayado con color destacado
+    }
+  }
