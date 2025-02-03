@@ -40,3 +40,17 @@ testem.log
 # System files
 .DS_Store
 Thumbs.db
+
+# Evitar archivos de logs y errores de Angular
+.angular/cache
+.angular/build
+
+# Evitar archivos del sistema operativo
+*.log
+*.swp
+*.swo
+
+# Ignorar archivos generados por Angular Universal (SSR)
+.server/
+dist/
+
