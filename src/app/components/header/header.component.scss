@@ -101,3 +101,18 @@
     height: auto;
     filter: brightness(0) invert(1); /* Para que se vea bien en fondo oscuro */
   }
+
+  .social-icons {
+    margin: 10px 0;
+    
+    a {
+      color: white;
+      font-size: 20px;
+      margin: 0 10px;
+      text-decoration: none;
+      
+      &:hover {
+        color: #ff0000; // Color rojo al pasar el mouse (se puede personalizar)
+      }
+    }
+  }

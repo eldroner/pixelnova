@@ -1,0 +1,26 @@
+.container {
+    max-width: 1100px;
+  }
+  
+  .video-card {
+    text-align: center;
+  }
+  
+  .video-card img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .video-card img:hover {
+    transform: scale(1.05);
+  }
+  
+  h3 {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  

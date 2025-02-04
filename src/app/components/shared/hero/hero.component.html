@@ -1,7 +1,7 @@
-<section class="hero text-center">
+<section class="hero text-center" [ngStyle]="backgroundImage ? {'background-image': 'url(' + backgroundImage + ')'} : {}">
   <div class="container">
-    <h1>Potenciamos tu negocio con tecnología y creatividad</h1>
-    <p>Webs personalizadas, componentes para mejorarlas, marketing digital, fotografía y vídeo aéreo y mucho más</p>
-    <app-button text="Vídeos con drones" link="/services/video/inmobiliaria" color="secondary"></app-button>
+    <h1 class="fw-bold">{{ title }}</h1>
+    <p class="fw-light">{{ description }}</p>
+    <app-button *ngIf="showButton" [text]="buttonText" [link]="buttonLink" color="primary"></app-button>
   </div>
 </section>
