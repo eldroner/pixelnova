@@ -1,46 +1,63 @@
+<app-hero 
+  title="Descubre qué podemos hacer por ti y tu negocio"
+  description="Descubre cómo podemos potenciar tu negocio con nuestras soluciones digitales"
+  buttonText="Explora más"
+  buttonLink="/portfolio">
+</app-hero>
 
-<app-hero></app-hero>
-  <section class="services text-center">
-    <div class="container">
-      <h2>Nuestros Servicios</h2>
-      <div class="row">
-        <div class="col-md-3">
-          <i class="bi bi-globe2 service-icon"></i>
-          <h3>Webs a Medida</h3>
-          <p>Desarrollamos sitios web personalizados para tu negocio.</p>
+<div class="container">
+  <div class="row align-items-stretch">
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Tendencias de Marketing" [items]="[
+        { title: 'Las 10 tendencias de consumo en 2025', link: 'https://www.kantar.com/es/Inspiracion/Consumidor/Kantar-Talks-2017-Las-10-tendencias-que-cambiaran-en-consumo-en-2025' },
+        { title: '5 tendencias de marketing digital', link: 'https://forbes.com.mx/5-tendencias-de-marketing-digital-para-2025/' },
+        { title: 'Marketing digital con IA en 2025', link: 'https://www.thinkwithgoogle.com/intl/es-es/insights/tendencias-de-consumo/tendencias-marketing-digital-2025/' }
+      ]"></app-sidebar>
+    </div>
+    
+    <!-- Contenido Principal (Ahora más ancho) -->
+    <div class="col-lg-8 col-md-12">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6 col-12">
+          <app-service-card icon="bi-globe2" title="Webs a Medida"
+            description="Desarrollamos sitios web personalizados para tu negocio."
+            link="/services/web"></app-service-card>
         </div>
-        <div class="col-md-3">
-          <i class="bi bi-people service-icon"></i>
-          <h3>Redes Sociales</h3>
-          <p>Gestión profesional de redes sociales y contenido digital.</p>
+        <div class="col-lg-4 col-md-6 col-12">
+          <app-service-card icon="bi-tools" title="Componentes para tu web"
+            description="Componentes personalizados para mejorar las funcionalidades de tu web."
+            link="/services/componentes"></app-service-card>
         </div>
-        <div class="col-md-3">
-          <i class="bi bi-camera service-icon"></i>
-          <h3>Fotografía para Empresas</h3>
-          <p>Imágenes profesionales para potenciar tu marca.</p>
+        <div class="col-lg-4 col-md-6 col-12">
+          <app-service-card icon="bi-camera-video" title="Foto y vídeo aéreo"
+            description="Fotografía y vídeo con drones para inmobiliaria, turismo y eventos."
+            link="/services/video/aereo"></app-service-card>
         </div>
-        <div class="col-md-3">
-          <i class="bi bi-airplane service-icon"></i>
-          <h3>Vídeo Aéreo</h3>
-          <p>Grabaciones con drones para inmobiliaria y turismo.</p>
+        <div class="col-lg-4 col-md-6 col-12">
+          <app-service-card icon="bi-bar-chart" title="SEO"
+            description="Mejoramos la visibilidad de tu web en Google y otros buscadores para atraer más clientes."
+            link="/services/seo"></app-service-card>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <app-service-card icon="bi-people" title="Redes Sociales"
+            description="Gestionamos tus redes sociales y creamos contenido estratégico para conectar con tu audiencia."
+            link="/services/social-media"></app-service-card>
+        </div>
+        <div class="col-lg-4 col-md-6 col-12">
+          <app-service-card icon="bi-shop" title="Hostelería"
+            description="Impulsamos negocios de hostelería con estrategias digitales, marketing y presencia online efectiva."
+            link="/services/hosteleria"></app-service-card>
         </div>
       </div>
     </div>
-  </section>
-  
-  <section class="portfolio text-center">
-    <div class="container">
-      <h2>Nuestro Trabajo</h2>
-      <p>Explora algunos de nuestros proyectos recientes.</p>
-      <a routerLink="/portfolio" class="btn btn-secondary">Ver Portfolio</a>
+
+    <!-- Sidebar Derecho (Recursos Útiles) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Recursos Útiles" [items]="[
+        { title: 'Guía de Redes Sociales', link: '/services/social-media' },
+        { title: 'Casos de Éxito', link: '/portfolio' }
+      ]"></app-sidebar>
     </div>
-  </section>
-  
-  <section class="cta text-center">
-    <div class="container">
-      <h2>¿Listo para impulsar tu negocio?</h2>
-      <p>Contáctanos y hablemos de tu proyecto.</p>
-      <a routerLink="/contact" class="btn btn-primary">Contáctanos</a>
-    </div>
-  </section>
-  
+  </div>
+</div>

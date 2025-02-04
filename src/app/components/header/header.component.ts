@@ -8,5 +8,13 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  
+  closeNavbar() {
+    const navbar = document.getElementById('navbarNav');
+    if (navbar) {
+      navbar.classList.remove('show'); // Cierra el menú en móviles
+    }
+  }
+}
 

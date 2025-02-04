@@ -2,8 +2,7 @@
     <ul class="breadcrumb">
       <li><a routerLink="/">Inicio</a></li>
       <ng-container *ngFor="let crumb of breadcrumbs; let i = index">
-        <li *ngIf="i < breadcrumbs.length"> / <a [routerLink]="'/' + breadcrumbs.slice(0, i + 1).join('/')">{{ crumb }}</a></li>
+        <li *ngIf="i < breadcrumbs.length"><a [routerLink]="'/' + breadcrumbs.slice(0, i + 1).join('/')">{{ crumb }}</a></li>
       </ng-container>
     </ul>
   </nav>
-  

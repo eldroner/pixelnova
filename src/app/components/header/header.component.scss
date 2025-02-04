@@ -24,19 +24,27 @@
     display: flex;
     gap: 15px;
     align-items: center;
-    
+  
     .social-link {
       text-decoration: none;
       font-size: 1.5rem;  // Tamaño de los iconos
       color: white;
       transition: color 0.3s;
-      margin-right: 50px;
+      margin-right: 50px; // Margen derecho en pantallas grandes
   
       &:hover {
-        color: #ff4747; // Color de hover para YouTube
+        color: #ff4747;
       }
     }
   }
+  
+  // Ajuste específico para móviles
+  @media (max-width: 991px) {
+    .social-icons {
+      margin-left: auto; // Empuja el icono de YouTube hacia la derecha
+    }
+  }
+  
 
   .dropdown-menu {
     background-color: #222;
@@ -86,4 +94,10 @@
       font-weight: bold;
       border-bottom: 3px solid #ff4747;  // Subrayado con color destacado
     }
+  }
+
+  .social-icon {
+    width: 20px;  /* Ajusta el tamaño según lo necesites */
+    height: auto;
+    filter: brightness(0) invert(1); /* Para que se vea bien en fondo oscuro */
   }

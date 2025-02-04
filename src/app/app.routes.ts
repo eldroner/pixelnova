@@ -7,6 +7,7 @@ import { ComponentesComponent } from './components/pages/services/componentes/co
 import { PortfolioComponent } from './components/pages/portfolio/portfolio.component';
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
+import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
 
 
 export const routes: Routes = [
@@ -18,7 +19,6 @@ export const routes: Routes = [
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: '**', redirectTo: '' } // Redirección en caso de ruta inválida
 ];
-
-

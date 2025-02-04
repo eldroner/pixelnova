@@ -16,40 +16,43 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Inicio</a>
-                      </li>
-                      
-                      
+                        <a class="nav-link" routerLink="/" routerLinkActive="active" 
+                           [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Inicio</a>
+                    </li>
+
                     <li class="nav-item dropdown">
-                        
                         <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Servicios
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active">Webs a medida para tu empresa</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active">Funcionalidades extras para tu web</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active" (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active" (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-submenu">
                                 <a class="dropdown-item dropdown-toggle" routerLink="/services/video" routerLinkActive="active">Vídeo Aéreo</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item"
-                                            routerLink="/services/video/inmobiliaria" routerLinkActive="active">Inmobiliaria</a></li>
-                                    <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active">Turismo</a></li>
+                                    <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria" routerLinkActive="active" (click)="closeNavbar()">Inmobiliaria</a></li>
+                                    <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active" (click)="closeNavbar()">Turismo</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active">Contacto</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/portfolio" routerLinkActive="active" (click)="closeNavbar()">Portfolio</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active" (click)="closeNavbar()">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeNavbar()">Contacto</a></li>
                 </ul>
             </div>
         </div>
+
+        <!-- Redes Sociales -->
         <div class="social-icons">
             <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
                 <i class="bi bi-youtube"></i>
+            </a>
+            <a href="https://bsky.app/profile/asturdrones.es" target="_blank" class="social-link">
+                <img src="assets/logos/bluesky-logo.png" alt="Bluesky" class="social-icon">
             </a>
         </div>
     </nav>

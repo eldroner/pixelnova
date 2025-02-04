@@ -1,0 +1,26 @@
+.service-card {
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;  // Asegura que el botón se quede abajo
+    height: 100%;
+  }
+  
+  
+  .row {
+    justify-content: center;  // Centrar elementos en la fila
+    gap: 20px;  // Espacio entre columnas
+  }
+  
+  .service-icon {
+    font-size: 4rem;
+    color: #ff4747;
+    margin-bottom: 10px;
+  }
+
+  .services {
+    margin-bottom: 80px;  // Ajusta este valor según lo necesites
+  }
+  
