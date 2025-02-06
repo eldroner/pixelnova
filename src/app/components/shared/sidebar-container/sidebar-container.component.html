@@ -1,0 +1,11 @@
+<div class="col-lg-2 d-none d-lg-block">
+    <app-sidebar *ngIf="leftSidebarItems.length" [title]="leftSidebarTitle" [items]="leftSidebarItems"></app-sidebar>
+  </div>
+  
+  <!-- Espacio para el contenido principal -->
+  <ng-content></ng-content>
+  
+  <div class="col-lg-2 d-none d-lg-block">
+    <app-sidebar *ngIf="rightSidebarItems.length" [title]="rightSidebarTitle" [items]="rightSidebarItems"></app-sidebar>
+  </div>
+  
