@@ -1,12 +1,13 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root' // ✅ Hace que el servicio esté disponible globalmente
 })
 export class YoutubeService {
-  private apiKey: string = 'AIzaSyB5-uBXHKIBef2E_afopEa9IuGk9KjJy5o'; // 🔹 Sustituye con tu clave real
+  private apiKey: string = environment.youtubeApiKey;
   private http = inject(HttpClient); // ✅ Nueva forma de inyección para Angular Standalone
 
   getVideos(playlistId: string, maxResults: number = 6): Observable<any> {

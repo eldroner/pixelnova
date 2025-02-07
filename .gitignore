@@ -6,6 +6,13 @@
 /out-tsc
 /bazel-out
 
+# Archivos de configuración de entornos en Angular
+src/environments/environment.ts
+src/environments/environment.prod.ts
+
+# Variables de entorno
+.env
+
 # Node
 /node_modules
 npm-debug.log
