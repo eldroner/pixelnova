@@ -1,0 +1,16 @@
+<form (ngSubmit)="onSubmit()">
+  <label for="municipio">Código del municipio:</label>
+  <input
+    id="municipio"
+    [(ngModel)]="municipio"
+    name="municipio"
+    placeholder="Ingresa el código del municipio"
+    required
+  />
+  <button type="submit">Consultar</button>
+</form>
+
+<div *ngIf="weatherData">
+  <h3>Pronóstico del tiempo:</h3>
+  <pre>{{ weatherData | json }}</pre>
+</div>
