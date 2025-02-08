@@ -1,16 +1,90 @@
-<form (ngSubmit)="onSubmit()">
-  <label for="municipio">Código del municipio:</label>
-  <input
-    id="municipio"
-    [(ngModel)]="municipio"
-    name="municipio"
-    placeholder="Ingresa el código del municipio"
-    required
-  />
-  <button type="submit">Consultar</button>
+<form (ngSubmit)="onSubmit()" class="mb-4">
+  <div class="mb-3">
+    <label for="municipio" class="form-label">Código del municipio:</label>
+    <input
+      id="municipio"
+      [(ngModel)]="municipio"
+      name="municipio"
+      placeholder="Ingresa el código del municipio"
+      class="form-control"
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="fecha" class="form-label">Selecciona un día:</label>
+    <input
+      id="fecha"
+      type="date"
+      [(ngModel)]="fecha"
+      name="fecha"
+      class="form-control"
+      required
+    />
+  </div>
+  <button type="submit" class="btn btn-primary">Consultar</button>
 </form>
 
-<div *ngIf="weatherData">
-  <h3>Pronóstico del tiempo:</h3>
-  <pre>{{ weatherData | json }}</pre>
+<div *ngIf="errorMessage" class="alert alert-danger">
+  {{ errorMessage }}
+</div>
+
+<div *ngIf="filteredWeatherData && filteredWeatherData.length > 0" class="mb-4">
+  <h3>Pronóstico del tiempo para {{ fecha }}:</h3>
+  <table class="table table-striped table-bordered">
+    <thead>
+      <tr>
+        <th>Temperatura máxima</th>
+        <th>Temperatura mínima</th>
+        <th>Probabilidad de lluvia</th>
+        <th>Estado del cielo</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of filteredWeatherData">
+        <!-- Temperatura máxima -->
+        <td>
+          <span *ngIf="item.temperatura && item.temperatura.maxima !== undefined">
+            {{ item.temperatura.maxima }}°C
+          </span>
+          <span *ngIf="!item.temperatura || item.temperatura.maxima === undefined">
+            N/A
+          </span>
+        </td>
+  
+        <!-- Temperatura mínima -->
+        <td>
+          <span *ngIf="item.temperatura && item.temperatura.minima !== undefined">
+            {{ item.temperatura.minima }}°C
+          </span>
+          <span *ngIf="!item.temperatura || item.temperatura.minima === undefined">
+            N/A
+          </span>
+        </td>
+  
+        <!-- Probabilidad de lluvia -->
+        <td>
+          <span *ngIf="item.probPrecipitacion && item.probPrecipitacion[0]">
+            {{ item.probPrecipitacion[0].value }}%
+          </span>
+          <span *ngIf="!item.probPrecipitacion || !item.probPrecipitacion[0]">
+            N/A
+          </span>
+        </td>
+  
+        <!-- Estado del cielo -->
+        <td>
+          <span *ngIf="item.estadoCielo && item.estadoCielo[0]">
+            {{ item.estadoCielo[0].descripcion }}
+          </span>
+          <span *ngIf="!item.estadoCielo || !item.estadoCielo[0]">
+            N/A
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="filteredWeatherData && filteredWeatherData.length === 0" class="alert alert-warning">
+  No hay datos disponibles para la fecha seleccionada.
 </div>
