@@ -1,90 +1,68 @@
-<form (ngSubmit)="onSubmit()" class="mb-4">
+<h2>Consulta del Tiempo</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <!-- 🔹 Input con funcionalidad de autocompletado -->
   <div class="mb-3">
-    <label for="municipio" class="form-label">Código del municipio:</label>
-    <input
+    <label for="municipio" class="form-label">Selecciona un municipio:</label>
+    
+    <input 
+      type="text" 
       id="municipio"
-      [(ngModel)]="municipio"
-      name="municipio"
-      placeholder="Ingresa el código del municipio"
       class="form-control"
+      placeholder="Escribe el nombre del municipio..."
+      (input)="filtrarMunicipios($event)"
+      [(ngModel)]="municipioNombre" 
+      name="municipio"
       required
+      autocomplete="off"
     />
+
+    <!-- 🔹 Lista de sugerencias -->
+    <ul class="list-group mt-2" *ngIf="municipiosFiltrados.length > 0">
+      <li 
+        class="list-group-item list-group-item-action"
+        *ngFor="let municipio of municipiosFiltrados"
+        (click)="seleccionarMunicipio(municipio)">
+        {{ municipio.nombre }}
+      </li>
+    </ul>
   </div>
+
+  <!-- 🔹 Selector de fecha -->
   <div class="mb-3">
     <label for="fecha" class="form-label">Selecciona un día:</label>
-    <input
-      id="fecha"
-      type="date"
-      [(ngModel)]="fecha"
+    <input 
+      id="fecha" 
+      type="date" 
+      class="form-control" 
+      [(ngModel)]="fecha" 
       name="fecha"
-      class="form-control"
       required
     />
   </div>
+
   <button type="submit" class="btn btn-primary">Consultar</button>
 </form>
 
-<div *ngIf="errorMessage" class="alert alert-danger">
-  {{ errorMessage }}
-</div>
-
-<div *ngIf="filteredWeatherData && filteredWeatherData.length > 0" class="mb-4">
-  <h3>Pronóstico del tiempo para {{ fecha }}:</h3>
+<!-- 🔹 Mostrar resultados -->
+<div *ngIf="filteredWeatherData && filteredWeatherData.length > 0" class="mt-4">
+  <h3>Pronóstico del tiempo para {{ municipioSeleccionado?.nombre }} el {{ fecha }}:</h3>
   <table class="table table-striped table-bordered">
     <thead>
       <tr>
-        <th>Temperatura máxima</th>
-        <th>Temperatura mínima</th>
-        <th>Probabilidad de lluvia</th>
-        <th>Estado del cielo</th>
+        <th>Temperatura Máxima</th>
+        <th>Temperatura Mínima</th>
+        <th>Probabilidad de Lluvia</th>
+        <th>Estado del Cielo</th>
       </tr>
     </thead>
     <tbody>
       <tr *ngFor="let item of filteredWeatherData">
-        <!-- Temperatura máxima -->
-        <td>
-          <span *ngIf="item.temperatura && item.temperatura.maxima !== undefined">
-            {{ item.temperatura.maxima }}°C
-          </span>
-          <span *ngIf="!item.temperatura || item.temperatura.maxima === undefined">
-            N/A
-          </span>
-        </td>
-  
-        <!-- Temperatura mínima -->
-        <td>
-          <span *ngIf="item.temperatura && item.temperatura.minima !== undefined">
-            {{ item.temperatura.minima }}°C
-          </span>
-          <span *ngIf="!item.temperatura || item.temperatura.minima === undefined">
-            N/A
-          </span>
-        </td>
-  
-        <!-- Probabilidad de lluvia -->
-        <td>
-          <span *ngIf="item.probPrecipitacion && item.probPrecipitacion[0]">
-            {{ item.probPrecipitacion[0].value }}%
-          </span>
-          <span *ngIf="!item.probPrecipitacion || !item.probPrecipitacion[0]">
-            N/A
-          </span>
-        </td>
-  
-        <!-- Estado del cielo -->
-        <td>
-          <span *ngIf="item.estadoCielo && item.estadoCielo[0]">
-            {{ item.estadoCielo[0].descripcion }}
-          </span>
-          <span *ngIf="!item.estadoCielo || !item.estadoCielo[0]">
-            N/A
-          </span>
-        </td>
+        <td>{{ item.temperatura?.maxima ?? 'N/A' }}°C</td>
+        <td>{{ item.temperatura?.minima ?? 'N/A' }}°C</td>
+        <td>{{ item.probPrecipitacion?.[0]?.value ?? 'N/A' }}%</td>
+        <td>{{ item.estadoCielo?.[0]?.descripcion ?? 'N/A' }}</td>
       </tr>
     </tbody>
   </table>
-</div>
-
-<div *ngIf="filteredWeatherData && filteredWeatherData.length === 0" class="alert alert-warning">
-  No hay datos disponibles para la fecha seleccionada.
 </div>
