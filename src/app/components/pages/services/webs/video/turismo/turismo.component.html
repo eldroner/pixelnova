@@ -1,2 +1,45 @@
-<h1>Turismo</h1>
-<app-aemet></app-aemet> <!-- Usa el componente -->
+<app-aemet></app-aemet>
+<app-hero title="Impulsa las reservas de tu casa rural o hotel con vídeos aéreos"
+  description="Las mejores imágenes empiezan con la mejor planificación. Comprueba el clima y crea un vídeo espectacular que hará destacar tu propiedad."
+  buttonText="Solicita tu vídeo"
+  buttonLink="/contact"
+  backgroundImage="assets/img/moniello-playa.JPG">
+</app-hero>
+
+<app-spacer [height]="'20px'"></app-spacer>
+
+<div class="container">
+  <div class="row align-items-stretch">
+    
+    <!-- 📌 Sidebar Izquierdo (Categorías) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Categorías" [items]="sidebarLeftItems"></app-sidebar>
+    </div>
+
+    <!-- 📌 Contenido Principal -->
+    <div class="col-lg-8 col-md-12">
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Vídeos Aéreos para <span style=color:#007bff;>Turismo</span>'"></app-title>
+        <app-subtitle [text]="'Muestra la belleza de tu destino con <strong>imágenes impactantes</strong>...'"></app-subtitle>
+        <app-paragraph [text]="'Un <strong>buen vídeo turístico</strong> invita a explorar, inspira a viajar y emociona al espectador...'"></app-paragraph>
+      </app-text-container>
+
+      <div class="row g-4">
+        <div class="col-lg-6 col-md-12" *ngFor="let video of videos">
+          <app-video-card [video]="video"></app-video-card>
+        </div>
+      </div>
+
+      <div class="text-center mt-5 mb-4">
+        <app-button text="Solicita información" link="/contact" color="primary"></app-button>
+      </div>
+    </div>
+
+    <!-- 📌 Sidebar Derecho (Últimos vídeos) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Últimos vídeos" [items]="sidebarRightItems"></app-sidebar>
+    </div>
+
+  </div>
+</div>
+

@@ -1,0 +1,202 @@
+.weather-container {
+    display: flex;
+    flex-direction: row; // 📌 En pantallas grandes, texto y formulario en línea
+    align-items: center;
+    gap: 15px;
+    max-width: 90%;
+    margin: 0 auto;
+  
+    @media (max-width: 700px) {
+      flex-direction: column; // 📌 En móviles, el texto arriba y el formulario abajo
+      text-align: center;
+    }
+  }
+  
+  .list-group {
+    position: absolute;
+    z-index: 1050; // 🔹 Asegura que esté por encima de otros elementos
+    background-color: white; // 🔹 Evita transparencia
+    width: 100%; // 🔹 Para que no se corte dentro del input
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    max-height: 200px; // 🔹 Evita que sea demasiado grande
+    overflow-y: auto; // 🔹 Permite hacer scroll si hay muchos municipios
+  }
+  
+
+  .weather-text {
+    width: 100%;
+    font-size: 1rem;
+    color: #333;
+    margin: 0 10px 0 0;
+  
+    @media (max-width: 700px) {
+      margin-bottom: 10px; // 📌 Espacio entre el texto y el formulario en móviles
+    }
+  }
+  
+  /* 🔹 Contenedor del formulario */
+  .form-wrapper,
+  .weather-form {
+    width: 100%; // 📌 Asegura que ocupa todo el ancho
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+  
+    @media (max-width: 700px) {
+      justify-content: center;
+    }
+  }
+  
+  .weather-form {
+    flex-wrap: nowrap; // 📌 Mantiene todo en línea
+  }
+  
+  /* 🔹 Campo de fecha */
+  .date-container {
+    width: 130px; // 📌 Ajusta el tamaño del campo de fecha
+  }
+  
+  .small-input {
+    font-size: 0.9rem;
+    padding: 5px;
+  }
+  
+  /* 🔹 Botón con icono */
+  .btn-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+  
+    i {
+      font-size: 1.2rem;
+    }
+  }
+  
+  /* 🔹 Estilos del modal */
+  .modal-content {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+  }
+  
+  .modal-header {
+    background: #007bff;
+    color: white;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .modal-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  /* 🔹 Icono del clima */
+  .weather-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  /* 🔹 Estilos de la tabla */
+  .table {
+    margin-top: 10px;
+  
+    th {
+      background: #007bff;
+      color: white;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+  
+    td {
+      text-align: center;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px;
+    }
+  
+    td:last-child {
+      font-weight: bold;
+      color: #333;
+    }
+  }
+  
+  /* 🔹 Mensajes de error */
+  .text-danger {
+    font-weight: bold;
+    color: red;
+  }
+  
+  /* 🔹 Botón de hero */
+  .hero button {
+    background-color: #0066ff; /* Un azul más vivo */
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+  
+    &:hover {
+      background-color: #004bb7; /* Efecto hover más oscuro */
+    }
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 100px 20px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  
+    /* 🔹 Degradado oscuro más fuerte */
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.3));
+      z-index: 1;
+    }
+  
+    /* 🔹 Asegurar que el texto esté sobre el degradado */
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: white;
+    }
+  }
+
+  /* 🔹 Ajuste del botón para que sea solo un icono */
+.btn-icon {
+    background: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    cursor: pointer;
+  
+    i {
+      font-size: 1rem; /* Ajusta el tamaño del icono */
+      color: #007bff; /* Color azul de Bootstrap */
+      transition: color 0.2s ease-in-out;
+    }
+  
+    &:hover i {
+      color: #0056b3; /* Oscurece el color al pasar el mouse */
+    }
+  }
+  
+  
+  
+  

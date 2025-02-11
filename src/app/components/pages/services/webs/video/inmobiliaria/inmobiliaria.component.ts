@@ -9,16 +9,19 @@ import { TitleComponent } from "../../../../../shared/text/title/title.component
 import { SubtitleComponent } from "../../../../../shared/text/subtitle/subtitle.component";
 import { ParagraphComponent } from "../../../../../shared/text/paragraph/paragraph.component";
 import { SpacerComponent } from "../../../../../shared/spacer/spacer.component";
-import { SidebarComponent } from "../../../../../shared/sidebar/sidebar.component"; // ✅ Importar SidebarComponent
+import { SidebarComponent } from "../../../../../shared/sidebar/sidebar.component";
+import { WeatherComponent } from "../../../../../shared/weatherform/weatherform.component"; // ✅ Importar SidebarComponent
 
 @Component({
   selector: 'app-inmobiliaria',
   standalone: true,
   imports: [
-    CommonModule, ButtonComponent, HeroComponent, VideoCardComponent, 
-    TextContainerComponent, TitleComponent, SubtitleComponent, 
+    CommonModule, ButtonComponent, HeroComponent, VideoCardComponent,
+    TextContainerComponent, TitleComponent, SubtitleComponent,
     ParagraphComponent, SpacerComponent, SidebarComponent // ✅ Añadir SidebarComponent aquí
-  ],
+    ,
+    WeatherComponent
+],
   templateUrl: './inmobiliaria.component.html',
   styleUrl: './inmobiliaria.component.scss'
 })

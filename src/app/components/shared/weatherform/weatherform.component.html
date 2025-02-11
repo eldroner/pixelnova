@@ -1,24 +1,28 @@
-<h2>Consulta del Tiempo</h2>
+<div class="weather-container">
+  <!-- 🔹 Texto descriptivo -->
+  <p class="weather-text">
+    Comprueba el tiempo en tu localidad para un día concreto.
+  </p>
 
-<form (ngSubmit)="onSubmit()">
-  <!-- 🔹 Input con funcionalidad de autocompletado -->
-  <div class="mb-3">
-    <label for="municipio" class="form-label">Selecciona un municipio:</label>
-    
+  <!-- 🔹 Contenedor del formulario para que en móvil se mantenga en una fila -->
+  <div class="form-wrapper">
+    <!-- 🔹 Formulario compacto -->
+<form (ngSubmit)="onSubmit()" class="d-flex gap-2 align-items-center weather-form">
+  <!-- 🔹 Input de Municipio -->
+  <div class="flex-grow-1 position-relative">
     <input 
       type="text" 
       id="municipio"
       class="form-control"
-      placeholder="Escribe el nombre del municipio..."
+      placeholder="Municipio..."
       (input)="filtrarMunicipios($event)"
       [(ngModel)]="municipioNombre" 
       name="municipio"
       required
       autocomplete="off"
     />
-
     <!-- 🔹 Lista de sugerencias -->
-    <ul class="list-group mt-2" *ngIf="municipiosFiltrados.length > 0">
+    <ul class="list-group position-absolute w-100 mt-1 z-index-2" *ngIf="municipiosFiltrados.length > 0">
       <li 
         class="list-group-item list-group-item-action"
         *ngFor="let municipio of municipiosFiltrados"
@@ -28,41 +32,68 @@
     </ul>
   </div>
 
-  <!-- 🔹 Selector de fecha -->
-  <div class="mb-3">
-    <label for="fecha" class="form-label">Selecciona un día:</label>
+  <!-- 🔹 Selector de Fecha -->
+  <div class="date-container">
     <input 
       id="fecha" 
       type="date" 
-      class="form-control" 
+      class="form-control small-input"
       [(ngModel)]="fecha" 
       name="fecha"
       required
     />
   </div>
 
-  <button type="submit" class="btn btn-primary">Consultar</button>
+  <!-- 🔹 Ícono en lugar de botón -->
+  <button type="submit" class="btn-icon">
+    <i class="bi bi-search"></i> <!-- Ícono de búsqueda -->
+  </button>
 </form>
 
-<!-- 🔹 Mostrar resultados -->
-<div *ngIf="filteredWeatherData && filteredWeatherData.length > 0" class="mt-4">
-  <h3>Pronóstico del tiempo para {{ municipioSeleccionado?.nombre }} el {{ fecha }}:</h3>
-  <table class="table table-striped table-bordered">
-    <thead>
-      <tr>
-        <th>Temperatura Máxima</th>
-        <th>Temperatura Mínima</th>
-        <th>Probabilidad de Lluvia</th>
-        <th>Estado del Cielo</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let item of filteredWeatherData">
-        <td>{{ item.temperatura?.maxima ?? 'N/A' }}°C</td>
-        <td>{{ item.temperatura?.minima ?? 'N/A' }}°C</td>
-        <td>{{ item.probPrecipitacion?.[0]?.value ?? 'N/A' }}%</td>
-        <td>{{ item.estadoCielo?.[0]?.descripcion ?? 'N/A' }}</td>
-      </tr>
-    </tbody>
-  </table>
+  </div>
+</div>
+
+<!-- 🔹 Modal para mostrar los resultados -->
+<div class="modal fade" id="weatherModal" tabindex="-1" aria-labelledby="weatherModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="weatherModalLabel">Pronóstico del tiempo - {{ formatDate(fecha) }} </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <h3 class="modal-location">
+          🌍 {{ municipioSeleccionado?.nombre }}
+        </h3>
+      
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>Máxima</th>
+              <th>Mínima</th>
+              <th>¿LLuvia?</th>
+              <th>E. Cielo</th>
+              <th>Viento</th> <!-- 🔹 NUEVA COLUMNA -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of filteredWeatherData">
+              <td>{{ item.temperatura?.maxima ?? 'N/A' }}°C</td>
+              <td>{{ item.temperatura?.minima ?? 'N/A' }}°C</td>
+              <td>{{ item.probPrecipitacion?.[0]?.value ?? 'N/A' }}%</td>
+              <td><strong>{{ item.estadoCielo?.[0]?.descripcion ?? 'N/A' }}</strong></td>
+              <td>
+                {{ item.vientoVelocidad }} km/h 
+                <span *ngIf="item.vientoDireccion !== 'N/A'">({{ item.vientoDireccion }})</span>
+              </td>
+            </tr>
+          </tbody>
+          
+          
+        </table>
+      </div>
+      
+      
+    </div>
+  </div>
 </div>
