@@ -119,10 +119,13 @@ export class WeatherComponent implements OnInit {
   
   
 
-  formatDate(dateString: string): string {
-    if (!dateString) return '';
-    const date = new Date(dateString);
-    return date.toLocaleDateString('es-ES', { day: '2-digit', month: '2-digit', year: 'numeric' });
+  formatDate(fecha: string): string {
+    if (!fecha) return '';
+  
+    const date = new Date(fecha);
+    const options: Intl.DateTimeFormatOptions = { weekday: 'long', day: '2-digit', month: '2-digit', year: 'numeric' };
+  
+    return date.toLocaleDateString('es-ES', options); 
   }
   
   
@@ -157,6 +160,7 @@ export class WeatherComponent implements OnInit {
       this.errorMessage = '⚠️ Datos no disponibles.';
     }
   }
+  
   
 
   // 🔹 Función para formatear la fecha en DD/MM/YYYY

@@ -24,6 +24,8 @@
         <app-paragraph [text]="'Un <strong>buen vídeo turístico</strong> invita a explorar, inspira a viajar y emociona al espectador...'"></app-paragraph>
       </app-text-container>
 
+      <app-spacer [height]="'20px'"></app-spacer>
+
       <div class="row g-4">
         <div class="col-lg-6 col-md-12" *ngFor="let video of videos">
           <app-video-card [video]="video"></app-video-card>
