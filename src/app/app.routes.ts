@@ -8,10 +8,14 @@ import { PortfolioComponent } from './components/pages/portfolio/portfolio.compo
 import { BlogComponent } from './components/pages/blog/blog.component';
 import { ContactComponent } from './components/pages/contact/contact.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   { path: 'services/webs', component: WebsComponent },
   { path: 'services/video/inmobiliaria', component: InmobiliariaComponent },
   { path: 'services/video/turismo', component: TurismoComponent },

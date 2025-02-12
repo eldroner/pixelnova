@@ -12,7 +12,7 @@ export interface Municipio {
   providedIn: 'root',
 })
 export class AemetService {
-  private backendUrl = 'http://localhost:3000';
+  private backendUrl = 'http://localhost:5000';
 
   constructor(private http: HttpClient) {}
 
