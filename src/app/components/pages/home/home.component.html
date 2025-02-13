@@ -1,17 +1,21 @@
-<app-hero title="Tu propiedad, vista como nunca antes"
-  description="Convierte tu casa en la más deseada del mercado con vídeos profesionales" buttonText="Ver ejemplos"
-  buttonLink="/portfolio" backgroundImage="/assets/img/hero-bg.jpg">
+<app-hero title="Todo lo que necesitas en desarrollo web y marketing digital para tu negocio está aquí"
+  description="Te ayudamos a construir tu web o a mantener la tuya si es que ya la tienes ofreciéndote soporte 24/7 para todo lo que necesites" buttonText="Ver ejemplos"
+  buttonLink="/contact" backgroundImage="/assets/img/hero-bg.jpg">
 </app-hero>
 
+<app-spacer [height]="'20px'"></app-spacer>
 
-<div class="container">
+
+<div class="container-fluid wider-container">
   <div class="row align-items-stretch">
     <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
     <div class="col-lg-2 d-none d-lg-block">
       <app-sidebar title="Tendencias de Marketing" [items]="[
-        { title: 'Las 10 tendencias de consumo en 2025', link: 'https://www.kantar.com/es/Inspiracion/Consumidor/Kantar-Talks-2017-Las-10-tendencias-que-cambiaran-en-consumo-en-2025' },
-        { title: '5 tendencias de marketing digital', link: 'https://forbes.com.mx/5-tendencias-de-marketing-digital-para-2025/' },
-        { title: 'Marketing digital con IA en 2025', link: 'https://www.thinkwithgoogle.com/intl/es-es/insights/tendencias-de-consumo/tendencias-marketing-digital-2025/' }
+        { title: 'Tendencias de marketing digital en 2024', link: 'https://marketing4ecommerce.net/tendencias-marketing-digital-2024/' },
+        { title: 'Cómo la IA está revolucionando el marketing', link: 'https://www.thinkwithgoogle.com/intl/es-es/insights/tendencias-de-consumo/inteligencia-artificial-en-marketing/' },
+        { title: 'SEO en 2024: Estrategias para posicionar mejor', link: 'https://www.rockcontent.com/es/blog/seo-2024/' },
+        { title: 'Publicidad en redes sociales: lo que funcionará este año', link: 'https://blog.hubspot.es/marketing/publicidad-en-redes-sociales' },
+        { title: 'Automatización del marketing: claves y herramientas', link: 'https://www.inboundcycle.com/blog-de-inbound-marketing/automatizacion-marketing' }
       ]"></app-sidebar>
     </div>
 
@@ -22,9 +26,14 @@
 
     <!-- Sidebar Derecho (Recursos Útiles) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Recursos Útiles" [items]="[
-        { title: 'Guía de Redes Sociales', link: '/services/social-media' },
-        { title: 'Casos de Éxito', link: '/portfolio' }
+      <app-sidebar title="Nuestros Servicios" [items]="[
+        { title: 'Componentes personalizados para tu web', link: '/services/componentes-web' },
+        { title: 'Creación de webs a medida', link: '/services/webs-personalizadas' },
+        { title: 'Soporte 24/7 para tu negocio', link: '/services/soporte-24-7' },
+        { title: 'Mantenimiento y actualizaciones', link: '/services/mantenimiento' },
+        { title: 'Optimización SEO para mejorar tu visibilidad', link: '/services/seo' },
+        { title: 'Gestión de redes sociales y contenidos', link: '/services/social-media' },
+        { title: 'Automatización de procesos y herramientas web', link: '/services/automatizacion' }
       ]"></app-sidebar>
     </div>
   </div>

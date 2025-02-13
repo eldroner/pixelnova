@@ -1,15 +1,25 @@
+.sidebar {
+    padding: 15px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.container-fluid {
+    padding-left: 4vw;
+    padding-right: 4vw;
+}
 
 
-    .portfolio,
-    .cta {
-        background: #f8f9fa;
-        padding: 60px 20px;
-
-        h2 {
-            margin-bottom: 20px;
-        }
-
-        .btn {
-            margin-top: 15px;
-        }
+.portfolio,
+.cta {
+    background: #f8f9fa;
+    padding: 60px 20px;
+    
+    h2 {
+        margin-bottom: 20px;
     }
+    
+    .btn {
+        margin-top: 15px;
+    }
+}
