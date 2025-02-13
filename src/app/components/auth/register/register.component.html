@@ -1,25 +1,36 @@
 <div class="container mt-5">
-    <div class="card shadow p-4">
+  <div class="card shadow p-4">
       <h2 class="text-center">Crear cuenta</h2>
-      <form (ngSubmit)="onRegister()">
-        <div class="mb-3">
-          <label for="name" class="form-label">Nombre</label>
-          <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
-        </div>
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo electrónico</label>
-          <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
-        </div>
-        <div class="mb-3">
-          <label for="phone" class="form-label">Teléfono (opcional)</label>
-          <input type="text" id="phone" class="form-control" [(ngModel)]="phone" name="phone">
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Contraseña</label>
-          <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required>
-        </div>
-        <button type="submit" class="btn btn-success w-100">Registrarse</button>
+      <form (ngSubmit)="onRegister()" enctype="multipart/form-data">
+          <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
+          </div>
+          <div class="mb-3">
+              <label for="email" class="form-label">Correo electrónico</label>
+              <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
+          </div>
+          <div class="mb-3">
+              <label for="phone" class="form-label">Teléfono (opcional)</label>
+              <input type="text" id="phone" class="form-control" [(ngModel)]="phone" name="phone">
+          </div>
+          <div class="mb-3">
+              <label for="password" class="form-label">Contraseña</label>
+              <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required>
+          </div>
+
+          <!-- 🔹 Campo para subir la foto -->
+          <div class="mb-3">
+              <label for="photo" class="form-label">Foto de perfil (opcional)</label>
+              <input type="file" class="form-control" id="photo" (change)="onFileSelected($event)">
+          </div>
+
+          <button type="submit" class="btn btn-success w-100">Registrarse</button>
       </form>
-    </div>
   </div>
-  
+</div>
+<div class="text-center mt-3">
+  <p>¿Ya tienes una cuenta?  
+      <a routerLink="/login" class="text-primary fw-bold">Inicia sesión aquí</a>
+  </p>
+</div>

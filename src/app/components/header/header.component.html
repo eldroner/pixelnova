@@ -13,12 +13,8 @@
             </button>
 
             <!-- Enlaces del menú -->
+            <!-- Enlaces del menú -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                <li class="nav-item">
-                    <a class="nav-link text-light" routerLink="/login" routerLinkActive="active" (click)="closeNavbar()">
-                        <i class="bi bi-person-circle"></i>
-                    </a>
-                </li>
                 
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
@@ -50,16 +46,32 @@
                     <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeNavbar()">Contacto</a></li>
                 </ul>
             </div>
-        </div>
 
-        <!-- Redes Sociales -->
-        <div class="social-icons d-none d-lg-flex"> <!-- 🔹 Solo se muestran en pantallas grandes -->
-            <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
-                <i class="bi bi-youtube"></i>
-            </a>
-            <a href="https://bsky.app/profile/asturdrones.es" target="_blank" class="social-link">
-                <img src="assets/logos/bluesky-logo.png" alt="Bluesky" class="social-icon">
-            </a>
+            <!-- Redes Sociales -->
+            <div class="social-icons d-none d-lg-flex ms-3">
+                <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
+                    <i class="bi bi-youtube"></i>
+                </a>
+                <a href="https://bsky.app/profile/asturdrones.es" target="_blank" class="social-link">
+                    <img src="assets/logos/bluesky-logo.png" alt="Bluesky" class="social-icon">
+                </a>
+            </div>
+
+            <!-- Ícono del usuario al final del navbar -->
+            <div class="nav-item user-icon ms-3">
+                <ng-container *ngIf="user; else loginLink">
+                    <a class="nav-link text-light d-flex align-items-center" (click)="logout()" title="Cerrar sesión">
+                        <img *ngIf="user.photo" [attr.src]="user.photo" class="user-photo" alt="Foto de usuario">
+                        <span *ngIf="!user.photo" class="bi bi-person-circle text-success user-placeholder"></span>
+                    </a>
+                </ng-container>
+                <ng-template #loginLink>
+                    <a class="nav-link text-light d-flex align-items-center" routerLink="/login" routerLinkActive="active" title="Iniciar sesión">
+                        <span class="bi bi-person-circle text-white user-placeholder"></span>
+                    </a>
+                </ng-template>
+            </div>
+            
         </div>
     </nav>
 </header>

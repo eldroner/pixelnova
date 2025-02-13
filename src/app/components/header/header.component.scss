@@ -96,23 +96,60 @@
     }
   }
 
-  .social-icon {
-    width: 20px;  /* Ajusta el tamaño según lo necesites */
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 10px; // 🔹 Reduce el espacio entre los iconos
+
+    .social-link {
+        text-decoration: none;
+        font-size: 1.3rem; // 🔹 Ligeramente más pequeño
+        color: white;
+        transition: color 0.3s;
+        margin-right: 10px; // 🔹 Reduzco el margen derecho para acercar los iconos
+
+        &:hover {
+            color: #ff4747;
+        }
+    }
+}
+
+.social-icon {
+    width: 22px;  // 🔹 Tamaño ajustado para los iconos sociales
     height: auto;
-    filter: brightness(0) invert(1); /* Para que se vea bien en fondo oscuro */
+    filter: brightness(0) invert(1);
+}
+
+
+.user-icon {
+  display: flex;
+  align-items: center;
+
+  .user-photo, .user-placeholder {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
   }
 
-  .social-icons {
-    margin: 10px 0;
-    
-    a {
-      color: white;
-      font-size: 20px;
-      margin: 0 10px;
-      text-decoration: none;
-      
-      &:hover {
-        color: #ff0000; // Color rojo al pasar el mouse (se puede personalizar)
-      }
-    }
+  .user-photo {
+      border: 2px solid #fff; // ✅ Borde blanco para mejor integración
   }
+
+  .user-placeholder {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px; // ✅ Tamaño del ícono interno dentro del span
+      background-color: rgba(255, 255, 255, 0.1); // ✅ Fondo sutil para que no quede vacío
+      border: 2px solid #fff;
+      color: #28a745; // ✅ Verde si no hay foto
+  }
+
+  a {
+      display: flex;
+      align-items: center;
+  }
+}
+
+

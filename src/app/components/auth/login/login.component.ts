@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms'; // ✅ Importar FormsModule
+import { Router, RouterLink } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { AuthService } from '../../../services/auth.service'; // ✅ Importamos AuthService
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule], // ✅ Agregar FormsModule aquí
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })
@@ -14,18 +15,20 @@ export class LoginComponent {
   email = '';
   password = '';
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
   onLogin() {
     this.http.post<any>('http://localhost:5000/api/auth/login', {
       email: this.email,
       password: this.password
     }).subscribe(response => {
-      localStorage.setItem('token', response.token);
-      alert('Login exitoso');
-      this.router.navigate(['/dashboard']); // Cambia esto por la ruta a la que quieres redirigir
+      if (response.user) {
+        this.authService.saveUser(response.token, response.user); // ✅ Ahora guardamos el usuario
+      }
+      alert('✅ Login exitoso');
+      this.router.navigate(['/']); // Redirigir al inicio o a otra página después de login
     }, error => {
-      alert('Error en el login: ' + error.error.msg);
+      alert('❌ Error en el login: ' + error.error.msg);
     });
   }
 }
