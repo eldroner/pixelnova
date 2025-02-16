@@ -10,11 +10,13 @@ import { ContactComponent } from './components/pages/contact/contact.component';
 import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privacy-policy.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
+import { MemorialComponent } from './components/pages/memorial/memorial.component';
 
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'memorial', component: MemorialComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'services/webs', component: WebsComponent },
   { path: 'services/video/inmobiliaria', component: InmobiliariaComponent },

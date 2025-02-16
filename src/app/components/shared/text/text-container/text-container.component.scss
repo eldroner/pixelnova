@@ -1,6 +1,19 @@
 .text-container {
-  margin: 0 auto; /* Centrado automático */
+  margin: 0 auto !important;
   padding: 20px;
-  max-width: 1000px; /* Evita que el contenido sea demasiado ancho */
-  transition: all 0.3s ease-in-out; /* Animación suave en cambios */
+  max-width: 1000px;
+  transition: all 0.3s ease-in-out;
+  display: block;
+  overflow: hidden;
+}
+
+/* Asegurar que los bloques no tengan márgenes extra entre ellos */
+.text-container + .text-container {
+  margin-top: 10px !important; /* Ajusta según sea necesario */
+}
+
+/* Evitar márgenes en el último elemento */
+.text-container:last-child {
+  margin-bottom: 0 !important;
+  padding-bottom: 20px;
 }

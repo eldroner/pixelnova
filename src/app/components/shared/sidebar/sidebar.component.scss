@@ -32,4 +32,12 @@
     color: #0056b3;
     text-decoration: underline;
   }
+
+  app-spacer {
+    display: block; /* Asegura que no cree espacios flotantes */
+    width: 100%;
+    height: auto; 
+    overflow: hidden; /* Evita que tenga elementos flotantes visuales */
+  }
+  
   
