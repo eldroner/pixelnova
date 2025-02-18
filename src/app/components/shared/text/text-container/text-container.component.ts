@@ -8,7 +8,7 @@ import { Component, Input } from '@angular/core';
 })
 export class TextContainerComponent {
   @Input() align: 'left' | 'center' | 'right' = 'center';
-  @Input() width: string = '80%';
+  @Input() width: string = '100%';
   @Input() bgColor: string = 'transparent';
   @Input() border: string = 'none';
   @Input() borderRadius: string = '10px';
