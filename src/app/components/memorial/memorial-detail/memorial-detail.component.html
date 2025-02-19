@@ -1,0 +1,7 @@
+<div *ngIf="memorial">
+    <h2>{{ memorial.name }}</h2>
+    <p>{{ memorial.description }}</p>
+    <p><strong>Video:</strong></p>
+    <iframe *ngIf="safeVideoUrl" [src]="safeVideoUrl" width="600" height="350"></iframe>
+  </div>
+  

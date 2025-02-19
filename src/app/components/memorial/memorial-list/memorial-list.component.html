@@ -1,0 +1,11 @@
+<div class="memorial-list">
+    <h2>Mis Memoriales</h2>
+    <ul>
+      <li *ngFor="let memorial of memorials">
+        <h3>{{ memorial.name }}</h3>
+        <p>{{ memorial.description }}</p>
+        <a [routerLink]="['/memorial', memorial._id]">Ver más</a>
+      </li>
+    </ul>
+  </div>
+  

@@ -11,6 +11,9 @@ import { PrivacyPolicyComponent } from './components/pages/privacy-policy/privac
 import { LoginComponent } from './components/auth/login/login.component';
 import { RegisterComponent } from './components/auth/register/register.component';
 import { MemorialComponent } from './components/pages/memorial/memorial.component';
+import { MemorialListComponent } from './components/memorial/memorial-list/memorial-list.component';
+import { MemorialCreateComponent } from './components/memorial/memorial-create/memorial-create.component';
+import { MemorialDetailComponent } from './components/memorial/memorial-detail/memorial-detail.component';
 
 
 export const routes: Routes = [
@@ -26,5 +29,8 @@ export const routes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
-  { path: '**', redirectTo: '' } // Redirección en caso de ruta inválida
+  { path: 'memorials', component: MemorialListComponent },
+  { path: 'memorial/create', component: MemorialCreateComponent },
+  { path: 'memorial/:id', component: MemorialDetailComponent },
+  { path: '**', redirectTo: '' }
 ];
