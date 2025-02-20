@@ -23,6 +23,13 @@ export class MemorialService {
     return this.http.get(`${this.apiUrl}/my-memorials`, { headers }); // ✅ Ahora tiene /api/memorials/
   }
 
+  getMemorialById(id: string) {
+    return this.http.get(`${this.apiUrl}/memorial/${id}`); // 👈 Aquí corregimos la URL
+  }
+  
+  
+  
+
   // ✅ Añadir usuario a memorial premium
   addUserToMemorial(memorialId: string, userId: string, token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
