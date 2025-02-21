@@ -22,6 +22,8 @@ export class MemorialDetailComponent implements OnInit {
     private sanitizer: DomSanitizer
   ) {}
 
+  
+
   ngOnInit(): void {
     this.token = localStorage.getItem('token') || '';
     const memorialId = this.route.snapshot.paramMap.get('id');
@@ -31,12 +33,23 @@ export class MemorialDetailComponent implements OnInit {
         next: (data) => {
           this.memorial = data;
           if (this.memorial?.videoUrl) {
-            this.safeVideoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.memorial.videoUrl);
+            this.safeVideoUrl = this.transformYouTubeUrl(this.memorial.videoUrl);
           }
         },
         error: (err) => console.error('Error al obtener memorial:', err)
       });
     }
-}
+  }
 
+  private transformYouTubeUrl(url: string): SafeResourceUrl {
+    const videoIdMatch = url.match(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]+)/);
+    
+    if (videoIdMatch && videoIdMatch[1]) {
+      const embedUrl = `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+      return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
+    } else {
+      console.error("URL de YouTube no válida:", url);
+      return this.sanitizer.bypassSecurityTrustResourceUrl(url);
+    }
+  }
 }

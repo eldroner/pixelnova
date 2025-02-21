@@ -1,0 +1,30 @@
+.card {
+    border-radius: 12px;
+    border: none;
+    transition: transform 0.2s ease-in-out;
+    
+    &:hover {
+      transform: translateY(-3px);
+    }
+  }
+
+  .card-text {
+    display: -webkit-box;
+    display: box; /* Propiedad estándar */
+    -webkit-line-clamp: 2; // Limita a 2 líneas
+    line-clamp: 2; /* Propiedad estándar */
+    -webkit-box-orient: vertical;
+    box-orient: vertical; /* Propiedad estándar */
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  
+  .btn-primary {
+    background-color: #d32f2f; // Rojo elegante acorde a PixelNova
+    border: none;
+    &:hover {
+      background-color: #b71c1c;
+    }
+  }
+  
