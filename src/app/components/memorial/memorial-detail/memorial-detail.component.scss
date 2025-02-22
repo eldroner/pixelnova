@@ -4,15 +4,15 @@
     align-items: center;
     padding: 30px;
     min-height: 100vh; // Para que ocupe toda la pantalla
-    background: #250000; // 🔴 Rojo oscuro, cambia a #004d00 para verde
+    background: #1f1f1f; // Verde oscuro, cambia a #004d00 para verde
   }
   
   .memorial-card {
     max-width: 800px;
-    background: rgba(255, 255, 255, 0.15); // Fondo semitransparente
+    background: rgba(0, 0, 0, 0.144); // Fondo semitransparente
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.459);
     text-align: center;
     backdrop-filter: blur(10px); // ✨ Efecto de vidrio esmerilado
   }

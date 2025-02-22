@@ -1,36 +1,49 @@
-<div class="container mt-5">
-  <div class="card shadow p-4">
-      <h2 class="text-center">Crear cuenta</h2>
-      <form (ngSubmit)="onRegister()" enctype="multipart/form-data">
-          <div class="mb-3">
-              <label for="name" class="form-label">Nombre</label>
-              <input type="text" id="name" class="form-control" [(ngModel)]="name" name="name" required>
-          </div>
-          <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" id="email" class="form-control" [(ngModel)]="email" name="email" required>
-          </div>
-          <div class="mb-3">
-              <label for="phone" class="form-label">Teléfono (opcional)</label>
-              <input type="text" id="phone" class="form-control" [(ngModel)]="phone" name="phone">
-          </div>
-          <div class="mb-3">
-              <label for="password" class="form-label">Contraseña</label>
-              <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required>
-          </div>
-
-          <!-- 🔹 Campo para subir la foto -->
-          <div class="mb-3">
-              <label for="photo" class="form-label">Foto de perfil (opcional)</label>
-              <input type="file" class="form-control" id="photo" (change)="onFileSelected($event)">
-          </div>
-
-          <button type="submit" class="btn btn-success w-100">Registrarse</button>
-      </form>
+<!-- ✅ Cuadro de recorte -->
+<div *ngIf="imageChangedEvent">
+    <image-cropper
+      [imageChangedEvent]="imageChangedEvent"
+      [maintainAspectRatio]="true"
+      [aspectRatio]="1/1"
+      [resizeToWidth]="200"
+      format="png"
+      (imageCropped)="imageCropped($event)">
+    </image-cropper>
+  
+    <div class="mt-2">
+      <button class="btn btn-primary" (click)="confirmCroppedImage()">✅ Aceptar imagen</button>
+      <button class="btn btn-danger" (click)="discardImage()">❌ Descartar imagen</button>
+    </div>
   </div>
-</div>
-<div class="text-center mt-3">
-  <p>¿Ya tienes una cuenta?  
-      <a routerLink="/login" class="text-primary fw-bold">Inicia sesión aquí</a>
-  </p>
-</div>
+  
+  <!-- ✅ Vista previa de la imagen confirmada -->
+  <div *ngIf="finalImage" class="mt-3 text-center">
+    <p>Imagen confirmada:</p>
+    <img [src]="finalImage" class="rounded-circle img-thumbnail" style="max-width: 150px;">
+  </div>
+  
+  <!-- ✅ Formulario de registro -->
+  <form (ngSubmit)="onRegister()">
+    <div class="mb-3">
+      <label for="name" class="form-label">Nombre</label>
+      <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="email" class="form-label">Correo electrónico</label>
+      <input type="email" id="email" [(ngModel)]="email" name="email" class="form-control" required>
+    </div>
+  
+    <div class="mb-3">
+      <label for="password" class="form-label">Contraseña</label>
+      <input type="password" id="password" [(ngModel)]="password" name="password" class="form-control" required>
+    </div>
+  
+    <!-- ✅ Input para seleccionar imagen -->
+    <div class="mb-3">
+      <label for="photo" class="form-label">Foto de perfil</label>
+      <input type="file" id="photo" (change)="onFileSelected($event)" class="form-control">
+    </div>
+  
+    <!-- ✅ Botón de registro desactivado si no hay imagen confirmada -->
+    <button type="submit" class="btn btn-success w-100" [disabled]="!isImageConfirmed">Registrarse</button>
+  </form>
