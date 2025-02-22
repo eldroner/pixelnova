@@ -44,7 +44,7 @@ export class MemorialService {
   }
 
   getMemorialById(id: string) {
-    return this.http.get(`${this.apiUrl}/memorial/${id}`); // 👈 Aquí corregimos la URL
+    return this.http.get(`${this.apiUrl}/${id}`); // 👈 Aquí corregimos la URL
   }
   
   
