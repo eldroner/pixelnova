@@ -1,0 +1,45 @@
+<div class="container mt-4">
+    <h2>Editar Memorial</h2>
+    <form (ngSubmit)="updateMemorial()">
+      <div class="row">
+        <div class="col-md-6">
+          <label>Título:</label>
+          <input type="text" class="form-control" [(ngModel)]="memorial.name" name="name" required>
+        </div>
+      </div>
+  
+      <div class="row mt-3">
+        <div class="col-12">
+          <label>Descripción:</label>
+          <textarea class="form-control" [(ngModel)]="memorial.description" name="description" rows="3"></textarea>
+        </div>
+      </div>
+  
+      <div class="row mt-3">
+        <div class="col-md-6">
+          <label>Fecha de Nacimiento:</label>
+          <input type="date" class="form-control" [(ngModel)]="memorial.birthDate" name="birthDate">
+        </div>
+        <div class="col-md-6">
+          <label>Fecha de Fallecimiento:</label>
+          <input type="date" class="form-control" [(ngModel)]="memorial.deathDate" name="deathDate">
+        </div>
+      </div>
+  
+      <div class="row mt-3">
+        <div class="col-md-8">
+          <label>URL del Video:</label>
+          <input type="text" class="form-control" [(ngModel)]="memorial.videoUrl" name="videoUrl">
+        </div>
+        <div class="col-md-4 d-flex align-items-center">
+          <label class="me-2">¿Vídeo Público?</label>
+          <input type="checkbox" class="form-check-input" [(ngModel)]="memorial.publicVideo" name="publicVideo">
+        </div>
+      </div>
+  
+      <div class="text-end mt-4">
+        <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+    </form>
+  </div>
+  

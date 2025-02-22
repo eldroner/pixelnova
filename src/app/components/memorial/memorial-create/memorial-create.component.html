@@ -4,31 +4,31 @@
     <!-- Nombre del memorial -->
     <div class="mb-3">
         <label for="name" class="form-label">Nombre del memorial:</label>
-        <input type="text" id="name" class="form-control" [(ngModel)]="memorialData.name" name="name" required>
+        <input type="text" id="name" class="form-control" [(ngModel)]="memorial.name" name="name" required>
     </div>
 
     <!-- Descripción -->
     <div class="mb-3">
         <label for="description" class="form-label">Descripción:</label>
-        <textarea id="description" class="form-control" [(ngModel)]="memorialData.description" name="description" required></textarea>
+        <textarea id="description" class="form-control" [(ngModel)]="memorial.description" name="description" required></textarea>
     </div>
 
     <!-- Fecha de nacimiento -->
     <div class="mb-3">
         <label for="birthDate" class="form-label">Fecha de nacimiento:</label>
-        <input type="date" id="birthDate" class="form-control" [(ngModel)]="memorialData.birthDate" name="birthDate">
+        <input type="date" id="birthDate" class="form-control" [(ngModel)]="memorial.birthDate" name="birthDate">
     </div>
 
     <!-- Fecha de fallecimiento -->
     <div class="mb-3">
         <label for="deathDate" class="form-label">Fecha de fallecimiento:</label>
-        <input type="date" id="deathDate" class="form-control" [(ngModel)]="memorialData.deathDate" name="deathDate">
+        <input type="date" id="deathDate" class="form-control" [(ngModel)]="memorial.deathDate" name="deathDate">
     </div>
 
     <!-- URL del video público -->
     <div class="mb-3">
         <label for="publicVideoUrl" class="form-label">URL del video de homenaje (YouTube):</label>
-        <input type="text" id="publicVideoUrl" class="form-control" [(ngModel)]="memorialData.videoUrl" name="publicVideoUrl">
+        <input type="text" id="publicVideoUrl" class="form-control" [(ngModel)]="memorial.videoUrl" name="publicVideoUrl">
     </div>
 
     <!-- Botón de envío -->

@@ -14,6 +14,7 @@ import { MemorialComponent } from './components/pages/memorial/memorial.componen
 import { MemorialListComponent } from './components/memorial/memorial-list/memorial-list.component';
 import { MemorialCreateComponent } from './components/memorial/memorial-create/memorial-create.component';
 import { MemorialDetailComponent } from './components/memorial/memorial-detail/memorial-detail.component';
+import { MemorialEditComponent } from './components/memorial/memorial-edit/memorial-edit.component';
 
 
 export const routes: Routes = [
@@ -32,5 +33,6 @@ export const routes: Routes = [
   { path: 'memorials', component: MemorialListComponent },
   { path: 'memorial/create', component: MemorialCreateComponent },
   { path: 'memorial/:id', component: MemorialDetailComponent },
+  { path: 'memorial/edit/:id', component: MemorialEditComponent },
   { path: '**', redirectTo: '' }
 ];

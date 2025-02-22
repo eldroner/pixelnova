@@ -1,27 +1,25 @@
 import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms'; // ✅ Importamos FormsModule
+import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MemorialService } from '../../../services/memorial.service';
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-memorial-create',
-  standalone: true, // ✅ Al ser standalone, importamos los módulos aquí
+  standalone: true,
   templateUrl: './memorial-create.component.html',
   styleUrls: ['./memorial-create.component.scss'],
-  imports: [CommonModule, FormsModule] // ✅ Agregamos FormsModule
+  imports: [CommonModule, FormsModule]
 })
 export class MemorialCreateComponent {
-  memorialData = {
+  memorial: any = {
     name: '',
     description: '',
     birthDate: '',
     deathDate: '',
-    videoUrl: '', // ✅ Verifica que el nombre coincida con el del modelo en el backend
-    publicVideo: true // ✅ Si es un campo requerido, agrégalo con un valor por defecto
+    videoUrl: '',
+    publicVideo: true
   };
-  
-  
 
   token: string = '';
 
@@ -29,24 +27,29 @@ export class MemorialCreateComponent {
     this.token = localStorage.getItem('token') || '';
   }
 
-  createMemorial() {
-    if (!this.memorialData.name.trim()) {
-      alert("El nombre del memorial es obligatorio.");
-      return;
-    }
-
-    this.memorialService.createMemorial(this.memorialData, this.token).subscribe(
-      response => {
+  createMemorial(): void {
+    const formattedMemorialData = {
+      ...this.memorial,
+      birthDate: this.memorial.birthDate ? new Date(this.memorial.birthDate).toISOString() : null,
+      deathDate: this.memorial.deathDate ? new Date(this.memorial.deathDate).toISOString() : null
+    };
+  
+    console.log("📤 Datos enviados desde Angular:", formattedMemorialData);  // 🔍 Verifica aquí
+  
+    this.memorialService.createMemorial(formattedMemorialData, this.token).subscribe({
+      next: (response) => {
         console.log("✅ Memorial creado correctamente:", response);
         alert("Memorial creado con éxito");
-
-        // 🔹 Redirigir al usuario a la lista de memoriales tras la creación
         this.router.navigate(['/memorial']);
       },
-      error => {
-        console.error("❌ Error al crear memorial:", error);
+      error: (err) => {
+        console.error("❌ Error al crear memorial:", err);
         alert("Hubo un error al crear el memorial.");
       }
-    );
+    });
   }
+  
+
+  
+  
 }

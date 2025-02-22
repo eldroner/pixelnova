@@ -17,6 +17,26 @@ export class MemorialService {
     return this.http.post(`${this.apiUrl}/create`, memorialData, { headers }); // ✅ Ahora tiene /api/memorials/
   }
 
+  updateMemorial(memorial: any): Observable<any> {
+    const token = localStorage.getItem('token');
+  
+    if (!token) {
+      console.error('❌ No hay token en localStorage.');
+      return new Observable(observer => {
+        observer.error('No hay token de autenticación.');
+      });
+    }
+  
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    });
+  
+    return this.http.put(`${this.apiUrl}/${memorial._id}`, memorial, { headers });
+  }
+  
+  
+
   // ✅ Obtener memoriales del usuario autenticado
   getMemorials(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);

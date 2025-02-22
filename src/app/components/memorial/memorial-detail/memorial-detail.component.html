@@ -1,5 +1,4 @@
-
-<div class="memorial-container">
+<div class="memorial-container" *ngIf="memorial; else loading">
   <div class="memorial-card">
     <h2 class="memorial-title">{{ memorial.name }}</h2>
     <p class="memorial-description">{{ memorial.description }}</p>
@@ -13,5 +12,23 @@
         allowfullscreen>
       </iframe>
     </div>
+
+    <!-- Botones alineados debajo del vídeo -->
+    <div class="d-flex justify-content-center gap-3 mt-3">
+      <!-- Botón de Editar Memorial -->
+      <a [routerLink]="['/memorial/edit', memorial._id]" class="btn btn-primary">
+        ✏️ Editar Memorial
+      </a>
+
+      <!-- Botón de Premium -->
+      <a [routerLink]="['/memorial/premium', memorial._id]" class="btn btn-warning">
+        ⭐ Acceder a Premium
+      </a>
+    </div>
   </div>
 </div>
+
+<!-- Mensaje de carga mientras se obtiene el memorial -->
+<ng-template #loading>
+  <p>Cargando memorial...</p>
+</ng-template>

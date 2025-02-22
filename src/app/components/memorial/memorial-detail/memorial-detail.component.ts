@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common'; // 👈 Asegúrate de importar esto
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { MemorialService } from '../../../services/memorial.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-memorial-detail',
   standalone: true,
-  imports: [CommonModule], // 👈 Agrégalo aquí
+  imports: [CommonModule, RouterLink], // 👈 Agrégalo aquí
   templateUrl: './memorial-detail.component.html',
   styleUrls: ['./memorial-detail.component.scss']
 })
