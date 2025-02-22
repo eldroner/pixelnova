@@ -13,13 +13,11 @@
             </button>
 
             <!-- Enlaces del menú -->
-            <!-- Enlaces del menú -->
             <div class="collapse navbar-collapse" id="navbarNav">
-                
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" routerLink="/" routerLinkActive="active" 
-                           [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Inicio</a>
+                        <a class="nav-link" routerLink="/" routerLinkActive="active"
+                            [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Inicio</a>
                     </li>
 
                     <li class="nav-item dropdown">
@@ -28,26 +26,51 @@
                             Servicios
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active" (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active" (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/soporte" routerLinkActive="active" (click)="closeNavbar()">soporte digital para tu negocio 24/7</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/mantenimiento" routerLinkActive="active" (click)="closeNavbar()">mantenimiento y mejora de tu web actual</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/marketing digital" routerLinkActive="active" (click)="closeNavbar()">marketing digital para maximizar el rendimiento de tu negocio</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/rrss" routerLinkActive="active" (click)="closeNavbar()">servicio de comunity manager</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active"
+                                    (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active"
+                                    (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/soporte" routerLinkActive="active"
+                                    (click)="closeNavbar()">soporte digital para tu negocio 24/7</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/mantenimiento" routerLinkActive="active"
+                                    (click)="closeNavbar()">mantenimiento y mejora de tu web actual</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/marketing digital"
+                                    routerLinkActive="active" (click)="closeNavbar()">marketing digital para maximizar
+                                    el rendimiento de tu negocio</a></li>
+                            <li><a class="dropdown-item" routerLink="/services/rrss" routerLinkActive="active"
+                                    (click)="closeNavbar()">servicio de comunity manager</a></li>
                             <li class="dropdown-divider"></li>
                             <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" routerLink="/services/video" routerLinkActive="active">Vídeo Aéreo</a>
+                                <a class="dropdown-item dropdown-toggle" routerLink="/services/video"
+                                    routerLinkActive="active">Vídeo Aéreo</a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria" routerLinkActive="active" (click)="closeNavbar()">Inmobiliaria</a></li>
-                                    <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active" (click)="closeNavbar()">Turismo</a></li>
+                                    <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria"
+                                            routerLinkActive="active" (click)="closeNavbar()">Inmobiliaria</a></li>
+                                    <li><a class="dropdown-item" routerLink="/services/video/turismo"
+                                            routerLinkActive="active" (click)="closeNavbar()">Turismo</a></li>
                                 </ul>
                             </li>
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" routerLink="/memorial" routerLinkActive="active" (click)="closeNavbar()">Memorial</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active" (click)="closeNavbar()">Blog</a></li>
-                    <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active" (click)="closeNavbar()">Contacto</a></li>
+                    <!-- Menú desplegable para Memoriales -->
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="memorialDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Memoriales
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="memorialDropdown">
+                            <li><a class="dropdown-item" routerLink="/memorial" routerLinkActive="active"
+                                    (click)="closeNavbar()">Qué son los memoriales</a></li>
+                            <li><a class="dropdown-item" routerLink="/memorials" routerLinkActive="active"
+                                    (click)="closeNavbar()">Mis Memoriales</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active"
+                            (click)="closeNavbar()">Blog</a></li>
+                    <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active"
+                            (click)="closeNavbar()">Contacto</a></li>
                 </ul>
             </div>
 
@@ -70,12 +93,12 @@
                     </a>
                 </ng-container>
                 <ng-template #loginLink>
-                    <a class="nav-link text-light d-flex align-items-center" routerLink="/login" routerLinkActive="active" title="Iniciar sesión">
+                    <a class="nav-link text-light d-flex align-items-center" routerLink="/login"
+                        routerLinkActive="active" title="Iniciar sesión">
                         <span class="bi bi-person-circle text-white user-placeholder"></span>
                     </a>
                 </ng-template>
             </div>
-            
         </div>
     </nav>
 </header>
