@@ -1,28 +1,5 @@
-<!-- ✅ Cuadro de recorte -->
-<div *ngIf="imageChangedEvent">
-    <image-cropper
-      [imageChangedEvent]="imageChangedEvent"
-      [maintainAspectRatio]="true"
-      [aspectRatio]="1/1"
-      [resizeToWidth]="200"
-      format="png"
-      (imageCropped)="imageCropped($event)">
-    </image-cropper>
-  
-    <div class="mt-2">
-      <button class="btn btn-primary" (click)="confirmCroppedImage()">✅ Aceptar imagen</button>
-      <button class="btn btn-danger" (click)="discardImage()">❌ Descartar imagen</button>
-    </div>
-  </div>
-  
-  <!-- ✅ Vista previa de la imagen confirmada -->
-  <div *ngIf="finalImage" class="mt-3 text-center">
-    <p>Imagen confirmada:</p>
-    <img [src]="finalImage" class="rounded-circle img-thumbnail" style="max-width: 150px;">
-  </div>
-  
-  <!-- ✅ Formulario de registro -->
-  <form (ngSubmit)="onRegister()">
+<!-- ✅ Formulario de registro -->
+<form (ngSubmit)="onRegister()">
     <div class="mb-3">
       <label for="name" class="form-label">Nombre</label>
       <input type="text" id="name" [(ngModel)]="name" name="name" class="form-control" required>
@@ -41,9 +18,23 @@
     <!-- ✅ Input para seleccionar imagen -->
     <div class="mb-3">
       <label for="photo" class="form-label">Foto de perfil</label>
-      <input type="file" id="photo" (change)="onFileSelected($event)" class="form-control">
+      <input #fileInput type="file" id="photo" (change)="openCropModal($event)" class="form-control">
+    </div>
+  
+    <!-- ✅ Vista previa de la imagen confirmada -->
+    <div *ngIf="finalImage" class="mt-3 text-center">
+      <p>Imagen confirmada:</p>
+      <img [src]="finalImage" class="rounded-circle img-thumbnail" style="max-width: 150px;">
     </div>
   
     <!-- ✅ Botón de registro desactivado si no hay imagen confirmada -->
     <button type="submit" class="btn btn-success w-100" [disabled]="!isImageConfirmed">Registrarse</button>
   </form>
+  
+  <!-- ✅ Modal de recorte de imagen -->
+  <app-image-crop-modal
+    *ngIf="showCropModal"
+    [imageChangedEvent]="imageChangedEvent"
+    (imageCropped)="onImageCropped($event)"
+    (modalClosed)="closeCropModal()"
+  ></app-image-crop-modal>

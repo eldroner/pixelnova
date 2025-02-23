@@ -1,15 +1,18 @@
 <div class="modal-overlay">
     <div class="modal-content">
       <h2>Recortar imagen</h2>
-      <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+  
+      <!-- Recortador de imágenes -->
       <image-cropper
         *ngIf="imageChangedEvent"
         [imageChangedEvent]="imageChangedEvent"
         (imageCropped)="imageCroppedEvent($event)"
         format="png"
         [maintainAspectRatio]="true"
-        [aspectRatio]="1 / 1">
-      </image-cropper>
+        [aspectRatio]="1 / 1"
+      ></image-cropper>
+  
+      <!-- Botones de acción -->
       <div class="modal-actions">
         <button (click)="confirmCrop()" [disabled]="!croppedImage">Confirmar</button>
         <button (click)="closeModal()">Cancelar</button>

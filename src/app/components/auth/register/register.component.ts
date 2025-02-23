@@ -3,12 +3,12 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ImageCropperComponent, ImageCroppedEvent } from 'ngx-image-cropper';
+import { ImageCropModalComponent } from '../../tools/image-crop-modal/image-crop-modal.component'; // Importa el modal
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ImageCropperComponent],
+  imports: [CommonModule, FormsModule, ImageCropModalComponent], // Importa el modal
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -20,63 +20,30 @@ export class RegisterComponent {
   errorMessage = '';
 
   // Variables para el recorte de la imagen
-  imageChangedEvent: any = null;
-  tempCroppedImage: string | null = null; // Imagen recortada pero NO confirmada
+  showCropModal = false; // Controla la visibilidad del modal
+  imageChangedEvent: any = null; // Evento de selección de archivos
   finalImage: string | null = null; // Imagen confirmada
   isImageConfirmed = false; // Control de confirmación
 
   constructor(private http: HttpClient, private router: Router) {}
 
-  // Detecta la imagen seleccionada
-  onFileSelected(event: any) {
+  // Abre el modal de recorte y pasa el evento de selección de archivos
+  openCropModal(event: any) {
     if (!event.target.files.length) return; // Si no hay archivo, no hace nada
-    this.imageChangedEvent = event;
-    this.isImageConfirmed = false;
-    this.finalImage = null;
-    this.tempCroppedImage = null;
-
-    console.log("📸 Imagen seleccionada, esperando recorte...");
+    this.imageChangedEvent = event; // Guarda el evento
+    this.showCropModal = true; // Abre el modal
   }
 
-  // Se ejecuta cuando el usuario recorta la imagen
-  imageCropped(event: ImageCroppedEvent) {
-    console.log("✂ Evento completo:", event);
-
-    if (event.blob) {
-      const reader = new FileReader();
-      reader.readAsDataURL(event.blob);
-      reader.onloadend = () => {
-        this.tempCroppedImage = reader.result as string;
-        console.log("✂ Imagen recortada (pero NO confirmada todavía):", this.tempCroppedImage);
-      };
-    } else {
-      console.warn("⚠️ No se pudo obtener la imagen recortada.");
-    }
+  // Recibe la imagen recortada desde el modal
+  onImageCropped(croppedImage: string) {
+    this.finalImage = croppedImage; // Asigna la imagen recortada
+    this.isImageConfirmed = true; // Marca la imagen como confirmada
+    this.showCropModal = false; // Cierra el modal
   }
 
-  // Confirma la imagen recortada y la redimensiona
-  confirmCroppedImage() {
-    console.log("🔎 Intentando confirmar imagen...");
-    if (!this.tempCroppedImage) {
-      console.warn("⚠️ No hay imagen para confirmar.");
-      alert("❌ Debes recortar y confirmar la imagen antes de continuar.");
-      return;
-    }
-
-    this.resizeImage(this.tempCroppedImage, 300).then(resizedImage => {
-      this.finalImage = resizedImage; // Asignamos la imagen redimensionada a finalImage
-      this.isImageConfirmed = true; // Marcamos la imagen como confirmada
-      console.log("✅ Imagen confirmada y redimensionada:", this.finalImage);
-    });
-  }
-
-  // Permite descartar la imagen
-  discardImage() {
-    this.imageChangedEvent = null;
-    this.tempCroppedImage = null;
-    this.finalImage = null;
-    this.isImageConfirmed = false;
-    console.log("❌ Imagen descartada.");
+  // Cierra el modal sin confirmar
+  closeCropModal() {
+    this.showCropModal = false;
   }
 
   // Función para redimensionar la imagen
@@ -109,7 +76,7 @@ export class RegisterComponent {
 
         ctx?.drawImage(img, 0, 0, width, height);
 
-        resolve(canvas.toDataURL('image/jpeg'));
+        resolve(canvas.toDataURL('image/jpeg', 0.7)); // Reducir calidad para disminuir el tamaño
       };
 
       img.onerror = error => reject(error);
@@ -117,7 +84,7 @@ export class RegisterComponent {
   }
 
   // Función para registrar al usuario
-  onRegister() {
+  async onRegister() {
     console.log("🔍 Estado antes de registrar:", {
       email: this.email,
       password: this.password,
@@ -140,16 +107,21 @@ export class RegisterComponent {
       return;
     }
 
+    // Redimensionar la imagen antes de enviarla
+    const resizedImage = await this.resizeImage(this.finalImage, 300);
+
+    // Datos del formulario, incluyendo la imagen redimensionada
     const formData = {
       name: this.name,
       email: this.email,
       phone: this.phone,
       password: this.password,
-      photo: this.finalImage
+      photo: resizedImage // Imagen redimensionada
     };
 
     console.log("📤 Enviando datos:", formData);
 
+    // Enviar la solicitud al backend
     this.http.post<any>('http://localhost:5000/api/auth/register', formData).subscribe(
       response => {
         alert('✅ Registro exitoso, ahora inicia sesión');

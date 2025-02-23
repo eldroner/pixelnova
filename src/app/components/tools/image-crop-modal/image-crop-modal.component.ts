@@ -1,28 +1,33 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-image-crop-modal',
   standalone: true,
-  imports: [ImageCropperComponent], // Importa ImageCropperComponent directamente
+  imports: [CommonModule, ImageCropperComponent],
   templateUrl: './image-crop-modal.component.html',
   styleUrls: ['./image-crop-modal.component.scss']
 })
 export class ImageCropModalComponent {
-  imageChangedEvent: any = null; // Evento de cambio de imagen
-  croppedImage: string | null = null; // Imagen recortada
-
+  @Input() imageChangedEvent: any = null; // Recibe el evento de selección de archivos
   @Output() imageCropped = new EventEmitter<string>(); // Emite la imagen recortada
   @Output() modalClosed = new EventEmitter<void>(); // Emite cuando se cierra el modal
 
-  // Método para cargar la imagen seleccionada
-  onFileSelected(event: any) {
-    this.imageChangedEvent = event;
-  }
+  croppedImage: string | null = null; // Imagen recortada
 
   // Método que se ejecuta cuando la imagen se recorta
   imageCroppedEvent(event: ImageCroppedEvent) {
-    this.croppedImage = event.base64 || null;
+    if (event.blob) {
+      const reader = new FileReader();
+      reader.readAsDataURL(event.blob); // Convierte el Blob a Base64
+      reader.onloadend = () => {
+        this.croppedImage = reader.result as string; // Actualiza croppedImage
+        console.log("Imagen recortada:", this.croppedImage); // Depuración
+      };
+    } else {
+      console.warn("⚠️ No se pudo obtener la imagen recortada.");
+    }
   }
 
   // Método para confirmar el recorte
