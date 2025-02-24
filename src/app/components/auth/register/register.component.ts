@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ImageCropModalComponent } from '../../tools/image-crop-modal/image-crop-modal.component';
@@ -10,7 +10,7 @@ import { SpacerComponent } from "../../shared/spacer/spacer.component"; // Impor
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ImageCropModalComponent, HeroComponent, SpacerComponent], // Importa el modal
+  imports: [CommonModule, FormsModule, ImageCropModalComponent, HeroComponent, SpacerComponent, RouterLink], // Importa el modal
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })

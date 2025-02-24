@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router, RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { AuthService } from '../../../services/auth.service'; // ✅ Importamos AuthService
+import { AuthService } from '../../../services/auth.service';
+import { HeroComponent } from "../../shared/hero/hero.component";
+import { SpacerComponent } from "../../shared/spacer/spacer.component"; // ✅ Importamos AuthService
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [FormsModule, RouterLink],
+  imports: [FormsModule, RouterLink, HeroComponent, SpacerComponent],
   templateUrl: './login.component.html',
   styleUrl: './login.component.scss'
 })

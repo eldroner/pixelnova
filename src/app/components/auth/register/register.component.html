@@ -1,10 +1,25 @@
+<app-hero title="Tenemos todo lo que tu negocio necesita para crecer y expandirse."
+  description="Tanto si ya estás en el mundo digital, como si no, tenemos todas las herramientas que necesitas para ayudarte con tu negocio y llevarlo al siguiente nivel"
+  buttonText="Solicita información"
+  buttonLink="/contact"
+  backgroundImage="assets/img/moniello-atardecer.JPG">
+</app-hero>
+
+<app-spacer [height]="'20px'"></app-spacer>
+
 <!-- ✅ Contenedor principal con bordes redondeados -->
 <div class="container mt-5">
   <div class="row justify-content-center">
     <div class="col-md-8 col-lg-6">
       <div class="card shadow-sm p-4">
-        <!-- ✅ Foto en la esquina superior derecha -->
-        <div class="text-end mb-3">
+        <!-- ✅ Foto en la esquina superior derecha y enlace de login -->
+        <div class="d-flex justify-content-between align-items-start mb-3">
+          <!-- ✅ Enlace para ir a la pantalla de login -->
+          <div class="text-end link-login">
+            <p class="mb-0">¿Ya tienes una cuenta? <a routerLink="/login" class="text-primary">Inicia sesión</a></p>
+          </div>
+
+          <!-- ✅ Foto de perfil -->
           <div class="user-photo-placeholder">
             <ng-container *ngIf="finalImage; else placeholder">
               <img [src]="finalImage" class="rounded-circle img-thumbnail" style="width: 80px; height: 80px;">
@@ -16,6 +31,8 @@
         </div>
 
         <h2 class="text-center mb-4">Registro de Usuario</h2>
+
+        <app-spacer [height]="'20px'"></app-spacer>
 
         <!-- ✅ Formulario de registro -->
         <form (ngSubmit)="onRegister()">
@@ -58,6 +75,8 @@
     </div>
   </div>
 </div>
+
+<app-spacer [height]="'20px'"></app-spacer>
 
 <!-- ✅ Modal de recorte de imagen -->
 <app-image-crop-modal
