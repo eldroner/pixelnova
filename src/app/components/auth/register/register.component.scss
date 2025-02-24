@@ -1,0 +1,14 @@
+.user-photo-placeholder {
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1); // Fondo sutil para el placeholder
+    border: 2px solid #28a745; // Borde verde para coincidir con el ícono
+  }
+  
+  .bi-person-circle {
+    color: #28a745; // Color verde para el ícono de usuario
+  }

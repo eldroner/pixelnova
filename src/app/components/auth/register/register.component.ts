@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { ImageCropModalComponent } from '../../tools/image-crop-modal/image-crop-modal.component'; // Importa el modal
+import { ImageCropModalComponent } from '../../tools/image-crop-modal/image-crop-modal.component';
+import { HeroComponent } from "../../shared/hero/hero.component";
+import { SpacerComponent } from "../../shared/spacer/spacer.component"; // Importa el modal
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, FormsModule, ImageCropModalComponent], // Importa el modal
+  imports: [CommonModule, FormsModule, ImageCropModalComponent, HeroComponent, SpacerComponent], // Importa el modal
   templateUrl: './register.component.html',
   styleUrl: './register.component.scss'
 })
@@ -17,6 +19,7 @@ export class RegisterComponent {
   email = '';
   phone = '';
   password = '';
+  confirmPassword = ''; // ✅ Añadimos la variable para la confirmación de contraseña
   errorMessage = '';
 
   // Variables para el recorte de la imagen
@@ -99,6 +102,12 @@ export class RegisterComponent {
 
     if (this.password.length < 6) {
       alert('❌ La contraseña debe tener al menos 6 caracteres.');
+      return;
+    }
+
+    // ✅ Validar que las contraseñas coincidan
+    if (this.password !== this.confirmPassword) {
+      alert('❌ Las contraseñas no coinciden.');
       return;
     }
 
