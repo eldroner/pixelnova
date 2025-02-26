@@ -19,13 +19,19 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     this.isLoggedIn = this.authService.isLoggedIn();
-    
-    // 🔹 Suscribirse a cambios en el usuario (actualización en tiempo real)
+
+    // 🔹 Suscribirse a los cambios en el usuario y actualizar la foto en el header
     this.authService.user$.subscribe(userData => {
-      this.user = userData;
-      console.log("🟢 Usuario actualizado en Header:", this.user);
+        if (userData) {
+            this.user = { 
+                name: userData.name, 
+                photo: userData.photo ? userData.photo : null 
+            };
+            console.log("🟢 Usuario actualizado en Header:", this.user);
+        }
     });
-  }
+}
+
 
   logout() {
     this.authService.logout();
