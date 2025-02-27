@@ -14,6 +14,7 @@ import { NgIf } from '@angular/common';
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
   user: { name: string; photo?: string | null } | null = null;
+  isProfileMenuOpen = false; // ✅ Variable para controlar el menú desplegable
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -30,8 +31,11 @@ export class HeaderComponent implements OnInit {
             console.log("🟢 Usuario actualizado en Header:", this.user);
         }
     });
-}
+  }
 
+  toggleProfileMenu(state: boolean) {
+    this.isProfileMenuOpen = state;
+  }
 
   logout() {
     this.authService.logout();

@@ -152,4 +152,36 @@
   }
 }
 
+/* Estilo del menú desplegable del perfil */
+.profile-dropdown {
+  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro con opacidad */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 10px;
+  min-width: 160px;
+  top: 100%;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra flotante */
+}
+
+/* Ajustes para los enlaces del menú */
+.profile-dropdown .dropdown-item {
+  padding: 8px 12px;
+  color: white;
+  font-size: 14px;
+  transition: background-color 0.3s, color 0.3s;
+  border-radius: 5px;
+}
+
+.profile-dropdown .dropdown-item:hover {
+  background-color: #ff4747; /* Color rojo vibrante al pasar el ratón */
+  color: white;
+}
+
+/* Separador entre los elementos del menú */
+.profile-dropdown .dropdown-divider {
+  background-color: rgba(255, 255, 255, 0.2);
+  height: 1px;
+  margin: 6px 0;
+}
 

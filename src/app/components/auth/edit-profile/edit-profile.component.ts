@@ -4,13 +4,16 @@ import { UserService } from '../../../services/user.service';
 import { HttpClient } from '@angular/common/http';
 import { ImageCropModalComponent } from "../../tools/image-crop-modal/image-crop-modal.component";
 import { CommonModule } from '@angular/common';
+import { Router } from '@angular/router';
+import { HeroComponent } from "../../shared/hero/hero.component";
+import { SpacerComponent } from "../../shared/spacer/spacer.component";
 
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
   standalone: true,
   styleUrls: ['./edit-profile.component.scss'],
-  imports: [ImageCropModalComponent, ReactiveFormsModule, CommonModule],
+  imports: [ImageCropModalComponent, ReactiveFormsModule, CommonModule, HeroComponent, SpacerComponent],
 })
 export class EditProfileComponent implements OnInit {
   editProfileForm: FormGroup;
@@ -22,7 +25,8 @@ export class EditProfileComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private userService: UserService,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router // ✅ Agregamos Router para poder redirigir
   ) {
     this.editProfileForm = this.fb.group({
       name: ['', Validators.required],
@@ -117,6 +121,14 @@ export class EditProfileComponent implements OnInit {
 
         // 🔄 Recargar la imagen en el header sin recargar toda la página
         this.finalImage = response.user.photo;
+
+        // 🔀 Redirigir al home después de cerrar el alert
+        setTimeout(() => {
+          this.router.navigate(['/']).then(() => {
+            window.location.reload(); // 🔄 Recargar la página después de llegar al home
+        });
+      }, 300); // 🔹 Pequeña pausa para que se cierre el alert antes de redirigir
+
         },
         error: (error) => {
           console.error('❌ Error actualizando perfil', error);
