@@ -1,3 +1,9 @@
+.container {
+  margin-top: 400px;
+  margin-bottom: 200px ;
+}
+
+
 .card {
     border-radius: 12px;
     border: none;
@@ -27,4 +33,31 @@
       background-color: #b71c1c;
     }
   }
+
+  .no-memorials {
+    text-align: center;
+    margin-top: 150px;
+  }
   
+  .no-memorials h2 {
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .no-memorials p {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .no-memorials .btn {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+  
+  html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }

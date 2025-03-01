@@ -1,5 +1,5 @@
 <div class="container mt-4">
-  <div class="row">
+  <div class="row" *ngIf="memorials.length > 0; else noMemorials">
     <div class="col-md-6" *ngFor="let memorial of memorials">
       <div class="card mb-3 shadow-sm">
         <div class="card-body">
@@ -10,6 +10,13 @@
       </div>
     </div>
   </div>
-</div>
 
-  
+  <!-- Mensaje si no hay memoriales -->
+  <ng-template #noMemorials>
+    <div class="no-memorials mb-5">
+      <h2>📜 Todavía no tienes ningún memorial asociado.</h2>
+      <p>Empieza a crear un espacio digital para recordar a tus seres queridos.</p>
+      <a routerLink="/" class="btn btn-primary">Ir al inicio</a>
+    </div>
+  </ng-template>
+</div>

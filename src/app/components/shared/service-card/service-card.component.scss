@@ -23,4 +23,21 @@
   .services {
     margin-bottom: 80px;  // Ajusta este valor según lo necesites
   }
+
+  a.service-card {
+  text-decoration: none; // 🔹 Quita el subrayado del enlace
+  color: inherit; // 🔹 Mantiene el color original del texto
+  display: block; // 🔹 Hace que toda la tarjeta sea clickeable sin modificar su estructura
+}
+
+a.service-card:hover h3 {
+  text-decoration: underline; // 🔹 Solo subraya el título al pasar el ratón
+}
+
+a.service-card i {
+  font-size: 40px; // 🔹 Asegura que los íconos mantengan su tamaño
+  display: block;
+  margin-bottom: 10px;
+}
+
   
