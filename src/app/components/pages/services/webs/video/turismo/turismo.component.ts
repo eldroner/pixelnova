@@ -27,20 +27,6 @@ export class TurismoComponent implements OnInit {
   videos: any[] = [];
   private youtubeService = inject(YoutubeService); // ✅ Inyectamos el servicio
 
-  // 🔹 Definimos los elementos de los sidebars
-  sidebarLeftItems = [
-    { title: "Playas", link: "/videos/playas" },
-    { title: "Rutas de senderismo", link: "/videos/senderismo" },
-    { title: "Ciudades y pueblos", link: "/videos/ciudades" },
-    { title: "Hoteles y alojamientos", link: "/videos/hoteles" }
-  ];
-
-  sidebarRightItems = [
-    { title: "Descubre la Playa de Gulpiyuri", link: "/video/1" },
-    { title: "Explora los Picos de Europa", link: "/video/2" },
-    { title: "Un recorrido por Llanes", link: "/video/3" }
-  ];
-
   ngOnInit(): void {
     this.getVideos();
   }

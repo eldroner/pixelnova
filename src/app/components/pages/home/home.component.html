@@ -10,12 +10,15 @@
   <div class="row align-items-stretch">
     <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Tendencias de Marketing" [items]="[
-        { title: 'Tendencias de marketing digital en 2024', link: 'https://marketing4ecommerce.net/tendencias-marketing-digital-2024/' },
-        { title: 'Cómo la IA está revolucionando el marketing', link: 'https://www.thinkwithgoogle.com/intl/es-es/insights/tendencias-de-consumo/inteligencia-artificial-en-marketing/' },
-        { title: 'SEO en 2024: Estrategias para posicionar mejor', link: 'https://www.rockcontent.com/es/blog/seo-2024/' },
-        { title: 'Publicidad en redes sociales: lo que funcionará este año', link: 'https://blog.hubspot.es/marketing/publicidad-en-redes-sociales' },
-        { title: 'Automatización del marketing: claves y herramientas', link: 'https://www.inboundcycle.com/blog-de-inbound-marketing/automatizacion-marketing' }
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
       ]"></app-sidebar>
     </div>
 
@@ -26,14 +29,16 @@
 
     <!-- Sidebar Derecho (Recursos Útiles) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Nuestros Servicios" [items]="[
-        { title: 'Mantenimiento 24/7 para tu web', link: '/services/componentes-web' },
-        { title: 'Creación de webs a medida', link: '/services/webs-personalizadas' },
-        { title: 'Soporte 24/7 para tu negocio', link: '/services/soporte-24-7' },
-        { title: 'Mantenimiento y actualizaciones', link: '/services/mantenimiento' },
-        { title: 'Optimización SEO para mejorar tu visibilidad', link: '/services/seo' },
-        { title: 'Gestión de redes sociales y contenidos', link: '/services/social-media' },
-        { title: 'Automatización de procesos y herramientas web', link: '/services/automatizacion' }
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
       ]"></app-sidebar>
     </div>
   </div>

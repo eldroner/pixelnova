@@ -1,47 +1,81 @@
 <app-aemet></app-aemet>
-<app-hero title="Impulsa las reservas de tu casa rural o hotel con vídeos aéreos"
-  description="Las mejores imágenes empiezan con la mejor planificación. Comprueba el clima y crea un vídeo espectacular que hará destacar tu propiedad."
-  buttonText="Solicita tu vídeo"
+
+<app-hero title="Rellena el formulario para hacer tu consulta"
+  description="¿Tienes alguna consulta o necesitas más información? Estamos aquí para ayudarte. Ponte en contacto con nosotros y te asesoraremos sobre nuestros servicios, adaptándonos a las necesidades de tu negocio. Escríbenos y hagamos crecer tu proyecto juntos."
+  buttonText="¿Necesitas una web?"
   buttonLink="/contact"
   backgroundImage="assets/img/moniello-playa.JPG">
 </app-hero>
 
 <div class="container mt-4">
-    <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 600px;">
-      <div class="card-body p-4">
-        <h2 class="text-center mb-4">Rellena el formulario</h2>
-  
-        <form (ngSubmit)="sendEmail()">
-          <!-- Nombre -->
-          <div class="mb-3">
-            <label for="name" class="form-label">Nombre</label>
-            <input type="text" class="form-control rounded-3" id="name" [(ngModel)]="form.name" name="name" required>
-          </div>
-  
-          <!-- Email -->
-          <div class="mb-3">
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control rounded-3" id="email" [(ngModel)]="form.email" name="email" required>
-          </div>
-  
-          <!-- Teléfono (Opcional) -->
-          <div class="mb-3">
-            <label for="phone" class="form-label">Teléfono (Opcional)</label>
-            <input type="tel" class="form-control rounded-3" id="phone" [(ngModel)]="form.phone" name="phone">
-          </div>
-  
-          <!-- Mensaje -->
-          <div class="mb-3">
-            <label for="message" class="form-label">Mensaje</label>
-            <textarea class="form-control rounded-3" id="message" rows="4" [(ngModel)]="form.message" name="message" required></textarea>
-          </div>
-  
-          <!-- Botón Enviar -->
-          <button type="submit" class="btn btn-primary w-100 py-2 fw-bold rounded-3">
-            Enviar Mensaje
-          </button>
-        </form>
+  <div class="row">  
+    <!-- 📌 Sidebar Izquierdo (Tendencias de Marketing) -->
+    <div class="col-lg-3 d-none d-lg-block">
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
+    </div>
+
+    <!-- 📌 Contenedor del formulario -->
+    <div class="col-lg-6">
+      <div class="card shadow-lg border-0 rounded-4 mx-auto">
+        <div class="card-body p-4">
+          <h2 class="text-center mb-4">Rellena el formulario</h2>
+
+          <form (ngSubmit)="sendEmail()">
+            <!-- Nombre -->
+            <div class="mb-3">
+              <label for="name" class="form-label">Nombre</label>
+              <input type="text" class="form-control rounded-3" id="name" [(ngModel)]="form.name" name="name" required>
+            </div>
+
+            <!-- Email -->
+            <div class="mb-3">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control rounded-3" id="email" [(ngModel)]="form.email" name="email" required>
+            </div>
+
+            <!-- Teléfono (Opcional) -->
+            <div class="mb-3">
+              <label for="phone" class="form-label">Teléfono (Opcional)</label>
+              <input type="tel" class="form-control rounded-3" id="phone" [(ngModel)]="form.phone" name="phone">
+            </div>
+
+            <!-- Mensaje -->
+            <div class="mb-3">
+              <label for="message" class="form-label">Mensaje</label>
+              <textarea class="form-control rounded-3" id="message" rows="4" [(ngModel)]="form.message" name="message" required></textarea>
+            </div>
+
+            <!-- Botón Enviar -->
+            <button type="submit" class="btn btn-primary w-100 py-2 fw-bold rounded-3">
+              Enviar Mensaje
+            </button>
+          </form>
+        </div>
       </div>
     </div>
+
+    <!-- 📌 Sidebar Derecho (Recursos Útiles) -->
+    <div class="col-lg-3 d-none d-lg-block">
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
+    </div>
   </div>
-  
+</div>

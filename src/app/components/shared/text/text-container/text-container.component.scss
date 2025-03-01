@@ -3,11 +3,16 @@
   border-radius: 10px;
   background-color: #f9f9f9;
   border: 1px solid #ddd;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más suave y marcada */
   text-align: left;
   overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out; /* Efecto de transición suave */
 }
 
+/* Añadir un efecto de elevación al pasar el cursor */
+.text-container:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
 
 /* Asegurar que los bloques no tengan márgenes extra entre ellos */
 .text-container + .text-container {
@@ -20,10 +25,11 @@
   padding-bottom: 20px;
 }
 
-/* 🔴 Solución clave: Forzar el redondeo en todas las esquinas */
+/* 🔴 Forzar el redondeo en todas las esquinas */
 .text-container {
   border-radius: var(--border-radius, 10px) !important;
   overflow: hidden;
   position: relative;
 }
+
 

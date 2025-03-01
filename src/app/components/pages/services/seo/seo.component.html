@@ -1,0 +1,88 @@
+<app-hero 
+  title="Optimización SEO para tu negocio"
+  description="Mejoramos tu posicionamiento en buscadores para aumentar la visibilidad y atraer más clientes."
+  buttonText="Solicita más información"
+  buttonLink="/contact"
+  backgroundImage="assets/img/seo-teclado-azul.jpg">
+</app-hero>
+
+<app-spacer [height]="'20px'"></app-spacer>
+
+<div class="container">
+  <div class="row align-items-stretch">
+    
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
+    <div class="col-lg-2 d-none d-lg-block">
+        <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+          { title: 'Inicio', link: '/' },
+          { title: 'Desarrollo de sitios web', link: 'services/webs' },
+          { title: 'Funciones para tu web', link: 'services/component' },
+          { title: 'Soporte integral 24/7', link: 'services/support' },
+          { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+          { title: 'Gestión de redes sociales', link: 'services/rrss' },
+          { title: 'El Legado de los Nuestros', link: 'memorial' },
+          { title: 'Contacta con Pixelnova', link: 'contact' }
+        ]"></app-sidebar>
+      </div>
+
+    <!-- Contenido Principal -->
+    <div class="col-lg-8 col-md-12">
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Estrategias de <span style=color:#007bff;>SEO</span>'"></app-title>
+        <app-spacer [height]="'10px'"></app-spacer>
+        <app-subtitle [text]="'Optimización avanzada para destacar en Google y otros buscadores.'"></app-subtitle>
+        <app-paragraph [text]="'Un sitio web <strong>rápido</strong> y <strong>bien estructurado</strong> no solo mejora la <strong>experiencia del usuario</strong>, sino que también es un factor clave para el <strong>posicionamiento en buscadores</strong>. Si una página tarda demasiado en cargar, los visitantes la abandonan rápidamente, lo que aumenta la <strong>tasa de rebote</strong> y afecta negativamente la visibilidad en Google. Aplicamos estrategias avanzadas de <strong>optimización de velocidad</strong>, reduciendo el tamaño de los archivos, minimizando el código innecesario y utilizando técnicas de <strong>carga diferida</strong> para que los elementos visuales más pesados no ralenticen la navegación. Además, garantizamos que los <strong>servidores</strong> y la <strong>red de distribución de contenido (CDN)</strong> estén configurados para ofrecer la mejor respuesta en cualquier ubicación, asegurando que la web sea <strong>ágil, eficiente y accesible</strong> desde cualquier dispositivo.'"></app-paragraph>
+        <app-spacer [height]="'10px'"></app-spacer>
+        <img src="assets/img/seo-google.jpg" alt="Estrategias SEO" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'Además de la <strong>velocidad</strong>, la <strong>estructura interna del sitio</strong> juega un papel fundamental en la manera en que los <strong>motores de búsqueda</strong> interpretan el contenido. Implementamos mejoras en la <strong>jerarquía de encabezados</strong>, asegurando que las páginas tengan una organización clara y coherente. También optimizamos los <strong>sitemaps XML</strong> y los <strong>archivos robots.txt</strong>, facilitando el rastreo de las páginas más relevantes y evitando que Google desperdicie recursos en contenido innecesario. Otra estrategia clave es la <strong>corrección de enlaces rotos y redirecciones mal implementadas</strong>, ya que estos errores pueden <strong>penalizar el posicionamiento</strong> y afectar la <strong>experiencia del usuario</strong>. Con una <strong>arquitectura optimizada</strong>, los visitantes encuentran rápidamente lo que buscan y los <strong>motores de búsqueda</strong> pueden indexar mejor el sitio, mejorando su visibilidad en los resultados de búsqueda.'"></app-paragraph>
+        <app-spacer [height]="'10px'"></app-spacer>
+      </app-text-container>
+
+      <app-spacer [height]="'10px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Optimización <span style=color:#007bff;>Técnica</span>'"></app-title>
+        <app-spacer [height]="'10px'"></app-spacer>
+        <app-subtitle [text]="'Mejoramos el rendimiento y la estructura de tu web para lograr mejores rankings.'"></app-subtitle>
+        <app-paragraph [text]="'Un sitio web bien optimizado no solo mejora la <strong>experiencia del usuario</strong>, sino que también influye directamente en su <strong>posicionamiento en buscadores</strong>. Google premia a las páginas que cargan rápidamente, que tienen una estructura clara y que facilitan la navegación. Por eso, trabajamos en la <strong>optimización del rendimiento</strong>, reduciendo el peso de los archivos, mejorando el tiempo de respuesta del servidor y asegurándonos de que la web sea completamente <strong>responsive</strong>, es decir, que funcione de manera óptima en todos los dispositivos, desde ordenadores hasta móviles.'"></app-paragraph>
+        <app-spacer [height]="'10px'"></app-spacer>
+        <img src="assets/img/seo-cover.jpg" alt="Optimización técnica SEO" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'Además, corregimos problemas técnicos que pueden afectar la indexación en Google, como <strong>errores de rastreo</strong>, enlaces rotos o redirecciones mal implementadas. Implementamos estrategias avanzadas para mejorar la <strong>estructura del sitio</strong>, facilitando que los motores de búsqueda entiendan mejor su contenido. También optimizamos el código HTML, CSS y JavaScript para que la web sea más ligera y rápida. Estas mejoras no solo ayudan a <strong>escalar posiciones en los resultados de búsqueda</strong>, sino que también proporcionan una navegación más fluida y eficiente para los usuarios.'"></app-paragraph>
+        <app-spacer [height]="'10px'"></app-spacer>
+      </app-text-container> 
+
+      <app-spacer [height]="'10px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'SEO <span style=color:#007bff;>Local</span>'"></app-title>
+        <app-spacer [height]="'10px'"></app-spacer>
+        <app-subtitle [text]="'Aparece en los primeros resultados cuando buscan negocios en tu zona.'"></app-subtitle>
+        <app-paragraph [text]="'Hoy en día, la <strong>búsqueda local</strong> es clave para cualquier negocio que quiera atraer clientes en su área. Cuando un usuario busca un servicio cerca de su ubicación, Google muestra los resultados más relevantes en función de la optimización de la ficha de empresa y otros factores clave. <strong>Aparecer en los primeros resultados</strong> puede marcar la diferencia entre captar un nuevo cliente o perderlo frente a la competencia. Nos aseguramos de que tu negocio esté correctamente registrado, con información precisa y optimizada para mejorar su <strong>visibilidad en búsquedas geolocalizadas</strong>.'"></app-paragraph>
+        <app-spacer [height]="'20px'"></app-spacer>
+        <img src="assets/img/seo-local.png" alt="SEO Local" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'Para lograrlo, optimizamos tu <strong>ficha de Google My Business</strong>, completándola con descripciones atractivas, imágenes de calidad y reseñas verificadas. Además, aplicamos estrategias de <strong>SEO Local</strong> que incluyen la incorporación de palabras clave específicas, la mejora de la consistencia de la información en <strong>directorios locales</strong> y la optimización de la estructura web para búsquedas por ubicación. Estas acciones permiten que tu negocio destaque entre los competidores y aumente su <strong>posicionamiento en Google Maps</strong>, facilitando que los clientes te encuentren y contacten rápidamente.'"></app-paragraph>
+        <app-spacer [height]="'10px'"></app-spacer>
+      </app-text-container>
+
+      <div class="text-center mt-5 mb-4">
+        <app-button text="Consulta nuestros planes SEO" link="/contact" color="primary"></app-button>
+      </div>
+    </div>
+
+    <!-- Sidebar Derecho (Recursos Útiles) -->
+    <div class="col-lg-2 d-none d-lg-block">
+        <app-sidebar title="Enlaces de interés" [items]="[
+          { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+          { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+          { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+          { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+          { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+          { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+          { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+          { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+          { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+        ]"></app-sidebar>
+      </div>
+
+  </div>
+</div>

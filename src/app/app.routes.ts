@@ -16,6 +16,10 @@ import { MemorialCreateComponent } from './components/memorial/memorial-create/m
 import { MemorialDetailComponent } from './components/memorial/memorial-detail/memorial-detail.component';
 import { MemorialEditComponent } from './components/memorial/memorial-edit/memorial-edit.component';
 import { EditProfileComponent } from './components/auth/edit-profile/edit-profile.component';
+import { SupportComponent } from './components/pages/services/support/support.component';
+import { WebUpgradeComponent } from './components/pages/services/web-upgrade/web-upgrade.component';
+import { RrssComponent } from './components/pages/services/rrss/rrss.component';
+import { SeoComponent } from './components/pages/services/seo/seo.component';
 
 
 export const routes: Routes = [
@@ -27,6 +31,8 @@ export const routes: Routes = [
   { path: 'services/video/inmobiliaria', component: InmobiliariaComponent },
   { path: 'services/video/turismo', component: TurismoComponent },
   { path: 'services/componentes', component: ComponentesComponent },
+  { path: 'services/support', component: SupportComponent },
+  { path: 'services/web-upgrade', component: WebUpgradeComponent },
   { path: 'portfolio', component: PortfolioComponent },
   { path: 'blog', component: BlogComponent },
   { path: 'contact', component: ContactComponent },
@@ -36,5 +42,7 @@ export const routes: Routes = [
   { path: 'memorial/:id', component: MemorialDetailComponent },
   { path: 'memorial/edit/:id', component: MemorialEditComponent },
   { path: 'profile-edit', component: EditProfileComponent },
+  { path: 'services/rrss', component: RrssComponent },
+  { path: 'services/seo', component: SeoComponent },
   { path: '**', redirectTo: '' }
 ];

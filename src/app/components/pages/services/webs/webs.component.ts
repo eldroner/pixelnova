@@ -8,7 +8,7 @@ import { SubtitleComponent } from "../../../shared/text/subtitle/subtitle.compon
 import { ParagraphComponent } from "../../../shared/text/paragraph/paragraph.component";
 import { ButtonComponent } from "../../../shared/button/button.component";
 import { CommonModule } from '@angular/common';
-import { YoutubeService } from '../../../../services/youtube.service'; // 📌 Importa el servicio de YouTube
+import { SeoService } from '../../../../services/seo.service';
 
 @Component({
   selector: 'app-webs',
@@ -28,23 +28,18 @@ import { YoutubeService } from '../../../../services/youtube.service'; // 📌 I
   styleUrl: './webs.component.scss'
 })
 export class WebsComponent implements OnInit {
-  videos: any[] = [];
-  private youtubeService = inject(YoutubeService); // 📌 Inyecta el servicio de YouTube
 
-  // 📌 Definimos los elementos de los sidebars
-  sidebarLeftItems = [
-    { title: "Casas rurales", link: "/videos/casas-rurales" },
-    { title: "Pisos urbanos", link: "/videos/pisos" },
-    { title: "Chalets", link: "/videos/chalets" },
-    { title: "Locales comerciales", link: "/videos/locales" }
-  ];
 
-  sidebarRightItems = [
-    { title: "Casa en Arriondas", link: "/video/1" },
-    { title: "Casita en Cornellana", link: "/video/2" },
-    { title: "Piso en la playa de Bañugues", link: "/video/3" }
-  ];
+  constructor(private seoService: SeoService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.seoService.updateSeo(
+      'Desarrollo de Sitios Web Profesionales - Pixelnova',
+      'Creamos sitios web a medida para negocios, optimizados para SEO y diseñados para generar más clientes. Webs rápidas, seguras y totalmente personalizadas.',
+      'desarrollo web, diseño web, sitios web a medida, optimización web, creación de páginas web, webs personalizadas, SEO para web, Pixelnova',
+      'https://www.tuweb.com/services/webs',
+      'https://www.tuweb.com/assets/img/desarrollo-web.jpg'
+    );
+  }
   
 }

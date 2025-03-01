@@ -29,19 +29,6 @@ export class InmobiliariaComponent implements OnInit {
   videos: any[] = [];
   private youtubeService = inject(YoutubeService); // ✅ Inyectamos el servicio
 
-  // 🔹 Definimos los elementos de los sidebar
-  sidebarLeftItems = [
-    { title: "Casas rurales", link: "/videos/casas-rurales" },
-    { title: "Pisos urbanos", link: "/videos/pisos" },
-    { title: "Chalets", link: "/videos/chalets" },
-    { title: "Locales comerciales", link: "/videos/locales" }
-  ];
-
-  sidebarRightItems = [
-    { title: "Casa en Arriondas", link: "/video/1" },
-    { title: "Casita en Cornellana", link: "/video/2" },
-    { title: "Piso en la playa de Bañugues", link: "/video/3" }
-  ];
 
   ngOnInit(): void {
     this.getVideos();

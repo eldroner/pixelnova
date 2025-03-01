@@ -1,7 +1,7 @@
 <section class="hero text-center" [ngStyle]="backgroundImage ? {'background-image': 'url(' + backgroundImage + ')'} : {}">
   <div class="container">
     <h1 class="fw-bold">{{ title }}</h1>
-    <p class="fw-light">{{ description }}</p>
+    <h4 class="p-2 fw-light">{{ description }}</h4>
     <app-button *ngIf="showButton" [text]="buttonText" [link]="buttonLink" color="primary"></app-button>
   </div>
 </section>

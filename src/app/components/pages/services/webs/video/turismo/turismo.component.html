@@ -1,6 +1,6 @@
 <app-aemet></app-aemet>
 <app-hero title="Impulsa las reservas de tu casa rural o hotel con vídeos aéreos"
-  description="Las mejores imágenes empiezan con la mejor planificación. Comprueba el clima y crea un vídeo espectacular que hará destacar tu propiedad."
+  description="Las mejores imágenes empiezan con la mejor planificación. Comprueba el clima y crea un vídeo espectacular que hará destacar tu alojamiento turístico mostrando no solo el alojamiento, sino también sus alrededores y entorno."
   buttonText="Solicita tu vídeo"
   buttonLink="/contact"
   backgroundImage="assets/img/moniello-playa.JPG">
@@ -11,9 +11,18 @@
 <div class="container">
   <div class="row align-items-stretch">
     
-    <!-- 📌 Sidebar Izquierdo (Categorías) -->
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Categorías" [items]="sidebarLeftItems"></app-sidebar>
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
     </div>
 
     <!-- 📌 Contenido Principal -->
@@ -21,7 +30,11 @@
       <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
         <app-title [text]="'Vídeos Aéreos para <span style=color:#007bff;>Turismo</span>'"></app-title>
         <app-subtitle [text]="'Muestra la belleza de tu destino con <strong>imágenes impactantes</strong>...'"></app-subtitle>
-        <app-paragraph [text]="'Un <strong>buen vídeo turístico</strong> invita a explorar, inspira a viajar y emociona al espectador...'"></app-paragraph>
+        <app-paragraph [text]="'<strong>Descubre la magia de los alojamientos turísticos con vistas únicas</strong>. A través de nuestros <strong>vídeos aéreos</strong>, capturamos la esencia de cada destino, mostrando su entorno natural, arquitectura y encanto especial. Ya sea una <strong>casa rural en plena montaña</strong>, un <strong>hotel boutique junto al mar</strong> o un <strong>Alojamientos Airbnb con vistas panorámicas</strong>, nuestros vídeos convierten cada lugar en una experiencia visual envolvente.'"></app-paragraph>
+        <img src="assets/img/lastres.JPG" alt="Interacción en redes sociales" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'<strong>Un buen vídeo turístico</strong> no solo muestra un alojamiento, sino que transmite emociones, invita a explorar y genera confianza en los viajeros. Gracias a la <strong>perspectiva aérea</strong>, podemos resaltar <strong>jardines, piscinas, terrazas y espacios exteriores</strong> que marcan la diferencia a la hora de elegir un lugar donde alojarse. Además, ofrecemos recorridos inmersivos que permiten a los visitantes <strong>visualizar cada rincón antes de su reserva</strong>.
+
+          <strong>Impulsa la visibilidad de tu alojamiento</strong> con vídeos profesionales que cautivan a los viajeros desde el primer segundo. Con el auge de las reservas online, contar con un contenido audiovisual de calidad es clave para destacar en plataformas como <strong>Booking, Airbnb y páginas web de turismo</strong>. No es solo una presentación, es la mejor carta de presentación para atraer más huéspedes y aumentar tus reservas.'"></app-paragraph>
       </app-text-container>
 
       <app-spacer [height]="'20px'"></app-spacer>
@@ -37,9 +50,19 @@
       </div>
     </div>
 
-    <!-- 📌 Sidebar Derecho (Últimos vídeos) -->
+    <!-- Sidebar Derecho (Recursos Útiles) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Últimos vídeos" [items]="sidebarRightItems"></app-sidebar>
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
     </div>
 
   </div>

@@ -13,8 +13,9 @@ import { NgIf } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   isLoggedIn = false;
-  user: { name: string; photo?: string | null } | null = null;
+  user: { id?: string; name: string; photo?: string | null } | null = null;
   isProfileMenuOpen = false; // ✅ Variable para controlar el menú desplegable
+  private myUserId = '67b8cc936d35dd0405bfaa3e'; // ✅ Tu ID de usuario
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -23,14 +24,19 @@ export class HeaderComponent implements OnInit {
 
     // 🔹 Suscribirse a los cambios en el usuario y actualizar la foto en el header
     this.authService.user$.subscribe(userData => {
-        if (userData) {
+        if (userData && 'id' in userData) {
             this.user = { 
+                id: userData.id as string, 
                 name: userData.name, 
                 photo: userData.photo ? userData.photo : null 
             };
             console.log("🟢 Usuario actualizado en Header:", this.user);
         }
     });
+  }
+
+  isMyAccount(): boolean {
+    return this.user?.id === this.myUserId;
   }
 
   toggleProfileMenu(state: boolean) {

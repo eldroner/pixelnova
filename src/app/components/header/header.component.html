@@ -30,12 +30,12 @@
                                     (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
                             <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active"
                                     (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/soporte" routerLinkActive="active"
+                            <li><a class="dropdown-item" routerLink="/services/support" routerLinkActive="active"
                                     (click)="closeNavbar()">Soporte digital para tu negocio 24/7</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/mantenimiento" routerLinkActive="active"
+                            <li><a class="dropdown-item" routerLink="/services/web-upgrade" routerLinkActive="active"
                                     (click)="closeNavbar()">Mantenimiento y mejora de tu web actual</a></li>
-                            <li><a class="dropdown-item" routerLink="/services/marketing digital"
-                                    routerLinkActive="active" (click)="closeNavbar()">Marketing digital para maximizar el rendimiento de tu negocio</a></li>
+                                    <li><a class="dropdown-item" routerLink="/services/seo" routerLinkActive="active"
+                                        (click)="closeNavbar()">Posicionamiento en buscadores (SEO)</a></li>
                             <li><a class="dropdown-item" routerLink="/services/rrss" routerLinkActive="active"
                                     (click)="closeNavbar()">Servicio de community manager</a></li>
                             <li class="dropdown-divider"></li>
@@ -63,20 +63,22 @@
                                     (click)="closeNavbar()">Qué son los memoriales</a></li>
                             <li><a class="dropdown-item" routerLink="/memorials" routerLinkActive="active"
                                     (click)="closeNavbar()">Mis Memoriales</a></li>
-                            <li><a class="dropdown-item" routerLink="/memorial/create" routerLinkActive="active"
-                                    (click)="closeNavbar()">Crear un memorial</a></li>
+                            <li *ngIf="isMyAccount()" class="nav-item">
+                                <a class="dropdown-item" routerLink="/memorial/create" routerLinkActive="active"
+                                    (click)="closeNavbar()">
+                                    Crear un memorial
+                                </a>
+                            </li>
                         </ul>
                     </li>
 
-                    <li class="nav-item"><a class="nav-link" routerLink="/blog" routerLinkActive="active"
-                            (click)="closeNavbar()">Blog</a></li>
                     <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active"
                             (click)="closeNavbar()">Contacto</a></li>
                 </ul>
             </div>
 
             <!-- Redes Sociales -->
-            <div class="social-icons d-none d-lg-flex ms-3">
+            <div class="social-icons d-none d-md-flex ms-3">
                 <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
                     <i class="bi bi-youtube"></i>
                 </a>
@@ -86,17 +88,21 @@
             </div>
 
             <!-- Menú de usuario -->
-            <div class="nav-item user-menu ms-3 position-relative" (mouseenter)="toggleProfileMenu(true)" (mouseleave)="toggleProfileMenu(false)">
+            <div class="nav-item user-menu ms-3 position-relative" (mouseenter)="toggleProfileMenu(true)"
+                (mouseleave)="toggleProfileMenu(false)">
                 <div class="d-flex align-items-center text-light nav-item user-icon ms-3">
-                    <img *ngIf="user?.photo" [src]="user?.photo" class="user-photo rounded-circle" alt="Foto de usuario">
+                    <img *ngIf="user?.photo" [src]="user?.photo" class="user-photo rounded-circle"
+                        alt="Foto de usuario">
                     <span *ngIf="!user?.photo" class="bi bi-person-circle text-success user-placeholder"></span>
                     <i class="bi bi-person-gear ms-2"></i>
                 </div>
-                
-                <div *ngIf="isProfileMenuOpen" class="profile-dropdown position-absolute bg-dark text-light p-2 shadow rounded">
+
+                <div *ngIf="isProfileMenuOpen"
+                    class="profile-dropdown position-absolute bg-dark text-light p-2 shadow rounded">
                     <ng-container *ngIf="user; else loginOption">
                         <a routerLink="/profile-edit" class="dropdown-item text-light">Editar perfil</a>
-                        <a (click)="logout()" style="cursor: pointer;" class="dropdown-item text-light">Cerrar sesión</a>
+                        <a (click)="logout()" style="cursor: pointer;" class="dropdown-item text-light">Cerrar
+                            sesión</a>
                     </ng-container>
                     <ng-template #loginOption>
                         <a routerLink="/login" class="dropdown-item text-light">Iniciar sesión</a>

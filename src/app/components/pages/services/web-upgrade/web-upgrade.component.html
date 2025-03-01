@@ -1,0 +1,86 @@
+<app-hero 
+  title="Mantenimiento y actualizaciones para tu web"
+  description="Nos encargamos de que tu web esté siempre actualizada, segura y funcionando al máximo rendimiento."
+  buttonText="Solicita más información"
+  buttonLink="/contact"
+  backgroundImage="assets/img/update-web.png">
+</app-hero>
+
+<app-spacer [height]="'20px'"></app-spacer>
+
+<div class="container">
+  <div class="row align-items-stretch">
+    
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
+    </div>
+
+    <!-- 📌 Contenido Principal -->
+    <div class="col-lg-8 col-md-12">
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Actualización <span style=color:#007bff;>Constante</span>'"></app-title>
+
+        <app-subtitle [text]="'Tu web siempre con las últimas versiones y mejoras.'"></app-subtitle>
+        <app-paragraph [text]="'Mantener una web actualizada es clave para garantizar su <strong>seguridad, rendimiento y compatibilidad</strong> con las últimas tecnologías. Un sitio web desactualizado no solo puede presentar problemas de visualización o funcionamiento, sino que también se vuelve más vulnerable a <strong>ataques cibernéticos y errores de seguridad</strong>. Por ello, realizamos un mantenimiento continuo que incluye la aplicación de <strong>parches de seguridad</strong>, optimización de código y mejoras en el tiempo de carga para que tu web funcione de manera fluida y eficiente. Además, nos aseguramos de que tu sitio sea compatible con las nuevas versiones de navegadores y dispositivos, evitando posibles incompatibilidades que afecten la experiencia del usuario.'"></app-paragraph>
+
+        <img src="assets/img/actualizacion-web.png" alt="Actualización constante" class="img-fluid rounded mt-3">
+
+        <app-paragraph [text]="'Nuestro servicio de mantenimiento no solo se enfoca en la seguridad, sino también en la <strong>evolución constante de tu web</strong>. Si necesitas añadir nuevas funcionalidades, integrar herramientas externas o mejorar el diseño, nos encargamos de implementarlo sin afectar la estabilidad del sistema. También gestionamos <strong>copias de seguridad automatizadas</strong>, asegurando que en caso de cualquier incidente, puedas recuperar la información en cuestión de minutos. Con nuestras actualizaciones regulares y soporte técnico especializado, garantizamos que tu web esté siempre operativa, ofreciendo a tus clientes una experiencia digital <strong>segura, rápida y optimizada</strong>.'"></app-paragraph>
+      </app-text-container>
+
+      <app-spacer [height]="'10px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Seguridad y <span style=color:#007bff;>Protección</span>'"></app-title>
+        <app-subtitle [text]="'Evita ataques y fallos con un mantenimiento preventivo.'"></app-subtitle>
+        <app-paragraph [text]="'La seguridad en una web es fundamental para evitar ataques que puedan comprometer la información de la empresa y de sus clientes. Implementamos un <strong>mantenimiento preventivo</strong> que protege tu plataforma digital contra <strong>malware, accesos no autorizados y vulnerabilidades</strong> que podrían poner en riesgo su estabilidad. A través de un <strong>monitoreo constante</strong>, detectamos posibles amenazas antes de que se conviertan en problemas críticos, evitando caídas inesperadas y pérdidas de datos. Además, aplicamos <strong>parches de seguridad</strong> y actualizaciones regulares para mantener la protección activa frente a nuevas amenazas cibernéticas.'"></app-paragraph>
+
+        <img src="assets/img/security.png" alt="Seguridad web y protección" class="img-fluid rounded mt-3">
+
+        <app-paragraph [text]="'Nuestro sistema de <strong>monitoreo y mantenimiento</strong> también incluye la optimización del rendimiento de tu web, asegurando tiempos de carga más rápidos y una navegación fluida para los usuarios. Implementamos <strong>firewalls, filtros de tráfico y sistemas de detección de intrusos</strong> que bloquean intentos malintencionados antes de que puedan afectar tu negocio. Además, realizamos <strong>auditorías de seguridad</strong> periódicas para identificar y solucionar cualquier debilidad en la infraestructura digital. Con nuestras medidas de protección proactivas, garantizamos que tu web funcione de manera estable, segura y libre de amenazas.'"></app-paragraph>
+      </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Mejoras y <span style=color:#007bff;>Optimización</span>'"></app-title>
+        <app-subtitle [text]="'Añadimos nuevas funcionalidades y optimizamos tu web.'"></app-subtitle>
+        <app-paragraph [text]="'El mundo digital evoluciona constantemente y, para mantenerse competitivo, es esencial que tu web cuente con las <strong>últimas funcionalidades</strong> y un rendimiento optimizado. Nos encargamos de implementar <strong>nuevas herramientas</strong>, integraciones y mejoras que potencien la eficiencia de tu sitio. Desde la adición de <strong>formularios avanzados, chat en vivo, integración con CRM</strong> o cualquier otra función específica que tu negocio necesite, trabajamos para que cada mejora sea <strong>segura, estable y totalmente adaptada</strong> a tu plataforma. Estas actualizaciones no solo aportan mayor valor a tus clientes, sino que también te permiten diferenciarte de la competencia y aprovechar al máximo las oportunidades del entorno digital.'"></app-paragraph>
+
+        <img src="assets/img/upgrade.png" alt="Mejoras y optimización web" class="img-fluid rounded mt-3">
+
+        <app-paragraph [text]="'Además de nuevas funcionalidades, realizamos una <strong>optimización integral del rendimiento</strong>, enfocándonos en mejorar <strong>tiempos de carga, usabilidad y experiencia del usuario</strong>. A través de la compresión de imágenes, minificación de archivos CSS y JavaScript, optimización de bases de datos y la implementación de técnicas avanzadas de caché, garantizamos que tu web funcione de manera rápida y fluida en cualquier dispositivo. Una web optimizada no solo mejora el posicionamiento en los motores de búsqueda, sino que también incrementa la tasa de conversión, asegurando que los visitantes tengan una <strong>navegación ágil y sin interrupciones</strong>.'"></app-paragraph>
+      </app-text-container>
+
+      <div class="text-center mt-5 mb-4">
+        <app-button text="Consulta nuestros planes" link="/contact" color="primary"></app-button>
+      </div>
+    </div>
+
+    <!-- Sidebar Derecho (Recursos Útiles) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
+    </div>
+
+  </div>
+</div>

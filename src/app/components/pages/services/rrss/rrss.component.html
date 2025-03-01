@@ -1,0 +1,80 @@
+<app-hero 
+  title="Gestión profesional de redes sociales"
+  description="Impulsa tu marca en redes con estrategias de contenido, interacción y publicidad digital."
+  buttonText="Solicita más información"
+  buttonLink="/contact"
+  backgroundImage="assets/img/rrss-cover.jpg">
+</app-hero>
+
+<app-spacer [height]="'20px'"></app-spacer>
+
+<div class="container">
+  <div class="row align-items-stretch">
+    
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
+    </div>
+
+    <!-- 📌 Contenido Principal -->
+    <div class="col-lg-8 col-md-12">
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Estrategia y <span style=color:#007bff;>Contenido</span>'"></app-title>
+        <app-subtitle [text]="'Planificación estratégica para una presencia digital efectiva.'"></app-subtitle>
+        <app-paragraph [text]="'Una buena estrategia en redes sociales es clave para atraer y fidelizar clientes. Diseñamos planes de <strong>contenido adaptados</strong> a cada plataforma, asegurando que cada publicación genere interacción y fortalezca tu marca. Creamos contenido original, incluyendo <strong>textos persuasivos, imágenes atractivas y vídeos llamativos</strong>, adaptados a las tendencias del mercado y a las necesidades de tu negocio.'" style="text-align: justify;"></app-paragraph>
+        <img src="assets/img/rrss-image-arbol.jpg" alt="Estrategia de contenido en redes sociales" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'Además de la creación de contenido, realizamos un <strong>análisis de tendencias</strong> para identificar qué temas interesan más a tu audiencia. Implementamos herramientas de programación de publicaciones para mantener una presencia activa sin que tengas que preocuparte por ello. Nuestro enfoque es garantizar que tu marca tenga un <strong>impacto constante</strong> en redes sociales, aumentando su visibilidad y generando confianza en los clientes.'" style="text-align: justify;"></app-paragraph>
+      </app-text-container>
+
+      <app-spacer [height]="'10px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Interacción y <span style=color:#007bff;>Engagement</span>'"></app-title>
+        <app-subtitle [text]="'Construimos relaciones sólidas con tu comunidad.'"></app-subtitle>
+        <app-paragraph [text]="'Las redes sociales no solo sirven para publicar contenido, sino también para <strong>crear una comunidad fiel</strong>. Nos encargamos de responder comentarios, mensajes y consultas de tus seguidores, generando conversaciones y mejorando la <strong>percepción de tu marca</strong>. Un cliente que recibe respuestas rápidas y atención personalizada tiene más probabilidades de convertirse en un comprador habitual.'" style="text-align: justify;"></app-paragraph>
+        <img src="assets/img/interaccion-rrss.jpg" alt="Interacción en redes sociales" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'Monitorizamos la actividad en redes para detectar oportunidades de mejora y ajustar la estrategia en función del comportamiento de los usuarios. Realizamos <strong>análisis de métricas</strong> para conocer qué publicaciones generan más interacción y aplicamos mejoras continuas para optimizar el rendimiento. Nuestro objetivo es convertir tus redes en un canal de comunicación eficaz y rentable.'" style="text-align: justify;"></app-paragraph>
+      </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Publicidad y <span style=color:#007bff;>Crecimiento</span>'"></app-title>
+        <app-subtitle [text]="'Campañas publicitarias optimizadas para maximizar resultados.'"></app-subtitle>
+        <app-paragraph [text]="'El crecimiento en redes sociales requiere más que contenido orgánico. Diseñamos e implementamos <strong>campañas publicitarias</strong> en Facebook, Instagram, LinkedIn y otras plataformas para ampliar tu alcance y atraer a clientes potenciales. Optimizamos cada anuncio para que tenga <strong>el mayor retorno de inversión</strong>, segmentando audiencias y analizando el comportamiento de los usuarios.'" style="text-align: justify;"></app-paragraph>
+        <img src="assets/img/publicidad-rrss.jpg" alt="Publicidad en redes sociales" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'Realizamos pruebas A/B para mejorar el rendimiento de los anuncios y utilizamos herramientas de análisis para medir la efectividad de cada campaña. Nuestro objetivo es que cada euro invertido en publicidad se traduzca en <strong>más clientes y mayores ventas</strong>. Con estrategias optimizadas y seguimiento constante, aseguramos que tu marca tenga una presencia relevante en el mercado digital.'" style="text-align: justify;"></app-paragraph>
+      </app-text-container>
+
+      <div class="text-center mt-5 mb-4">
+        <app-button text="Consulta nuestros planes" link="/contact" color="primary"></app-button>
+      </div>
+    </div>
+
+    <!-- Sidebar Derecho (Recursos Útiles) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
+    </div>
+
+  </div>
+</div>
+

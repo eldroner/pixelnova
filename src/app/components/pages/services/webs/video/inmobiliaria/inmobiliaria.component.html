@@ -1,10 +1,9 @@
 <app-aemet></app-aemet>
-<app-hero 
-  title="Descubre qué podemos hacer por ti y tu negocio"
-  description="Descubre cómo podemos potenciar tu negocio con nuestras soluciones digitales"
-  buttonText="Explora más"
-  buttonLink="/portfolio"
-  backgroundImage="assets/img/caravia-bg.JPG">
+<app-hero title="Haz que tu propiedad destaque con vídeos aéreos para inmobiliarias"
+  description="Las mejores ventas comienzan con una excelente presentación. Un vídeo profesional resalta no solo la propiedad, sino también su ubicación y alrededores, generando mayor interés en potenciales compradores."
+  buttonText="Solicita tu vídeo"
+  buttonLink="/contact"
+  backgroundImage="assets/img/casa-vista-lejana.JPG">
 </app-hero>
 
 <app-spacer [height]="'20px'"></app-spacer>
@@ -12,18 +11,31 @@
 <div class="container">
   <div class="row align-items-stretch">
     
-    <!-- 📌 Sidebar Izquierdo (Categorías) -->
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Categorías" [items]="sidebarLeftItems"></app-sidebar>
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
     </div>
 
     <!-- 📌 Contenido Principal -->
     <div class="col-lg-8 col-md-12">
       <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
         <app-title [text]="'Vídeos Aéreos para <span style=color:#007bff;>Inmobiliarias</span>'"></app-title>
-        <app-subtitle [text]="'Captura la esencia de cada propiedad con <strong>vídeos espectaculares</strong>...'"></app-subtitle>
-        <app-paragraph [text]="'Un <strong>buen vídeo inmobiliario</strong> no solo muestra la propiedad, sino que la vende...'"></app-paragraph>
+        <app-subtitle [text]="'Destaca cada propiedad con <strong>imágenes impactantes</strong>...'"></app-subtitle>
+        <app-paragraph [text]="'<strong>Convierte cada inmueble en una oportunidad única</strong>. A través de nuestros <strong>vídeos aéreos</strong>, capturamos la esencia de cada propiedad, mostrando su distribución, exteriores y ubicación privilegiada. Ya sea una <strong>vivienda unifamiliar, un piso en la ciudad o una finca exclusiva</strong>, nuestros vídeos realzan el atractivo de cada espacio, ofreciendo una experiencia visual envolvente.'"></app-paragraph>
+        <img src="assets/img/casa-salon.JPG" alt="Vídeo para inmobiliarias" class="img-fluid rounded mt-3">
+        <app-paragraph [text]="'<strong>Un buen vídeo inmobiliario</strong> no solo muestra la propiedad, sino que también genera confianza en los compradores potenciales. Gracias a la <strong>perspectiva aérea</strong>, podemos resaltar <strong>zonas ajardinadas, terrazas, piscinas y alrededores</strong>, elementos clave para quienes buscan una nueva vivienda o inversión. Además, ofrecemos recorridos dinámicos que permiten visualizar cada detalle antes de la visita presencial.<strong>Maximiza la exposición de tus inmuebles</strong> con vídeos profesionales diseñados para atraer compradores y acelerar el proceso de venta. En un mercado competitivo, el contenido visual de calidad marca la diferencia en plataformas como <strong>Idealista, Fotocasa, redes sociales y sitios web inmobiliarios</strong>. No es solo una presentación, es la clave para que cada propiedad reciba la atención que merece.'"></app-paragraph>
       </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
 
       <div class="row g-4">
         <div class="col-lg-6 col-md-12" *ngFor="let video of videos">
@@ -36,9 +48,19 @@
       </div>
     </div>
 
-    <!-- 📌 Sidebar Derecho (Últimos vídeos) -->
+    <!-- Sidebar Derecho (Recursos Útiles) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Últimos vídeos" [items]="sidebarRightItems"></app-sidebar>
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
     </div>
 
   </div>

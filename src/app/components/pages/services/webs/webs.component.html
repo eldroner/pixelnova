@@ -11,39 +11,55 @@
 <div class="container">
   <div class="row align-items-stretch">
     
-    <!-- 📌 Sidebar Izquierdo (Categorías) -->
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Categorías" [items]="sidebarLeftItems"></app-sidebar>
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
     </div>
 
     <!-- 📌 Contenido Principal -->
     <div class="col-lg-8 col-md-12">
       <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
         <app-title [text]="'Webs con <span style=color:#007bff;>CMS</span>'"></app-title>
-        <app-subtitle [text]="'Desarrollo de sitios web con gestores de contenido como WordPress, Joomla y PrestaShop.'"></app-subtitle>
-        <app-paragraph [text]="'Los CMS permiten una gestión de contenidos sencilla y eficiente sin necesidad de conocimientos avanzados de programación. Son ideales para blogs, páginas corporativas y tiendas online que requieran actualizaciones constantes y escalabilidad. Además, incluyen plugins y plantillas para una personalización flexible.'"></app-paragraph>
-        <app-spacer [height]="'20px'"></app-spacer>
-        <img src="assets/img/wordpress.jpg" alt="Ejemplo de Web CMS" class="img-fluid rounded mt-3">
+        
+        <app-subtitle [text]="'Desarrollo de sitios web con gestores de contenido como WordPress, Joomla o PrestaShop.'"></app-subtitle>
+        <app-paragraph [text]="'Los <strong>gestores de contenido (CMS)</strong> como WordPress, Joomla y PrestaShop han revolucionado la forma en que se crean y administran sitios web, permitiendo a cualquier negocio o emprendedor gestionar su presencia digital sin necesidad de conocimientos avanzados de programación. Estas plataformas ofrecen una <strong>interfaz intuitiva</strong> que facilita la publicación de contenido, la edición de páginas y la gestión de productos en tiendas online. Además, cuentan con miles de <strong>plantillas y plugins</strong> que permiten personalizar cada aspecto del sitio, desde su diseño hasta sus funcionalidades, adaptándolo completamente a las necesidades de cada proyecto.'"></app-paragraph>       
+        <img src="assets/img/wordpress.jpg" alt="Ejemplo de Web CMS" class="img-fluid rounded mt-3">       
+        <app-paragraph [text]="'Uno de los mayores beneficios de los CMS es su capacidad de <strong>escalabilidad y flexibilidad</strong>. Un sitio web desarrollado en WordPress o Joomla puede crecer junto con el negocio, añadiendo nuevas secciones, integraciones con herramientas externas y funcionalidades avanzadas con facilidad. En el caso de PrestaShop, está diseñado específicamente para <strong>eCommerce</strong>, ofreciendo una plataforma optimizada para la venta en línea con gestión de inventario, métodos de pago y sistemas de envío integrados. Gracias a la <strong>actualización constante</strong> de estos gestores de contenido, los sitios web permanecen seguros, optimizados y preparados para los cambios en el entorno digital, garantizando una experiencia fluida tanto para los administradores como para los usuarios finales.'"></app-paragraph>
       </app-text-container>
 
       <app-spacer [height]="'20px'"></app-spacer>
 
       <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
         <app-title [text]="'Webs a <span style=color:#007bff;>Medida</span>'"></app-title>
+        
         <app-subtitle [text]="'Desarrollo de sitios web desde cero, adaptados 100% a tus necesidades y funcionalidades específicas.'"></app-subtitle>
-        <app-paragraph [text]="'Si necesitas una solución totalmente personalizada y optimizada para tu negocio, una web a medida es la mejor opción. Creamos plataformas únicas con tecnologías avanzadas como Angular, React, Node.js y Laravel. Este tipo de desarrollo garantiza mayor seguridad, rendimiento y escalabilidad para proyectos complejos y exigentes.'"></app-paragraph>
-        <app-spacer [height]="'20px'"></app-spacer>
+        <app-paragraph [text]="'Si tu negocio necesita una solución digital completamente <strong>personalizada y optimizada</strong>, una <strong>web a medida</strong> es la mejor opción. No todas las empresas pueden ajustarse a las limitaciones de los gestores de contenido tradicionales, por lo que desarrollamos plataformas únicas utilizando tecnologías avanzadas como <strong>Angular, React, Node.js y Laravel</strong>. Estas herramientas nos permiten crear sitios web altamente dinámicos, seguros y adaptados a los requerimientos específicos de cada cliente, ya sea un portal corporativo, una tienda online con características especiales o un sistema de gestión interna para empresas. Gracias a este enfoque, tu web será <strong>rápida, eficiente y escalable</strong>, sin depender de plantillas genéricas o plugins de terceros que pueden limitar el crecimiento del negocio.'"></app-paragraph>
+
         <img src="assets/img/custom-web.png" alt="Ejemplo de Web a Medida" class="img-fluid rounded mt-3">
+
+        <app-paragraph [text]="'Además del desarrollo personalizado, garantizamos una <strong>arquitectura optimizada</strong> que maximiza el rendimiento y la seguridad del sitio. Implementamos <strong>prácticas de desarrollo seguro</strong> para proteger los datos de tu empresa y clientes, evitando vulnerabilidades comunes como ataques de inyección de código o accesos no autorizados. También trabajamos en la <strong>optimización del tiempo de carga</strong>, asegurando que la web funcione de manera fluida en cualquier dispositivo. Al elegir una web a medida, no solo obtienes una solución exclusiva adaptada a tus necesidades, sino también una plataforma con <strong>un alto nivel de rendimiento, fiabilidad y flexibilidad</strong> para evolucionar junto con tu negocio.'"></app-paragraph>
       </app-text-container>
 
       <app-spacer [height]="'20px'"></app-spacer>
 
       <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
         <app-title [text]="'Tiendas <span style=color:#007bff;>Ecommerce</span>'"></app-title>
+        
         <app-subtitle [text]="'Desarrollo de tiendas online seguras, escalables y optimizadas para la conversión.'"></app-subtitle>
-        <app-paragraph [text]="'El comercio electrónico es una pieza clave para cualquier negocio en la actualidad. Creamos tiendas online adaptadas a tu modelo de negocio con WooCommerce, Shopify y soluciones personalizadas. Implementamos pasarelas de pago seguras, optimización SEO y estrategias de conversión para maximizar tus ventas.'"></app-paragraph>
-        <app-spacer [height]="'20px'"></app-spacer>
+        <app-paragraph [text]="'El <strong>comercio electrónico</strong> se ha convertido en una parte esencial de cualquier negocio que quiera expandir su alcance y aumentar sus ventas. Desarrollamos <strong>tiendas online seguras y escalables</strong>, adaptadas a tu modelo de negocio y optimizadas para ofrecer una experiencia de compra fluida y eficiente. Trabajamos con plataformas líderes como <strong>WooCommerce, Shopify y PrestaShop</strong>, así como con soluciones a medida para garantizar un rendimiento superior. Implementamos <strong>procesos de pago seguros</strong> con cifrado avanzado, protección contra fraudes y compatibilidad con múltiples métodos de pago, asegurando que cada transacción sea rápida y confiable.'"></app-paragraph>
+        
         <img src="assets/img/ecommerce.jpg" alt="Ejemplo de Tienda Ecommerce" class="img-fluid rounded mt-3">
+        
+        <app-paragraph [text]="'Además de la seguridad, nos enfocamos en la <strong>optimización de la conversión</strong>, aplicando estrategias avanzadas de <strong>SEO, diseño UX/UI y velocidad de carga</strong>. Una tienda online bien optimizada no solo mejora la experiencia del usuario, sino que también incrementa la retención de clientes y reduce el abandono del carrito de compras. Integramos herramientas de <strong>automatización de marketing</strong>, análisis de datos y seguimiento de clientes para maximizar el impacto de cada venta. Ya sea que estés lanzando tu primera tienda online o buscando mejorar una existente, te proporcionamos una plataforma robusta, flexible y lista para <strong>hacer crecer tu negocio digital</strong>.'"></app-paragraph>
       </app-text-container>
 
       <div class="text-center mt-5 mb-4">
@@ -51,9 +67,19 @@
       </div>
     </div>
 
-    <!-- 📌 Sidebar Derecho (Últimos proyectos) -->
+    <!-- Sidebar Derecho (Recursos Útiles) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Últimos proyectos" [items]="sidebarRightItems"></app-sidebar>
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
     </div>
 
   </div>
