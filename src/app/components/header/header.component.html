@@ -8,9 +8,11 @@
 
             <!-- Botón Hamburguesa (para móviles) -->
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
+            (click)="toggleMenu()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
 
             <!-- Enlaces del menú -->
             <div class="collapse navbar-collapse" id="navbarNav">
@@ -28,27 +30,28 @@
                         <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
                             <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active"
                                     (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
+                            <li class="dropdown-divider"></li>
                             <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active"
                                     (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
+                            <li class="dropdown-divider"></li>
                             <li><a class="dropdown-item" routerLink="/services/support" routerLinkActive="active"
                                     (click)="closeNavbar()">Soporte digital para tu negocio 24/7</a></li>
+                            <li class="dropdown-divider"></li>
                             <li><a class="dropdown-item" routerLink="/services/web-upgrade" routerLinkActive="active"
                                     (click)="closeNavbar()">Mantenimiento y mejora de tu web actual</a></li>
-                                    <li><a class="dropdown-item" routerLink="/services/seo" routerLinkActive="active"
-                                        (click)="closeNavbar()">Posicionamiento en buscadores (SEO)</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" routerLink="/services/seo" routerLinkActive="active"
+                                    (click)="closeNavbar()">Posicionamiento en buscadores (SEO)</a></li>
+                            <li class="dropdown-divider"></li>
                             <li><a class="dropdown-item" routerLink="/services/rrss" routerLinkActive="active"
                                     (click)="closeNavbar()">Servicio de community manager</a></li>
                             <li class="dropdown-divider"></li>
-                            <li class="dropdown-submenu">
-                                <a class="dropdown-item dropdown-toggle" routerLink="/services/video"
-                                    routerLinkActive="active">Vídeo Aéreo</a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria"
-                                            routerLinkActive="active" (click)="closeNavbar()">Inmobiliaria</a></li>
-                                    <li><a class="dropdown-item" routerLink="/services/video/turismo"
-                                            routerLinkActive="active" (click)="closeNavbar()">Turismo</a></li>
-                                </ul>
-                            </li>
+                            <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria" routerLinkActive="active"
+                                    (click)="closeNavbar()">Vídeos Inmobiliaria</a></li>
+                            <li class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active"
+                                    (click)="closeNavbar()">Vídeos turismo</a></li>
+                            <li class="dropdown-divider"></li>
                         </ul>
                     </li>
 
@@ -89,7 +92,7 @@
 
             <!-- Menú de usuario -->
             <div class="nav-item user-menu ms-3 position-relative" (mouseenter)="toggleProfileMenu(true)"
-                (mouseleave)="toggleProfileMenu(false)">
+                (mouseleave)="toggleProfileMenu(false)" [class.hidden]="isMenuOpen">
                 <div class="d-flex align-items-center text-light nav-item user-icon ms-3">
                     <img *ngIf="user?.photo" [src]="user?.photo" class="user-photo rounded-circle"
                         alt="Foto de usuario">

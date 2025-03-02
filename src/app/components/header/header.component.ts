@@ -16,6 +16,7 @@ export class HeaderComponent implements OnInit {
   user: { id?: string; name: string; photo?: string | null } | null = null;
   isProfileMenuOpen = false; // ✅ Variable para controlar el menú desplegable
   private myUserId = '67b8cc936d35dd0405bfaa3e'; // ✅ Tu ID de usuario
+  isMenuOpen = false;  // ✅ Nueva variable para controlar si el menú está abierto o no
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -39,6 +40,10 @@ export class HeaderComponent implements OnInit {
     return this.user?.id === this.myUserId;
   }
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;  // ✅ Alterna entre abierto y cerrado
+  }
+
   toggleProfileMenu(state: boolean) {
     this.isProfileMenuOpen = state;
   }
@@ -54,6 +59,17 @@ export class HeaderComponent implements OnInit {
     const navbar = document.getElementById('navbarNav');
     if (navbar) {
       navbar.classList.remove('show'); // Cierra el menú en móviles
+    }
+  }
+
+  toggleSubmenu(event: Event) {
+    event.preventDefault();
+    const target = event.target as HTMLElement;
+    const submenu = target.nextElementSibling as HTMLElement;
+
+    if (submenu) {
+      // Alterna la visibilidad del submenú
+      submenu.classList.toggle('show');
     }
   }
 }

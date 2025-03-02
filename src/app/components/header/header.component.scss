@@ -175,6 +175,12 @@
   border-radius: 5px;
 }
 
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
 .profile-dropdown .dropdown-item:hover {
   background-color: #ff4747; /* Color rojo vibrante al pasar el ratón */
   color: white;
