@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MemorialService {
-  private apiUrl = 'http://localhost:5000/api/memorials'; // ✅ Ahora usa la nueva API
+  private apiUrl = `${environment.apiUrl}/api/memorials`; // ✅ Ahora usa la nueva API
 
 
   constructor(private http: HttpClient) {}

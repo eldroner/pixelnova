@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { ImageCropModalComponent } from '../../tools/image-crop-modal/image-crop-modal.component';
 import { HeroComponent } from "../../shared/hero/hero.component";
 import { SpacerComponent } from "../../shared/spacer/spacer.component"; // Importa el modal
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-register',
@@ -130,8 +131,7 @@ export class RegisterComponent {
 
     console.log("📤 Enviando datos:", formData);
 
-    // Enviar la solicitud al backend
-    this.http.post<any>('http://localhost:5000/api/auth/register', formData).subscribe(
+    this.http.post<any>(`${environment.apiUrl}/api/auth/register`, formData).subscribe(
       response => {
         alert('✅ Registro exitoso, ahora inicia sesión');
         this.router.navigate(['/login']);

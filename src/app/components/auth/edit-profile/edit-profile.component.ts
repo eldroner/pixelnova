@@ -7,6 +7,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HeroComponent } from "../../shared/hero/hero.component";
 import { SpacerComponent } from "../../shared/spacer/spacer.component";
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-edit-profile',
@@ -45,10 +46,10 @@ export class EditProfileComponent implements OnInit {
       next: (user) => {
         console.log('Datos del usuario:', user); // Verifica la respuesta del backend
 
-        // 🔍 Si la foto solo tiene el nombre del archivo, agregar la URL base
-        let photoUrl = user.photo && !user.photo.startsWith('http')
-          ? `http://localhost:5000/uploads/${user.photo}`
-          : user.photo;
+      // 🔍 Si la foto solo tiene el nombre del archivo, agregar la URL base
+      let photoUrl = user.photo && !user.photo.startsWith('http')
+        ? `${environment.apiUrl}/uploads/${user.photo}`
+        : user.photo;
 
         this.editProfileForm.patchValue({
           name: user.name,

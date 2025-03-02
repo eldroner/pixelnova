@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../../services/auth.service';
 import { HeroComponent } from "../../shared/hero/hero.component";
 import { SpacerComponent } from "../../shared/spacer/spacer.component"; // ✅ Importamos AuthService
+import { environment } from '../../../../environments/environment';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +20,10 @@ export class LoginComponent {
 
   constructor(private http: HttpClient, private router: Router, private authService: AuthService) {}
 
+
+
   onLogin() {
-    this.http.post<any>('http://localhost:5000/api/auth/login', {
+    this.http.post<any>(`${environment.apiUrl}/api/auth/login`, {
       email: this.email,
       password: this.password
     }).subscribe(response => {
@@ -33,4 +36,5 @@ export class LoginComponent {
       alert('❌ Error en el login: ' + error.error.msg);
     });
   }
+  
 }

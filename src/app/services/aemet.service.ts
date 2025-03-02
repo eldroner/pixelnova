@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 
 export interface Municipio {
   codigo: string;
@@ -12,7 +14,7 @@ export interface Municipio {
   providedIn: 'root',
 })
 export class AemetService {
-  private backendUrl = 'http://localhost:5000';
+  private backendUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}
 

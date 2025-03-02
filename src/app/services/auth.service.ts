@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -26,10 +27,10 @@ export class AuthService {
 
       let user = JSON.parse(userData);
 
-      // ✅ Asegurar que la foto tiene la ruta correcta
-      if (user.photo && !user.photo.startsWith('http')) {
-        user.photo = `http://localhost:5000/uploads/${user.photo}`;
-      }
+// ✅ Asegurar que la foto tiene la ruta correcta
+if (user.photo && !user.photo.startsWith('http')) {
+  user.photo = `${environment.apiUrl}/uploads/${user.photo}`;
+}
 
       return user;
     } catch (error) {
@@ -40,7 +41,7 @@ export class AuthService {
 
   saveUser(token: string, user: { name: string; photo?: string }) {
     if (user.photo && !user.photo.startsWith('http')) {
-      user.photo = `http://localhost:5000/uploads/${user.photo}`;
+      user.photo = `${environment.apiUrl}/uploads/${user.photo}`;
     }
 
     localStorage.setItem('token', token);
