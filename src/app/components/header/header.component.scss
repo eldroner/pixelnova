@@ -18,9 +18,15 @@
   .logo {
     margin-top: 20px;
     margin-bottom: 20px;
-    height: 65px;  // Ajusta según necesites
+    height: 65px;
     width: auto;
-  }
+}
+
+@media (max-width: 768px) { 
+    .logo {
+        height: 45px; // Reduce el tamaño del logo en móviles
+    }
+}
 
   .social-icons {
     display: flex;

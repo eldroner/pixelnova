@@ -1,11 +1,19 @@
 import { Component, Input } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-title',
   standalone: true,
-  template: '<h1 [innerHTML]="text"></h1>',
+  template: '<h1 [innerHTML]="safeText"></h1>',
   styleUrls: ['./title.component.scss']
 })
 export class TitleComponent {
-  @Input() text: string = '';
+  safeText: SafeHtml = '';
+
+  constructor(private sanitizer: DomSanitizer) {}
+
+  @Input() set text(value: string) {
+    this.safeText = this.sanitizer.bypassSecurityTrustHtml(value);
+  }
 }
+

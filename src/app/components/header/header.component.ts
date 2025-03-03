@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { AuthService } from '../../services/auth.service'; // ✅ Importamos AuthService
 import { NgIf } from '@angular/common';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-header',
@@ -18,7 +19,7 @@ export class HeaderComponent implements OnInit {
   private myUserId = '67b8cc936d35dd0405bfaa3e'; // ✅ Tu ID de usuario
   isMenuOpen = false;  // ✅ Nueva variable para controlar si el menú está abierto o no
 
-  constructor(private authService: AuthService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router, sanitezer: DomSanitizer) { }
 
   ngOnInit() {
     this.isLoggedIn = this.authService.isLoggedIn();
@@ -58,9 +59,11 @@ export class HeaderComponent implements OnInit {
   closeNavbar() {
     const navbar = document.getElementById('navbarNav');
     if (navbar) {
-      navbar.classList.remove('show'); // Cierra el menú en móviles
+        navbar.classList.remove('show'); // Cierra el menú en móviles
     }
-  }
+    this.isMenuOpen = false; // Asegura que la variable se reinicie
+}
+
 
   toggleSubmenu(event: Event) {
     event.preventDefault();
