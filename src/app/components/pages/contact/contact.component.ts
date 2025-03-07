@@ -6,6 +6,7 @@ import { WeatherComponent } from "../../shared/weatherform/weatherform.component
 import { HeroComponent } from "../../shared/hero/hero.component";
 import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
 import { SeoService } from '../../../services/seo.service';
+import { AemetService } from '../../../services/aemet.service'; // ✅ Importamos el servicio
 
 @Component({
   selector: 'app-contact',
@@ -14,6 +15,7 @@ import { SeoService } from '../../../services/seo.service';
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.scss']
 })
+
 export class ContactComponent implements OnInit {
   form = {
     name: '',
@@ -22,7 +24,7 @@ export class ContactComponent implements OnInit {
     message: ''
   };
 
-  constructor(private seoService: SeoService) {}
+  constructor(private seoService: SeoService, private aemetService: AemetService) {} // ✅ Inyectamos AemetService
 
   ngOnInit(): void {
     this.seoService.updateSeo(
@@ -32,6 +34,11 @@ export class ContactComponent implements OnInit {
       'https://www.tuweb.com/contact',
       'https://www.tuweb.com/assets/img/contacto.jpg'
     );
+  }
+
+  // ✅ Ahora usamos el servicio AemetService para enfocar el input
+  enfocarCampoMunicipio() {
+    this.aemetService.enfocarCampoMunicipio();
   }
 
   sendEmail() {

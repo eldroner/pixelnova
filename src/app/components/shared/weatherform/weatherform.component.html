@@ -1,57 +1,55 @@
 <div class="weather-container">
-  <!-- 🔹 Texto descriptivo -->
-  <p class="weather-text">
-    Comprueba el tiempo para planificar tu vuelo.
+  <!-- 🔹 En móviles, ocultar el texto y mostrar solo un icono -->
+  <p class="weather-text d-none d-md-block">
+    🌦️ Comprueba el tiempo para planificar tu vuelo.
   </p>
 
-  <!-- 🔹 Contenedor del formulario para que en móvil se mantenga en una fila -->
+  <!-- 🔹 Formulario optimizado -->
   <div class="form-wrapper">
-    <!-- 🔹 Formulario compacto -->
-<form (ngSubmit)="onSubmit()" class="d-flex gap-2 align-items-center weather-form">
-  <!-- 🔹 Input de Municipio -->
-  <div class="flex-grow-1 position-relative">
-    <input 
-      type="text" 
-      id="municipio"
-      class="form-control"
-      placeholder="Municipio..."
-      (input)="filtrarMunicipios($event)"
-      [(ngModel)]="municipioNombre" 
-      name="municipio"
-      required
-      autocomplete="off"
-    />
-    <!-- 🔹 Lista de sugerencias -->
-    <ul class="list-group position-absolute w-100 mt-1 z-index-2" *ngIf="municipiosFiltrados.length > 0">
-      <li 
-        class="list-group-item list-group-item-action"
-        *ngFor="let municipio of municipiosFiltrados"
-        (click)="seleccionarMunicipio(municipio)">
-        {{ municipio.nombre }}
-      </li>
-    </ul>
-  </div>
+    <form (ngSubmit)="onSubmit()" class="weather-form">
+      <!-- 🔹 Input Municipio -->
+      <div class="input-group">
+        <input 
+        type="text" 
+        id="municipio"
+        #municipioInput
+        class="form-control"
+        placeholder="Municipio..."
+        (input)="filtrarMunicipios($event)"
+        [(ngModel)]="municipioNombre" 
+        name="municipio"
+        required
+        autocomplete="off"
+      />
+        <!-- 🔹 Lista de sugerencias -->
+        <ul class="list-group position-absolute w-100 mt-1 z-index-2" *ngIf="municipiosFiltrados.length > 0">
+          <li 
+            class="list-group-item list-group-item-action"
+            *ngFor="let municipio of municipiosFiltrados"
+            (click)="seleccionarMunicipio(municipio)">
+            {{ municipio.nombre }}
+          </li>
+        </ul>
+      </div>
 
-  <!-- 🔹 Selector de Fecha -->
-  <div class="date-container">
-    <input 
-      id="fecha" 
-      type="date" 
-      class="form-control small-input"
-      [(ngModel)]="fecha" 
-      name="fecha"
-      required
-    />
-  </div>
+      <!-- 🔹 Selector de Fecha -->
+      <input 
+        id="fecha" 
+        type="date" 
+        class="form-control small-input"
+        [(ngModel)]="fecha" 
+        name="fecha"
+        required
+      />
 
-  <!-- 🔹 Ícono en lugar de botón -->
-  <button type="submit" class="btn-icon">
-    <i class="bi bi-search"></i> <!-- Ícono de búsqueda -->
-  </button>
-</form>
-
+      <!-- 🔹 Botón con solo icono -->
+      <button type="submit" class="btn-icon">
+        <i class="bi bi-search"></i>
+      </button>
+    </form>
   </div>
 </div>
+
 
 <!-- 🔹 Modal para mostrar los resultados -->
 <div class="modal fade" id="weatherModal" tabindex="-1" aria-labelledby="weatherModalLabel" aria-hidden="true">

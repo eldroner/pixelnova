@@ -4,13 +4,14 @@ import { HeroComponent } from "../../../../../shared/hero/hero.component";
 import { VideoCardComponent } from "../../../../../shared/video-card/video-card.component";
 import { CommonModule } from '@angular/common';
 import { YoutubeService } from '../../../../../../services/youtube.service';
+import { AemetService } from '../../../../../../services/aemet.service'; // ✅ Importamos el servicio Aemet
 import { TextContainerComponent } from "../../../../../shared/text/text-container/text-container.component";
 import { TitleComponent } from "../../../../../shared/text/title/title.component";
 import { SubtitleComponent } from "../../../../../shared/text/subtitle/subtitle.component";
 import { ParagraphComponent } from "../../../../../shared/text/paragraph/paragraph.component";
 import { SpacerComponent } from "../../../../../shared/spacer/spacer.component";
 import { SidebarComponent } from "../../../../../shared/sidebar/sidebar.component";
-import { WeatherComponent } from "../../../../../shared/weatherform/weatherform.component"; // ✅ Importar SidebarComponent
+import { WeatherComponent } from "../../../../../shared/weatherform/weatherform.component"; // ✅ Importar WeatherComponent
 
 @Component({
   selector: 'app-inmobiliaria',
@@ -18,20 +19,24 @@ import { WeatherComponent } from "../../../../../shared/weatherform/weatherform.
   imports: [
     CommonModule, ButtonComponent, HeroComponent, VideoCardComponent,
     TextContainerComponent, TitleComponent, SubtitleComponent,
-    ParagraphComponent, SpacerComponent, SidebarComponent // ✅ Añadir SidebarComponent aquí
-    ,
+    ParagraphComponent, SpacerComponent, SidebarComponent,
     WeatherComponent
-],
+  ],
   templateUrl: './inmobiliaria.component.html',
-  styleUrl: './inmobiliaria.component.scss'
+  styleUrls: ['./inmobiliaria.component.scss'] // ✅ CORREGIDO: styleUrls en lugar de styleUrl
 })
 export class InmobiliariaComponent implements OnInit {
   videos: any[] = [];
-  private youtubeService = inject(YoutubeService); // ✅ Inyectamos el servicio
-
+  private youtubeService = inject(YoutubeService); // ✅ Inyectamos YouTubeService
+  private aemetService = inject(AemetService); // ✅ Ahora inyectamos AemetService correctamente
 
   ngOnInit(): void {
     this.getVideos();
+  }
+
+  // ✅ Ahora usamos el servicio AemetService para enfocar el input
+  enfocarCampoMunicipio() {
+    this.aemetService.enfocarCampoMunicipio();
   }
 
   getVideos(): void {

@@ -1,1 +1,13 @@
-<a [routerLink]="link" class="btn btn-{{ color }}">{{ text }}</a>
+<a *ngIf="link && link !== '' && link !== undefined" 
+   [routerLink]="link" 
+   class="btn btn-{{ color }}" 
+   (click)="$event.stopPropagation()">
+  {{ text }}
+</a>
+
+<button *ngIf="!link || link === '' || link === undefined" 
+   class="btn btn-{{ color }}" 
+   (click)="onButtonClick()">
+  {{ text }}
+</button>
+

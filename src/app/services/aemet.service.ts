@@ -3,7 +3,6 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { environment } from '../../environments/environment';
 
-
 export interface Municipio {
   codigo: string;
   nombre: string;
@@ -34,5 +33,17 @@ export class AemetService {
         return throwError(() => new Error('Error al obtener los municipios'));
       })
     );
+  }
+
+  // ✅ Nueva función para enfocar el campo del municipio en cualquier página
+  enfocarCampoMunicipio() {
+    setTimeout(() => {
+      const inputMunicipio = document.querySelector<HTMLInputElement>('#municipio');
+      if (inputMunicipio) {
+        inputMunicipio.focus();
+      } else {
+        console.warn("⚠️ No se encontró el input del municipio en el DOM");
+      }
+    }, 500);
   }
 }

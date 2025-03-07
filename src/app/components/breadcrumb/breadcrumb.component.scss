@@ -38,4 +38,11 @@
       content: "";
     }
   }
+
+  @media (max-width: 768px) {  // Para dispositivos móviles
+    .breadcrumb-container {
+      display: none; // Oculta completamente el breadcrumb en móviles
+    }
+  }
+  
   

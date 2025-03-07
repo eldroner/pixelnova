@@ -11,7 +11,7 @@ import { ParagraphComponent } from "../../../../../shared/text/paragraph/paragra
 import { VideoCardComponent } from "../../../../../shared/video-card/video-card.component";
 import { ButtonComponent } from "../../../../../shared/button/button.component"; 
 import { YoutubeService } from '../../../../../../services/youtube.service'; // ✅ Servicio para obtener vídeos
-
+import { AemetService } from '../../../../../../services/aemet.service';
 @Component({
   selector: 'app-turismo',
   standalone: true,
@@ -26,10 +26,16 @@ import { YoutubeService } from '../../../../../../services/youtube.service'; // 
 export class TurismoComponent implements OnInit {
   videos: any[] = [];
   private youtubeService = inject(YoutubeService); // ✅ Inyectamos el servicio
+  private aemetService = inject(AemetService); 
 
   ngOnInit(): void {
     this.getVideos();
   }
+
+    // ✅ Ahora usamos el servicio AemetService para enfocar el input
+    enfocarCampoMunicipio() {
+      this.aemetService.enfocarCampoMunicipio();
+    }
 
   getVideos(): void {
     const playlistId = 'PL5g-58hYPsTg2YT2aIM_ZaoqyGNJy8arP'; // 🔹 Reemplaza con la ID de la playlist de turismo
