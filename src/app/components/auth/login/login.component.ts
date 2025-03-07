@@ -30,7 +30,7 @@ export class LoginComponent {
       if (response.user) {
         this.authService.saveUser(response.token, response.user); // ✅ Ahora guardamos el usuario
       }
-      alert('✅ Login exitoso');
+      alert('✅ Sesión iniciada correctamente');
       this.router.navigate(['/']); // Redirigir al inicio o a otra página después de login
     }, error => {
       alert('❌ Error en el login: ' + error.error.msg);
