@@ -1,117 +1,127 @@
 <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <!-- Logo -->
-            <a class="navbar-brand" routerLink="/" routerLinkActive="active">
-                <img src="assets/logos/logo.png" alt="PixelNova" class="logo">
+      <div class="container">
+  
+        <!-- LOGO -->
+        <a class="navbar-brand" routerLink="/" routerLinkActive="active">
+          <img src="assets/logos/logo.png" alt="PixelNova" class="logo">
+        </a>
+  
+        <!-- Aquí metemos la parte de iconos de redes, user menu y botón hamburguesa todos juntos -->
+        <div class="d-flex align-items-center ms-auto">
+  
+          <!-- Iconos de redes (solo en md en adelante) -->
+          <div class="social-icons d-none d-md-flex me-3">
+            <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
+              <i class="bi bi-youtube"></i>
             </a>
-
-            <!-- Botón Hamburguesa (para móviles) -->
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"
-            (click)="toggleMenu()">
+            <a href="https://bsky.app/profile/asturdrones.es" target="_blank" class="social-link">
+              <img src="assets/logos/bluesky-logo.png" alt="Bluesky" class="social-icon">
+            </a>
+          </div>
+  
+          <!-- Menú de usuario -->
+          <div class="nav-item user-menu position-relative me-3"
+               (mouseenter)="toggleProfileMenu(true)"
+               (mouseleave)="toggleProfileMenu(false)"
+               [class.hidden]="isMenuOpen">
+            <div class="d-flex align-items-center text-light nav-item user-icon">
+              <img *ngIf="user?.photo" [src]="user?.photo" class="user-photo rounded-circle" alt="Foto de usuario">
+              <span *ngIf="!user?.photo" class="bi bi-person-circle text-success user-placeholder"></span>
+              <i class="bi bi-person-gear ms-2"></i>
+            </div>
+  
+            <div *ngIf="isProfileMenuOpen"
+                 class="profile-dropdown position-absolute bg-dark text-light p-2 shadow rounded">
+              <ng-container *ngIf="user; else loginOption">
+                <a routerLink="/profile-edit" class="dropdown-item text-light">Editar perfil</a>
+                <a (click)="logout()" style="cursor: pointer;" class="dropdown-item text-light">Cerrar sesión</a>
+              </ng-container>
+              <ng-template #loginOption>
+                <a routerLink="/login" class="dropdown-item text-light">Iniciar sesión</a>
+              </ng-template>
+            </div>
+          </div>
+  
+          <!-- Botón Hamburguesa (para móviles) -->
+          <button class="navbar-toggler" type="button"
+                  data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                  aria-controls="navbarNav" aria-expanded="false"
+                  aria-label="Toggle navigation"
+                  (click)="toggleMenu()">
             <span class="navbar-toggler-icon"></span>
-        </button>
-        
+          </button>
+  
+        </div> <!-- Fin del d-flex ms-auto -->
+  
+        <!-- Enlaces del menú (collapse) -->
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/" routerLinkActive="active"
+                        [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Inicio</a>
+                </li>
 
-            <!-- Enlaces del menú -->
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" routerLink="/" routerLinkActive="active"
-                            [routerLinkActiveOptions]="{ exact: true }" (click)="closeNavbar()">Inicio</a>
-                    </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Servicios
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
+                        <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active"
+                                (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active"
+                                (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/support" routerLinkActive="active"
+                                (click)="closeNavbar()">Soporte digital para tu negocio 24/7</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/web-upgrade" routerLinkActive="active"
+                                (click)="closeNavbar()">Mantenimiento y mejora de tu web actual</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/seo" routerLinkActive="active"
+                                (click)="closeNavbar()">Posicionamiento en buscadores (SEO)</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/rrss" routerLinkActive="active"
+                                (click)="closeNavbar()">Servicio de community manager</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria" routerLinkActive="active"
+                                (click)="closeNavbar()">Vídeos Inmobiliaria</a></li>
+                        <li class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active"
+                                (click)="closeNavbar()">Vídeos turismo</a></li>
+                        <li class="dropdown-divider"></li>
+                    </ul>
+                </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Servicios
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                            <li><a class="dropdown-item" routerLink="/services/webs" routerLinkActive="active"
-                                    (click)="closeNavbar()">Webs a medida para tu empresa</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/componentes" routerLinkActive="active"
-                                    (click)="closeNavbar()">Funcionalidades extras para tu web</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/support" routerLinkActive="active"
-                                    (click)="closeNavbar()">Soporte digital para tu negocio 24/7</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/web-upgrade" routerLinkActive="active"
-                                    (click)="closeNavbar()">Mantenimiento y mejora de tu web actual</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/seo" routerLinkActive="active"
-                                    (click)="closeNavbar()">Posicionamiento en buscadores (SEO)</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/rrss" routerLinkActive="active"
-                                    (click)="closeNavbar()">Servicio de community manager</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/video/inmobiliaria" routerLinkActive="active"
-                                    (click)="closeNavbar()">Vídeos Inmobiliaria</a></li>
-                            <li class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" routerLink="/services/video/turismo" routerLinkActive="active"
-                                    (click)="closeNavbar()">Vídeos turismo</a></li>
-                            <li class="dropdown-divider"></li>
-                        </ul>
-                    </li>
+                <!-- Menú desplegable para Memoriales -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="memorialDropdown" role="button"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Memoriales
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="memorialDropdown">
+                        <li><a class="dropdown-item" routerLink="/memorial" routerLinkActive="active"
+                                (click)="closeNavbar()">Qué son los memoriales</a></li>
+                        <li><a class="dropdown-item" routerLink="/memorials" routerLinkActive="active"
+                                (click)="closeNavbar()">Mis Memoriales</a></li>
+                        <li *ngIf="isMyAccount()" class="nav-item">
+                            <a class="dropdown-item" routerLink="/memorial/create" routerLinkActive="active"
+                                (click)="closeNavbar()">
+                                Crear un memorial
+                            </a>
+                        </li>
+                    </ul>
+                </li>
 
-                    <!-- Menú desplegable para Memoriales -->
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="memorialDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Memoriales
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="memorialDropdown">
-                            <li><a class="dropdown-item" routerLink="/memorial" routerLinkActive="active"
-                                    (click)="closeNavbar()">Qué son los memoriales</a></li>
-                            <li><a class="dropdown-item" routerLink="/memorials" routerLinkActive="active"
-                                    (click)="closeNavbar()">Mis Memoriales</a></li>
-                            <li *ngIf="isMyAccount()" class="nav-item">
-                                <a class="dropdown-item" routerLink="/memorial/create" routerLinkActive="active"
-                                    (click)="closeNavbar()">
-                                    Crear un memorial
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active"
-                            (click)="closeNavbar()">Contacto</a></li>
-                </ul>
-            </div>
-
-            <!-- Redes Sociales -->
-            <div class="social-icons d-none d-md-flex ms-3">
-                <a href="https://www.youtube.com/@asturdrones" target="_blank" class="social-link">
-                    <i class="bi bi-youtube"></i>
-                </a>
-                <a href="https://bsky.app/profile/asturdrones.es" target="_blank" class="social-link">
-                    <img src="assets/logos/bluesky-logo.png" alt="Bluesky" class="social-icon">
-                </a>
-            </div>
-
-            <!-- Menú de usuario -->
-            <div class="nav-item user-menu ms-3 position-relative" (mouseenter)="toggleProfileMenu(true)"
-     (mouseleave)="toggleProfileMenu(false)" [class.hidden]="isMenuOpen">
-                <div class="d-flex align-items-center text-light nav-item user-icon ms-3">
-                    <img *ngIf="user?.photo" [src]="user?.photo" class="user-photo rounded-circle"
-                        alt="Foto de usuario">
-                    <span *ngIf="!user?.photo" class="bi bi-person-circle text-success user-placeholder"></span>
-                    <i class="bi bi-person-gear ms-2"></i>
-                </div>
-
-                <div *ngIf="isProfileMenuOpen"
-                    class="profile-dropdown position-absolute bg-dark text-light p-2 shadow rounded">
-                    <ng-container *ngIf="user; else loginOption">
-                        <a routerLink="/profile-edit" class="dropdown-item text-light">Editar perfil</a>
-                        <a (click)="logout()" style="cursor: pointer;" class="dropdown-item text-light">Cerrar
-                            sesión</a>
-                    </ng-container>
-                    <ng-template #loginOption>
-                        <a routerLink="/login" class="dropdown-item text-light">Iniciar sesión</a>
-                    </ng-template>
-                </div>
-            </div>
+                <li class="nav-item"><a class="nav-link" routerLink="/contact" routerLinkActive="active"
+                        (click)="closeNavbar()">Contacto</a></li>
+            </ul>
+          </ul>
         </div>
+      </div>
     </nav>
-</header>
+  </header>
+  
