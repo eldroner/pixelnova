@@ -20,6 +20,7 @@ import { SupportComponent } from './components/pages/services/support/support.co
 import { WebUpgradeComponent } from './components/pages/services/web-upgrade/web-upgrade.component';
 import { RrssComponent } from './components/pages/services/rrss/rrss.component';
 import { SeoComponent } from './components/pages/services/seo/seo.component';
+import { AdminGuard } from './guards/admin.guard';
 
 
 export const routes: Routes = [
@@ -38,7 +39,12 @@ export const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'privacy-policy', component: PrivacyPolicyComponent },
   { path: 'memorials', component: MemorialListComponent },
-  { path: 'memorial/create', component: MemorialCreateComponent },
+  {
+    path: 'memorial/create',
+    loadComponent: () =>
+      import('./components/memorial/memorial-create/memorial-create.component').then(m => m.MemorialCreateComponent),
+    canActivate: [AdminGuard]
+  },
   { path: 'memorial/:id', component: MemorialDetailComponent },
   { path: 'memorial/edit/:id', component: MemorialEditComponent },
   { path: 'profile-edit', component: EditProfileComponent },
