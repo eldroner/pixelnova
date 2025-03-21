@@ -2,17 +2,25 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
 
+export interface User {
+  id: string;
+  name: string;
+  email: string;
+  phone?: string;
+  photo?: string | null;
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private userSubject = new BehaviorSubject<{ name: string; photo?: string | null } | null>(null);
+  private userSubject = new BehaviorSubject<User | null>(null);
   user$ = this.userSubject.asObservable(); // 🔹 Permite actualizar la UI sin recargar
 
   constructor() {
     const storedUser = this.getUser();
     if (storedUser) {
-      this.userSubject.next(storedUser); // 🔹 Emitir el usuario si ya está en localStorage
+      this.userSubject.next(storedUser);
     }
   }
 
@@ -20,17 +28,16 @@ export class AuthService {
     return !!localStorage.getItem('token');
   }
 
-  getUser(): { name: string; photo?: string | null } | null {
+  getUser(): User | null {
     try {
       const userData = localStorage.getItem('user');
       if (!userData) return null;
 
-      let user = JSON.parse(userData);
+      let user: User = JSON.parse(userData);
 
-// ✅ Asegurar que la foto tiene la ruta correcta
-if (user.photo && !user.photo.startsWith('http')) {
-  user.photo = `${environment.apiUrl}/uploads/${user.photo}`;
-}
+      if (user.photo && !user.photo.startsWith('http')) {
+        user.photo = `${environment.apiUrl}/uploads/${user.photo}`;
+      }
 
       return user;
     } catch (error) {
@@ -39,19 +46,19 @@ if (user.photo && !user.photo.startsWith('http')) {
     }
   }
 
-  saveUser(token: string, user: { name: string; photo?: string }) {
+  saveUser(token: string, user: User) {
     if (user.photo && !user.photo.startsWith('http')) {
       user.photo = `${environment.apiUrl}/uploads/${user.photo}`;
     }
 
     localStorage.setItem('token', token);
     localStorage.setItem('user', JSON.stringify(user));
-    this.userSubject.next(user); // 🔹 Ahora el header se actualizará en tiempo real
+    this.userSubject.next(user);
   }
 
   logout() {
     localStorage.removeItem('token');
     localStorage.removeItem('user');
-    this.userSubject.next(null); // 🔹 Emitir `null` para actualizar el header
+    this.userSubject.next(null);
   }
 }

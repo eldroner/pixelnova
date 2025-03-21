@@ -5,7 +5,17 @@
         <div class="card-body">
           <h4 class="card-title">{{ memorial.name }}</h4>
           <p class="card-text">{{ memorial.description }}</p>
-          <a [routerLink]="['/memorial', memorial._id]" class="btn btn-primary">Ver más</a>
+          <a [routerLink]="['/memorial', memorial._id]" class="btn btn-primary me-2">Ver más</a>
+          
+          <!-- Botón Asignar solo visible para el admin -->
+          <button 
+          *ngIf="isAdmin" 
+          class="btn btn-outline-secondary"
+          (click)="openAssignModal(memorial)" 
+          data-bs-toggle="modal" 
+          data-bs-target="#assignModal">
+          Asignar
+        </button>
         </div>
       </div>
     </div>
@@ -20,3 +30,24 @@
     </div>
   </ng-template>
 </div>
+
+<!-- Modal para asignar usuario -->
+<div class="modal fade" id="assignModal" tabindex="-1" aria-labelledby="assignModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="assignModalLabel">Asignar memorial</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <p>Asignar memorial <strong>{{ selectedMemorial?.name }}</strong> a otro usuario:</p>
+        <input type="text" class="form-control" [(ngModel)]="assignUserId" placeholder="ID del usuario" />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="closeModal()">Cancelar</button>
+        <button type="button" class="btn btn-primary" (click)="assignMemorial()">Asignar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
