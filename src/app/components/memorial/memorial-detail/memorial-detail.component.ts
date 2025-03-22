@@ -1,55 +1,52 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common'; // 👈 Asegúrate de importar esto
-import { ActivatedRoute, RouterLink } from '@angular/router';
-import { MemorialService } from '../../../services/memorial.service';
+import { ActivatedRoute } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { environment } from '../../../../environments/environment';
+import { AuthService, User } from '../../../services/auth.service';
 
 @Component({
   selector: 'app-memorial-detail',
   standalone: true,
-  imports: [CommonModule, RouterLink], // 👈 Agrégalo aquí
+  imports: [CommonModule, RouterModule],
   templateUrl: './memorial-detail.component.html',
   styleUrls: ['./memorial-detail.component.scss']
 })
 export class MemorialDetailComponent implements OnInit {
   memorial: any = null;
+  memorialId: string = '';
   safeVideoUrl: SafeResourceUrl | null = null;
-  token: string = '';
+  user: User | null = null;
+  canEdit: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
-    private memorialService: MemorialService,
-    private sanitizer: DomSanitizer
+    private http: HttpClient,
+    private sanitizer: DomSanitizer,
+    private authService: AuthService
   ) {}
 
-  
-
   ngOnInit(): void {
-    this.token = localStorage.getItem('token') || '';
-    const memorialId = this.route.snapshot.paramMap.get('id');
+    this.memorialId = this.route.snapshot.paramMap.get('id') || '';
+    this.user = this.authService.getUser();
 
-    if (memorialId) {
-      this.memorialService.getMemorialById(memorialId).subscribe({
-        next: (data) => {
-          this.memorial = data;
-          if (this.memorial?.videoUrl) {
-            this.safeVideoUrl = this.transformYouTubeUrl(this.memorial.videoUrl);
-          }
-        },
-        error: (err) => console.error('Error al obtener memorial:', err)
-      });
-    }
+    this.http.get(`${environment.apiUrl}/api/memorials/${this.memorialId}`).subscribe({
+      next: (data: any) => {
+        this.memorial = data;
+        this.safeVideoUrl = this.transformVideoUrl(data.videoUrl);
+        this.canEdit = this.user?.id === this.memorial.owner;
+      },
+      error: (err) => {
+        console.error("❌ Error al obtener memorial:", err);
+      }
+    });
   }
 
-  private transformYouTubeUrl(url: string): SafeResourceUrl {
-    const videoIdMatch = url.match(/(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?v=([\w-]+)/);
-    
-    if (videoIdMatch && videoIdMatch[1]) {
-      const embedUrl = `https://www.youtube.com/embed/${videoIdMatch[1]}`;
-      return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
-    } else {
-      console.error("URL de YouTube no válida:", url);
-      return this.sanitizer.bypassSecurityTrustResourceUrl(url);
-    }
+  transformVideoUrl(url: string): SafeResourceUrl | null {
+    if (!url) return null;
+    const embedUrl = url.replace("watch?v=", "embed/");
+    return this.sanitizer.bypassSecurityTrustResourceUrl(embedUrl);
   }
 }

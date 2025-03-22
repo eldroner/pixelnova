@@ -1,14 +1,40 @@
 .memorial-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 30px;
-    min-height: 100vh; // Para que ocupe toda la pantalla
-    background: #1f1f1f; // Verde oscuro, cambia a #004d00 para verde
+  position: relative; // Necesario para el ::before
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  min-height: 100vh;
+  background-color: #1f1f1f; // Color de fondo base
+  overflow: hidden; // Para que el ::before no se desborde
+  z-index: 1;
+
+  // Capa con textura
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background-image: url('/assets/img/papyrus-dark.png');
+    background-size: 600px;
+    background-repeat: repeat;
+    background-position: center center;
+
+    opacity: 0.5; // ⭐ Controla la intensidad del patrón
+    z-index: -1; // Detrás del contenido
   }
+}
+
+
+
+
   
   .memorial-card {
-    max-width: 800px;
+    width: 100%;
+    max-width: 1000px;
     background: rgba(0, 0, 0, 0.144); // Fondo semitransparente
     padding: 20px;
     border-radius: 10px;
@@ -32,9 +58,23 @@
     margin-bottom: 20px;
   }
   
-  .memorial-video iframe {
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
-    width: 100%;
+
+
+  .memorial-video {
+    position: relative;
+    padding-bottom: 56.25%; // 16:9
+    height: 0;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+  
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
   }
+  
   
