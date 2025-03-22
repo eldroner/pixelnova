@@ -28,20 +28,39 @@
   }
 }
 
-
-
-
   
-  .memorial-card {
+.memorial-card {
+  position: relative; // Necesario para el ::before
+  width: 100%;
+  max-width: 900px;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.459);
+  text-align: center;
+  background-color: rgba(29, 29, 29, 0.6); // Fondo oscuro semitransparente
+  backdrop-filter: blur(10px) brightness(0.9);
+  overflow: hidden; // Importante para evitar que el ::before se desborde
+  z-index: 1;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    max-width: 1000px;
-    background: rgba(0, 0, 0, 0.144); // Fondo semitransparente
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.459);
-    text-align: center;
-    backdrop-filter: blur(10px); // ✨ Efecto de vidrio esmerilado
+    height: 100%;
+
+    background-image: url('/assets/img/patron-cuadros-negros.png');
+    background-repeat: repeat;
+    background-size: 300px;
+    background-position: center;
+
+    opacity: 0.25; // Ajusta la intensidad del patrón
+    z-index: -1; // Debajo del contenido del .memorial-card
   }
+}
+
+
   
   .memorial-title {
     text-align: center;
@@ -64,9 +83,10 @@
     position: relative;
     padding-bottom: 56.25%; // 16:9
     height: 0;
-    overflow: hidden;
+    overflow: visible;
     border-radius: 10px;
     margin-bottom: 20px;
+    z-index: 1;
   
     iframe {
       position: absolute;
@@ -74,7 +94,12 @@
       left: 0;
       width: 100%;
       height: 100%;
+      border-radius: 12px;
+      z-index: 1;
+      box-shadow: 0 0 5px 5px rgba(248, 255, 145, 0.251);
+      z-index: 2;
     }
   }
+  
   
   
