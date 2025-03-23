@@ -1,203 +1,205 @@
 .navbar {
+  background-color: #fdfdfd !important;
+  color: #333;
+  padding: 0.3rem 0.5rem;
+  min-height: 50px;
+
+  .navbar-brand {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
+  }
+
+  .nav-link {
+    color: #555;
+    transition: color 0.3s ease-in-out;
+    padding-bottom: 5px;
+
+    &:hover {
+      color: #ff4747 !important;
+    }
+
+    &.active {
+      color: #000 !important;
+      font-weight: bold;
+      border-bottom: 3px solid #ff4747;
+    }
+  }
+}
+
+/* Logo con escalado progresivo */
+.logo {
+  height: 40px;
+  width: auto;
+  filter: none;
+
+  @media (max-width: 1024px) {
+    height: 36px;
+  }
+
+  @media (max-width: 768px) {
+    height: 34px;
+  }
+
+  @media (max-width: 576px) {
+    height: 30px;
+  }
+}
+
+/* Íconos sociales */
+.social-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .social-link {
+    text-decoration: none;
     font-size: 1.1rem;
-  
-    .navbar-brand {
-      font-weight: bold;
-      font-size: 1.5rem;
-    }
-  
-    .nav-link {
-      transition: color 0.3s ease-in-out;
-  
-      &:hover {
-        color: #ff4747 !important;  // Color de hover personalizado
-      }
+    color: #333;
+    transition: color 0.3s;
+    margin-right: 5px;
+
+    &:hover {
+      color: #ff4747;
     }
   }
-
-  .logo {
-    margin-top: 20px;
-    margin-bottom: 20px;
-    height: 65px;
-    width: auto;
-}
-
-@media (max-width: 768px) { 
-    .logo {
-        height: 45px; // Reduce el tamaño del logo en móviles
-    }
-}
-
-  .social-icons {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-  
-    .social-link {
-      text-decoration: none;
-      font-size: 1.5rem;  // Tamaño de los iconos
-      color: white;
-      transition: color 0.3s;
-      margin-right: 50px; // Margen derecho en pantallas grandes
-  
-      &:hover {
-        color: #ff4747;
-      }
-    }
-  }
-  
-  // Ajuste específico para móviles
-  @media (max-width: 991px) {
-    .social-icons {
-      margin-left: auto; // Empuja el icono de YouTube hacia la derecha
-    }
-  }
-  
-
-  .dropdown-menu {
-    background-color: #222;
-    border: none;
-  
-    .dropdown-item {
-      color: white;
-      transition: background 0.3s;
-  
-      &:hover {
-        background-color: #ff4747;
-        color: white;
-      }
-    }
-  }
-  
-  // Asegurar que el submenú se despliega bien
-  .dropdown-submenu {
-    position: relative;
-  
-    .dropdown-menu {
-      position: absolute;
-      top: 0;
-      left: 100%;
-      margin-top: -5px;
-      display: none;
-    }
-  
-    &:hover > .dropdown-menu {
-      display: block;
-    }
-  }
-
-  .navbar-nav {
-    .nav-link {
-      color: rgba(255, 255, 255, 0.75); // Color por defecto
-      transition: color 0.3s, border-bottom 0.3s;
-      padding-bottom: 5px;
-  
-      &:hover {
-        color: white; // Cambio de color al pasar el mouse
-      }
-    }
-  
-    .nav-link.active {
-      color: white !important;  // Color blanco cuando está activo
-      font-weight: bold;
-      border-bottom: 3px solid #ff4747;  // Subrayado con color destacado
-    }
-  }
-
-  .social-icons {
-    display: flex;
-    align-items: center;
-    gap: 10px; // 🔹 Reduce el espacio entre los iconos
-
-    .social-link {
-        text-decoration: none;
-        font-size: 1.3rem; // 🔹 Ligeramente más pequeño
-        color: white;
-        transition: color 0.3s;
-        margin-right: 10px; // 🔹 Reduzco el margen derecho para acercar los iconos
-
-        &:hover {
-            color: #ff4747;
-        }
-    }
 }
 
 .social-icon {
-    width: 22px;  // 🔹 Tamaño ajustado para los iconos sociales
-    height: auto;
-    filter: brightness(0) invert(1);
+  width: 18px;
+  height: auto;
+  filter: none;
 }
 
+@media (max-width: 991px) {
+  .social-icons {
+    margin-left: auto;
+  }
+}
 
+/* Menús desplegables */
+.dropdown-menu {
+  background-color: #fff;
+  border: none;
+
+  .dropdown-item {
+    color: #333;
+    transition: background 0.3s;
+
+    &:hover {
+      background-color: #ff4747;
+      color: white;
+    }
+  }
+}
+
+.dropdown-submenu {
+  position: relative;
+
+  .dropdown-menu {
+    position: absolute;
+    top: 0;
+    left: 100%;
+    margin-top: -5px;
+    display: none;
+  }
+
+  &:hover > .dropdown-menu {
+    display: block;
+  }
+}
+
+/* Ícono de usuario */
 .user-icon {
   display: flex;
   align-items: center;
 
-  .user-photo, .user-placeholder {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
+  .user-photo,
+  .user-placeholder {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    object-fit: cover;
   }
 
   .user-photo {
-      border: 2px solid #fff; // ✅ Borde blanco para mejor integración
+    border: 2px solid #333;
   }
 
   .user-placeholder {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      font-size: 30px; // ✅ Tamaño del ícono interno dentro del span
-      background-color: rgba(255, 255, 255, 0.1); // ✅ Fondo sutil para que no quede vacío
-      border: 2px solid #fff;
-      color: #28a745; // ✅ Verde si no hay foto
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    background-color: rgba(0, 0, 0, 0.05);
+    border: 2px solid #333;
+    color: #198754;
   }
 
-  a {
-      display: flex;
-      align-items: center;
+  i {
+    font-size: 14px;
+    color: #333;
   }
 }
 
-/* Estilo del menú desplegable del perfil */
+/* Menú de perfil */
 .profile-dropdown {
-  background-color: rgba(0, 0, 0, 0.85); /* Fondo oscuro con opacidad */
-  border-radius: 10px; /* Bordes redondeados */
+  background-color: rgba(255, 255, 255, 0.95);
+  border-radius: 10px;
   padding: 10px;
   min-width: 160px;
   top: 100%;
   right: 0;
   z-index: 1000;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); /* Sombra flotante */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+
+  .dropdown-item {
+    padding: 8px 12px;
+    color: #333;
+    font-size: 14px;
+    transition: background-color 0.3s, color 0.3s;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: #ff4747;
+      color: white;
+    }
+  }
+
+  .dropdown-divider {
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 1px;
+    margin: 6px 0;
+  }
 }
 
-/* Ajustes para los enlaces del menú */
-.profile-dropdown .dropdown-item {
-  padding: 8px 12px;
-  color: white;
-  font-size: 14px;
-  transition: background-color 0.3s, color 0.3s;
-  border-radius: 5px;
-}
-
+/* Animación de visibilidad */
 .hidden {
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s ease, visibility 0s linear 0.3s;
 }
 
-.profile-dropdown .dropdown-item:hover {
-  background-color: #ff4747; /* Color rojo vibrante al pasar el ratón */
-  color: white;
+/* Botón hamburguesa */
+.navbar-toggler {
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+
+  .navbar-toggler-icon {
+    width: 22px;
+    height: 22px;
+    background-size: 22px 22px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(51,51,51,0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  }
+
+  &:hover {
+    border-color: #ff4747;
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255,71,71,1)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+    }
+  }
 }
-
-/* Separador entre los elementos del menú */
-.profile-dropdown .dropdown-divider {
-  background-color: rgba(255, 255, 255, 0.2);
-  height: 1px;
-  margin: 6px 0;
-}
-
-
-

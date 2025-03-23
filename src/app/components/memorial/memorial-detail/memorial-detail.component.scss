@@ -32,11 +32,11 @@
 .memorial-card {
   position: relative; // Necesario para el ::before
   width: 100%;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 30px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.459);
-  text-align: center;
+  text-align: justify;
   background-color: rgba(29, 29, 29, 0.6); // Fondo oscuro semitransparente
   backdrop-filter: blur(10px) brightness(0.9);
   overflow: hidden; // Importante para evitar que el ::before se desborde
