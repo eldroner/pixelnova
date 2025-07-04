@@ -9,6 +9,7 @@ import { SubtitleComponent } from '../../shared/text/subtitle/subtitle.component
 import { ParagraphComponent } from '../../shared/text/paragraph/paragraph.component';
 import { ButtonComponent } from '../../shared/button/button.component';
 import { SeoService } from '../../../services/seo.service';
+import { ImageViewerModalComponent } from '../../tools/image-viewer-modal/image-viewer-modal.component';
 
 @Component({
   selector: 'app-booking-manager',
@@ -22,7 +23,8 @@ import { SeoService } from '../../../services/seo.service';
     TitleComponent,
     SubtitleComponent,
     ParagraphComponent,
-    ButtonComponent
+    ButtonComponent,
+    ImageViewerModalComponent
   ],
   templateUrl: './booking-manager.component.html',
   styleUrls: ['./booking-manager.component.scss']
@@ -30,6 +32,8 @@ import { SeoService } from '../../../services/seo.service';
 export class BookingManagerComponent implements OnInit {
 
   private isBrowser: boolean;
+  showImageViewer: boolean = false;
+  currentImageUrl: string | null = null;
 
   sidebarLeftItems = [
     { title: 'Inicio', link: '/' },
@@ -66,5 +70,15 @@ export class BookingManagerComponent implements OnInit {
       'https://www.tuweb.com/services/booking-manager',
       'https://www.tuweb.com/assets/img/booking-manager/front-end-booking-manager.jpg'
     );
+  }
+
+  openImageViewer(imageUrl: string): void {
+    this.currentImageUrl = imageUrl;
+    this.showImageViewer = true;
+  }
+
+  closeImageViewer(): void {
+    this.showImageViewer = false;
+    this.currentImageUrl = null;
   }
 }
