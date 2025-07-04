@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MemorialService } from '../../../services/memorial.service';
@@ -22,9 +23,13 @@ export class MemorialCreateComponent {
   };
 
   token: string = '';
+  private isBrowser: boolean;
 
-  constructor(private memorialService: MemorialService, private router: Router) {
-    this.token = localStorage.getItem('token') || '';
+  constructor(private memorialService: MemorialService, private router: Router, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+    if (this.isBrowser) {
+      this.token = localStorage.getItem('token') || '';
+    }
   }
 
   createMemorial(): void {
@@ -33,23 +38,19 @@ export class MemorialCreateComponent {
       birthDate: this.memorial.birthDate ? new Date(this.memorial.birthDate).toISOString() : null,
       deathDate: this.memorial.deathDate ? new Date(this.memorial.deathDate).toISOString() : null
     };
-  
-    console.log("📤 Datos enviados desde Angular:", formattedMemorialData);  // 🔍 Verifica aquí
-  
+
+    console.log('📤 Datos enviados desde Angular:', formattedMemorialData);
+
     this.memorialService.createMemorial(formattedMemorialData, this.token).subscribe({
       next: (response) => {
-        console.log("✅ Memorial creado correctamente:", response);
-        alert("Memorial creado con éxito");
+        console.log('✅ Memorial creado correctamente:', response);
+        alert('Memorial creado con éxito');
         this.router.navigate(['/memorial']);
       },
       error: (err) => {
-        console.error("❌ Error al crear memorial:", err);
-        alert("Hubo un error al crear el memorial.");
+        console.error('❌ Error al crear memorial:', err);
+        alert('Hubo un error al crear el memorial.');
       }
     });
   }
-  
-
-  
-  
 }

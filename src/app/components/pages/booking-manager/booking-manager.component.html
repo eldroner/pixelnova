@@ -1,0 +1,88 @@
+<app-hero 
+  title="Optimiza la Gestión de Reservas de tu Negocio con Pixelnova"
+  description="Descubre la solución integral de Pixelnova para la gestión de citas y reservas, diseñada para peluquerías, consultas médicas, restaurantes y cualquier tipo de negocio. Nuestro sistema no solo simplifica tu día a día, sino que también ofrece asistencia personalizada 24/7 por parte de expertos humanos, garantizando que nunca te quedes sin soporte."
+  buttonText="Solicitar Información"
+  buttonLink="/contact"
+  backgroundImage="assets/img/planeta-tierra.jpg">
+</app-hero>
+
+<app-spacer [height]="'20px'"></app-spacer>
+
+<div class="container">
+  <div class="row align-items-stretch">
+    
+    <!-- Sidebar Izquierdo -->
+    <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
+        { title: 'Inicio', link: '/' },
+        { title: 'Desarrollo de sitios web', link: 'services/webs' },
+        { title: 'Funciones para tu web', link: 'services/component' },
+        { title: 'Soporte integral 24/7', link: 'services/support' },
+        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
+        { title: 'Gestión de redes sociales', link: 'services/rrss' },
+        { title: 'El Legado de los Nuestros', link: 'memorial' },
+        { title: 'Contacta con Pixelnova', link: 'contact' }
+      ]"></app-sidebar>
+    </div>
+
+    <!-- Contenido Principal -->
+    <div class="col-lg-8 col-md-12">
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Panel de <span style=\'color:#007bff;\'>Administración</span> Intuitivo y <strong>Potente</strong>'"></app-title>
+        <app-subtitle [text]="'<strong>Centraliza</strong> y <strong>controla</strong> todos los aspectos clave de tu negocio desde una única plataforma <strong>fácil de usar</strong>.'"></app-subtitle>
+        <app-paragraph [text]="'Nuestro <strong>panel de administración</strong> ha sido meticulosamente diseñado para ofrecerte la máxima <strong>facilidad de uso</strong> sin sacrificar funcionalidad. Desde esta interfaz <strong>clara y sencilla</strong>, podrás <strong>gestionar eficientemente</strong> tus <strong>servicios</strong>, <strong>horarios</strong>, <strong>reservas</strong> y mucho más. <strong>Olvídate de las complicaciones</strong> y dedica tu valioso tiempo a lo que verdaderamente impulsa tu negocio: <strong>crecer y atender a tus clientes</strong>.'"></app-paragraph>
+        <img src="assets/img/booking-manager/booking-admin.jpg" alt="Panel de administración" class="img-fluid rounded mt-3">
+      </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Horarios <span style=\'color:#007bff;\'>Flexibles</span> y <strong>Altamente Personalizables</strong>'"></app-title>
+        <app-subtitle [text]="'<strong>Adapta</strong> tus horarios de apertura y la <strong>duración de cada servicio</strong> a la perfección, sin limitaciones.'"></app-subtitle>
+        <app-paragraph [text]="'Con nuestro <strong>gestor de reservas</strong>, obtendrás un <strong>control total</strong> y sin precedentes sobre tus horarios. Tendrás la capacidad de establecer tus <strong>horas de trabajo habituales</strong>, incorporar <strong>horarios especiales</strong> para días festivos o eventos puntuales, y configurar la <strong>duración exacta</strong> de cada uno de tus servicios. Esta <strong>flexibilidad avanzada</strong> es justo lo que necesitas para <strong>adaptarte dinámicamente</strong> a cualquier situación y optimizar la <strong>disponibilidad de tu negocio</strong>.'"></app-paragraph>
+        <img src="assets/img/booking-manager/booking-manager-editar-horarios.jpg" alt="Gestión de horarios" class="img-fluid rounded mt-3">
+      </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Gestión de <span style=\'color:#007bff;\'>Reservas</span> <strong>Intuitiva y Completa</strong>'"></app-title>
+        <app-subtitle [text]="'<strong>Visualiza</strong>, <strong>organiza</strong> y <strong>gestiona</strong> todas tus reservas en <strong>tiempo real</strong> con la máxima eficiencia.'"></app-subtitle>
+        <app-paragraph [text]="'Nuestro <strong>sistema de gestión de reservas</strong> te ofrece una <strong>visión clara y detallada</strong> de todas tus citas, ya sea a través de un <strong>calendario intuitivo</strong> o un <strong>listado exhaustivo</strong> con opciones de <strong>filtrado avanzado</strong>. Además, te permite <strong>añadir reservas manualmente</strong>, lo cual es ideal para clientes que prefieren reservar por teléfono, y <strong>gestionar la disponibilidad en tiempo real</strong> para <strong>evitar solapamientos</strong> y optimizar tu agenda.'"></app-paragraph>
+        <img src="assets/img/booking-manager/booking-admin-listado-reservas.jpg" alt="Listado de reservas" class="img-fluid rounded mt-3">
+      </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
+
+      <app-text-container bgColor="#f8f9fa" [border]="'1px solid #ddd'" borderRadius="15px">
+        <app-title [text]="'Control <span style=\'color:#007bff;\'>Total</span> de tu <strong>Disponibilidad y Capacidad</strong>'"></app-title>
+        <app-subtitle [text]="'<strong>Bloquea fechas</strong>, <strong>gestiona la capacidad</strong> y asegura un <strong>servicio óptimo</strong> en todo momento.'"></app-subtitle>
+        <app-paragraph [text]="'Mantén un <strong>control absoluto</strong> sobre la <strong>disponibilidad de tu negocio</strong>. Con nuestra herramienta, podrás <strong>bloquear fechas específicas</strong>, como periodos vacacionales, festivos o eventos privados, asegurando que no se realicen reservas no deseadas. Además, configura el <strong>número máximo de reservas simultáneas</strong> para <strong>optimizar la capacidad</strong> de tu servicio y garantizar una <strong>experiencia de calidad superior</strong> para cada uno de tus clientes.'"></app-paragraph>
+        <img src="assets/img/booking-manager/booking-admin-bloquear-fechas.jpg" alt="Bloqueo de fechas" class="img-fluid rounded mt-3">
+      </app-text-container>
+
+      <app-spacer [height]="'20px'"></app-spacer>
+
+      <div class="text-center mt-5 mb-4">
+        <app-button text="Solicita tu Gestor de Reservas" link="/contact" color="primary"></app-button>
+      </div>
+    </div>
+
+    <!-- Sidebar Derecho -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar title="Enlaces de interés" [items]="[
+        { title: 'No lo pienses, hazlo!!', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/de-la-idea-a-la-ejecucion-los-4-pasos-clave-para-el/481841' },
+        { title: 'Montar un negocio en línea', link: 'https://www.entrepreneur.com/es/iniciar-un-negocio/cuatro-consejos-para-iniciar-un-negocio-en-linea-en-2024/468319' },
+        { title: 'Reescribiendo las reglas del marketing', link: 'https://www.entrepreneur.com/es/marketing/asi-es-como-la-tecnologia-moderna-esta-reescribiendo/466175' },
+        { title: 'Escala tu negocio así', link: 'https://www.entrepreneur.com/es/consultoria/7-estrategias-para-escalar-tu-pequeno-negocio-y-lograr-un/463442' },
+        { title: 'La importancia de una estrategia de marketing ', link: 'https://www.entrepreneur.com/es/marketing/la-importancia-de-una-estrategia-de-marketing-efectiva-para/425507' },
+        { title: 'El poder de ser profesionalmente crudo', link: 'https://www.entrepreneur.com/es/redes-sociales/el-poder-de-ser-profesionalmente-crudo/425451' },
+        { title: '4 maneras de aprovechar la publicidad', link: 'https://www.entrepreneur.com/es/marketing/4-maneras-en-que-los-emprendedores-pueden-aprovechar-los/403265' },
+        { title: 'Utiliza un asistente virtual', link: 'https://www.entrepreneur.com/es/tecnologia/3-formas-de-utilizar-un-asistente-virtual-para-aumentar-su/405076' },
+        { title: 'Cumplimiento de la privacidad', link: 'https://www.entrepreneur.com/es/liderazgo/3-razones-por-las-que-su-empresa-debe-priorizar-el/408682' }
+      ]"></app-sidebar>
+    </div>
+
+  </div>
+</div>

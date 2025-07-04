@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -7,35 +8,44 @@ import { environment } from '../../environments/environment';
   providedIn: 'root',
 })
 export class UserService {
-  private apiUrl = `${environment.apiUrl}/api/auth`; // ✅ URL base del backend
+  private apiUrl = `${environment.apiUrl}/api/auth`;
   private userDataSubject = new BehaviorSubject<any>(null);
   userData$ = this.userDataSubject.asObservable();
+  private isBrowser: boolean;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
-  // Obtener el perfil del usuario
   getUserProfile(): Observable<any> {
+    if (!this.isBrowser) {
+      return new Observable(observer => {
+        observer.error('localStorage is not available on the server');
+      });
+    }
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
-    return this.http.get(`${this.apiUrl}/user/profile`, { headers }); // ✅ Debe ser /api/auth/user/profile
+    return this.http.get(`${this.apiUrl}/user/profile`, { headers });
   }
-  
 
-  // Actualizar el perfil del usuario con FormData
   updateUserProfile(profileData: FormData): Observable<any> {
+    if (!this.isBrowser) {
+      return new Observable(observer => {
+        observer.error('localStorage is not available on the server');
+      });
+    }
     const headers = new HttpHeaders({
         'Authorization': `Bearer ${localStorage.getItem('token')}`
     });
 
     return this.http.put(`${this.apiUrl}/user/profile`, profileData, { headers });
-}
+  }
 
-
-  // ✅ Establecer los datos del usuario en la aplicación
-setUserData(user: any): void {
-    this.userDataSubject.next(user);
-    localStorage.setItem('user', JSON.stringify(user)); // 🔹 Guarda el usuario actualizado en localStorage
-}
-
+  setUserData(user: any): void {
+    if (this.isBrowser) {
+      this.userDataSubject.next(user);
+      localStorage.setItem('user', JSON.stringify(user));
+    }
+  }
 }

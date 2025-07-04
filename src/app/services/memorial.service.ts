@@ -1,4 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
@@ -7,18 +8,24 @@ import { environment } from '../../environments/environment';
   providedIn: 'root'
 })
 export class MemorialService {
-  private apiUrl = `${environment.apiUrl}/api/memorials`; // ✅ Ahora usa la nueva API
+  private apiUrl = `${environment.apiUrl}/api/memorials`;
+  private isBrowser: boolean;
 
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {
+    this.isBrowser = isPlatformBrowser(this.platformId);
+  }
 
-  constructor(private http: HttpClient) { }
-
-  // ✅ Crear un memorial
   createMemorial(memorialData: any, token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post(`${this.apiUrl}/create`, memorialData, { headers }); // ✅ Ahora tiene /api/memorials/
+    return this.http.post(`${this.apiUrl}/create`, memorialData, { headers });
   }
 
   updateMemorial(memorial: any): Observable<any> {
+    if (!this.isBrowser) {
+      return new Observable(observer => {
+        observer.error('localStorage is not available on the server');
+      });
+    }
     const token = localStorage.getItem('token');
 
     if (!token) {
@@ -36,37 +43,27 @@ export class MemorialService {
     return this.http.put(`${this.apiUrl}/${memorial._id}`, memorial, { headers });
   }
 
-
-
-  // ✅ Obtener memoriales del usuario autenticado
   getMemorials(token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.get(`${this.apiUrl}/my-memorials`, { headers }); // ✅ Ahora tiene /api/memorials/
+    return this.http.get(`${this.apiUrl}/my-memorials`, { headers });
   }
 
   getMemorialById(id: string) {
-    return this.http.get(`${this.apiUrl}/${id}`); // 👈 Aquí corregimos la URL
+    return this.http.get(`${this.apiUrl}/${id}`);
   }
 
-  // ✅ Asignar un memorial a otro usuario
   assignMemorialToUser(memorialId: string, userId: string, token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post(`${this.apiUrl}/assign`, { memorialId, userId }, { headers });
   }
 
-  // ✅ Buscar usuarios por nombre o email (autocomplete)
   searchUsers(query: string, token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.get(`${environment.apiUrl}/api/users/search?query=${query}`, { headers });
   }
 
-
-
-
-
-  // ✅ Añadir usuario a memorial premium
   addUserToMemorial(memorialId: string, userId: string, token: string): Observable<any> {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
-    return this.http.post(`${this.apiUrl}/add-user`, { memorialId, userId }, { headers }); // ✅ Ahora tiene /api/memorials/
+    return this.http.post(`${this.apiUrl}/add-user`, { memorialId, userId }, { headers });
   }
 }
