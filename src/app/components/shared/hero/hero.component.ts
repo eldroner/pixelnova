@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ButtonComponent } from '../button/button.component';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hero',
@@ -10,7 +11,18 @@ import { ButtonComponent } from '../button/button.component';
   styleUrls: ['./hero.component.scss']
 })
 export class HeroComponent {
-  @Input() title: string = 'Potenciamos tu negocio con tecnología y creatividad';
+  private _title: string = 'Potenciamos tu negocio con tecnología y creatividad';
+  safeTitle: SafeHtml;
+
+  @Input()
+  set title(value: string) {
+    this._title = value;
+    this.safeTitle = this.sanitizer.bypassSecurityTrustHtml(value);
+  }
+  get title(): string {
+    return this._title;
+  }
+
   @Input() description: string = 'Webs personalizadas, marketing digital, fotografía y vídeo aéreo';
   @Input() buttonText: string = 'Trabajemos juntos';
   @Input() buttonLink: string = '/contact';
@@ -18,6 +30,10 @@ export class HeroComponent {
   @Input() showButton: boolean = true;
 
   @Output() buttonClick = new EventEmitter<void>();
+
+  constructor(private sanitizer: DomSanitizer) {
+    this.safeTitle = this.sanitizer.bypassSecurityTrustHtml(this._title);
+  }
 
   get shouldNavigate(): boolean {
     return !this.buttonClick.observed; // ✅ Si no hay observadores, permite la navegación

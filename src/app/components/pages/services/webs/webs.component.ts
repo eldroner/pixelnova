@@ -34,9 +34,9 @@ export class WebsComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Desarrollo de Sitios Web Profesionales - Pixelnova',
-      'Creamos sitios web a medida para negocios, optimizados para SEO y diseñados para generar más clientes. Webs rápidas, seguras y totalmente personalizadas.',
-      'desarrollo web, diseño web, sitios web a medida, optimización web, creación de páginas web, webs personalizadas, SEO para web, Pixelnova',
+      'Desarrollo Web Profesional | Diseño de Páginas Web a Medida',
+      'Creamos sitios web profesionales y a medida para tu negocio. Diseño web optimizado para SEO, rápido y seguro. ¡Impulsa tu presencia online con Pixelnova!',
+      'desarrollo web, diseño web, páginas web a medida, optimización SEO, creación web, webs profesionales, Pixelnova, presencia online',
       'https://www.tuweb.com/services/webs',
       'https://www.tuweb.com/assets/img/desarrollo-web.jpg'
     );

@@ -28,9 +28,9 @@ export class RrssComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Gestión de Redes Sociales - Pixelnova',
-      'Impulsa tu presencia en redes sociales con estrategias personalizadas. Optimizamos tu contenido, gestionamos campañas y analizamos resultados para mejorar el engagement con tu audiencia.',
-      'gestión de redes sociales, marketing digital, estrategias en redes, social media, community manager, contenido digital, Pixelnova',
+      'Gestión de Redes Sociales | Estrategias de Social Media',
+      'Potencia tu marca con nuestra gestión profesional de redes sociales. Estrategias personalizadas, contenido optimizado y análisis de resultados para tu negocio.',
+      'gestión de redes sociales, marketing digital, social media marketing, community manager, estrategias digitales, Pixelnova, engagement, branding',
       'https://www.tuweb.com/services/rrss',
       'https://www.tuweb.com/assets/img/gestion-redes-sociales.jpg'
     );

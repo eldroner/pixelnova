@@ -19,9 +19,9 @@ export class MemorialComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Memoriales Digitales - Pixelnova',
-      'Preserva el legado de tus seres queridos con un memorial digital. Un espacio online donde compartir recuerdos, fotos y mensajes con familiares y amigos.',
-      'memorial digital, homenaje online, recuerdos familiares, legado digital, conmemoraciones, Pixelnova',
+      'Memorial Digital | Homenaje Online a Seres Queridos',
+      'Crea un memorial digital para honrar y recordar a tus seres queridos. Comparte recuerdos, fotos y mensajes en un espacio online privado y seguro.',
+      'memorial digital, homenaje online, recuerdos, legado, conmemoraciones, Pixelnova, espacio online, duelo',
       'https://www.tuweb.com/memorial',
       'https://www.tuweb.com/assets/img/memorial-digital.jpg'
     );

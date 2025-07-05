@@ -28,9 +28,9 @@ export class ContactComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Contacto - Pixelnova',
-      'Ponte en contacto con Pixelnova para consultas sobre desarrollo web, SEO, redes sociales y soporte digital. Estamos aquí para ayudarte.',
-      'contacto, Pixelnova, desarrollo web, SEO, soporte digital, gestión de redes sociales, marketing digital',
+      'Contacto Pixelnova | Desarrollo Web, SEO y Marketing Digital',
+      '¿Necesitas ayuda con tu proyecto digital? Contacta con Pixelnova para servicios de desarrollo web, SEO, redes sociales y marketing digital. ¡Te esperamos!',
+      'contacto, Pixelnova, desarrollo web, SEO, marketing digital, redes sociales, soporte, presupuesto web, consultoría digital',
       'https://www.tuweb.com/contact',
       'https://www.tuweb.com/assets/img/contacto.jpg'
     );

@@ -19,9 +19,9 @@ export class HomeComponent {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Agencia de Marketing Digital y Desarrollo Web - Pixelnova',
-      'Pixelnova ofrece soluciones digitales para empresas: diseño web, SEO, gestión de redes sociales, marketing digital, vídeo y foto aérea, soporte técnico y más.',
-      'marketing digital, diseño web, SEO, redes sociales, publicidad online, desarrollo web, vídeo aéreo, Pixelnova',
+      'Agencia de Marketing Digital y Diseño Web | Pixelnova',
+      'Soluciones digitales integrales para empresas: diseño web, SEO, marketing digital, redes sociales y soporte técnico. Impulsa tu negocio con Pixelnova.',
+      'marketing digital, diseño web, SEO, redes sociales, publicidad online, desarrollo web, Pixelnova, soluciones digitales, estrategia digital',
       'https://www.tuweb.com',
       'https://www.tuweb.com/assets/img/home-banner.jpg'
     );

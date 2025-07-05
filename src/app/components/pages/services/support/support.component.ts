@@ -28,9 +28,9 @@ export class SupportComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Soporte Digital 24/7 - Pixelnova',
-      'Nos encargamos de la gestión digital completa de tu negocio, incluyendo mantenimiento web, seguridad y asistencia técnica para garantizar su correcto funcionamiento en todo momento.',
-      'soporte digital, mantenimiento web, asistencia técnica, seguridad online, gestión digital, Pixelnova',
+      'Soporte Web 24/7 | Asistencia Técnica y Mantenimiento Digital',
+      'Soporte integral para tu negocio: mantenimiento web, seguridad, asistencia técnica y gestión digital. Garantizamos el funcionamiento óptimo de tu plataforma.',
+      'soporte web, asistencia técnica, mantenimiento digital, seguridad online, gestión digital, Pixelnova, soporte 24/7, ayuda web',
       'https://www.tuweb.com/services/support',
       'https://www.tuweb.com/assets/img/soporte-integral.jpg'
     );

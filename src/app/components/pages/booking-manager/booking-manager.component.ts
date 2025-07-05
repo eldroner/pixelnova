@@ -64,9 +64,9 @@ export class BookingManagerComponent implements OnInit {
 
   ngOnInit(): void {
     this.seoService.updateSeo(
-      'Gestor de Reservas Online para Negocios - Pixelnova',
-      'Software de gestión de reservas online para peluquerías, consultas médicas, restaurantes y más. Optimiza tu tiempo, gestiona servicios, horarios y citas de forma eficiente.',
-      'gestor de reservas, software de citas, reservas online, sistema de booking, peluquerías, consultas médicas, restaurantes, gestión de horarios, Pixelnova',
+      'Gestor de Reservas Online | Software de Citas para Negocios',
+      'Optimiza tu negocio con nuestro gestor de reservas online. Software intuitivo para peluquerías, clínicas, restaurantes y más. Asistencia 24/7. ¡Prueba Pixelnova!',
+      'gestor de reservas, software de citas, reservas online, sistema de booking, peluquerías, clínicas, restaurantes, gestión de horarios, Pixelnova, agenda online',
       'https://www.tuweb.com/services/booking-manager',
       'https://www.tuweb.com/assets/img/booking-manager/front-end-booking-manager.jpg'
     );
