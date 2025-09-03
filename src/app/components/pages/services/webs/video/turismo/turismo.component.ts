@@ -40,12 +40,9 @@ export class TurismoComponent implements OnInit {
   getVideos(): void {
     const playlistId = 'PL5g-58hYPsTg2YT2aIM_ZaoqyGNJy8arP'; // 🔹 Reemplaza con la ID de la playlist de turismo
 
-    console.log("🎬 Solicitando vídeos de la playlist:", playlistId);
-
     this.youtubeService.getVideos(playlistId).subscribe({
       next: (response) => {
-        console.log("📹 Respuesta de la API de YouTube:", response);
-        this.videos = response.items || []; // 🔹 Si response.items es `undefined`, asignamos un array vacío
+        this.videos = response.items || [];
       },
       error: (err) => {
         console.error("❌ Error al cargar los vídeos:", err);

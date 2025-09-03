@@ -5,13 +5,16 @@
     <h4 class="p-2 fw-light">{{ description }}</h4>
 
     <!-- ✅ Modificamos el botón para llamar a la función -->
-    <app-button 
-    *ngIf="showButton" 
-    [text]="buttonText" 
-    [link]="shouldNavigate ? buttonLink : undefined"
-    color="primary"
-    (click)="onButtonClick($event)">
-  </app-button>
+        <ng-container *ngIf="buttonText && buttonLink">
+      <!-- Button for EXTERNAL links -->
+      <a *ngIf="buttonLink.startsWith('http')" [href]="buttonLink" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-button">
+        {{ buttonText }}
+      </a>
+      <!-- Button for INTERNAL links -->
+      <a *ngIf="!buttonLink.startsWith('http')" [routerLink]="buttonLink" class="btn btn-primary hero-button">
+        {{ buttonText }}
+      </a>
+    </ng-container>
   
   
 

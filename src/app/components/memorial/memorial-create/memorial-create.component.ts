@@ -44,12 +44,16 @@ export class MemorialCreateComponent {
     this.memorialService.createMemorial(formattedMemorialData, this.token).subscribe({
       next: (response) => {
         console.log('✅ Memorial creado correctamente:', response);
-        alert('Memorial creado con éxito');
+        if (this.isBrowser) {
+          alert('Memorial creado con éxito');
+        }
         this.router.navigate(['/memorial']);
       },
       error: (err) => {
         console.error('❌ Error al crear memorial:', err);
-        alert('Hubo un error al crear el memorial.');
+        if (this.isBrowser) {
+          alert('Hubo un error al crear el memorial.');
+        }
       }
     });
   }

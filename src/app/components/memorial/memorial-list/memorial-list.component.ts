@@ -123,7 +123,9 @@ export class MemorialListComponent implements OnInit {
 
   assignMemorial(): void {
     if (!this.assignUserId || this.assignUserId.trim() === '') {
-      alert('⚠️ Debes ingresar un ID de usuario válido.');
+      if (this.isBrowser) {
+        alert('⚠️ Debes ingresar un ID de usuario válido.');
+      }
       return;
     }
 
@@ -132,7 +134,9 @@ export class MemorialListComponent implements OnInit {
     this.memorialService.assignMemorialToUser(this.selectedMemorial._id, this.assignUserId, this.token)
       .subscribe({
         next: () => {
-          alert('✅ Memorial asignado correctamente.');
+          if (this.isBrowser) {
+            alert('✅ Memorial asignado correctamente.');
+          }
           this.selectedMemorial = null;
           this.assignUserId = '';
           this.userSearch = '';
@@ -141,7 +145,9 @@ export class MemorialListComponent implements OnInit {
         },
         error: (err) => {
           console.error('❌ Error al asignar memorial:', err);
-          alert('❌ Ocurrió un error al asignar el memorial.');
+          if (this.isBrowser) {
+            alert('❌ Ocurrió un error al asignar el memorial.');
+          }
         }
       });
   }

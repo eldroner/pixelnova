@@ -35,7 +35,7 @@ export class WeatherComponent implements OnInit {
   ngOnInit() {
     this.aemetService.getMunicipios().subscribe(
       (data) => {
-        console.log('✅ Municipios obtenidos:', data);
+        
         this.municipios = data.map(m => ({
           codigo: m.codigo,
           nombre: `${m.nombre} (${m.provincia})`,

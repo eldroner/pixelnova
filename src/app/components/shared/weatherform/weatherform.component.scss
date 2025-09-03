@@ -12,8 +12,13 @@
     }
   }
   
+  .input-group {
+    position: relative; // ✅ Añadido para posicionar correctamente la lista de sugerencias
+  }
+
   .list-group {
     position: absolute;
+    top: 100%; // ✅ Posiciona la lista justo debajo del input
     z-index: 1050; // 🔹 Asegura que esté por encima de otros elementos
     background-color: white; // 🔹 Evita transparencia
     width: 100%; // 🔹 Para que no se corte dentro del input
@@ -196,7 +201,3 @@
       color: #0056b3; /* Oscurece el color al pasar el mouse */
     }
   }
-  
-  
-  
-  

@@ -18,7 +18,7 @@ export class VideoListComponent implements OnInit {
   getVideos(): void {
     this.youtubeService.getVideos().subscribe(response => {
       this.videos = response.items;
-      console.log(this.videos); // Debugging: Ver qué datos llegan desde la API
+      
     });
   }
 }
