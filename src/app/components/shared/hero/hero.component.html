@@ -4,16 +4,24 @@
     <h1 [innerHTML]="safeTitle"></h1>
     <h4 class="p-2 fw-light">{{ description }}</h4>
 
-    <!-- ✅ Modificamos el botón para llamar a la función -->
-        <ng-container *ngIf="buttonText && buttonLink">
-      <!-- Button for EXTERNAL links -->
-      <a *ngIf="buttonLink.startsWith('http')" [href]="buttonLink" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-button">
+    <!-- Botón con lógica condicional -->
+    <ng-container *ngIf="showButton">
+      <!-- Si hay un evento de clic, muestra un botón que lo emite -->
+      <button *ngIf="!shouldNavigate" (click)="onButtonClick($event)" class="btn btn-primary hero-button">
         {{ buttonText }}
-      </a>
-      <!-- Button for INTERNAL links -->
-      <a *ngIf="!buttonLink.startsWith('http')" [routerLink]="buttonLink" class="btn btn-primary hero-button">
-        {{ buttonText }}
-      </a>
+      </button>
+
+      <!-- Si no hay evento de clic, muestra un enlace de navegación -->
+      <ng-container *ngIf="shouldNavigate && buttonText && buttonLink">
+        <!-- Enlace externo -->
+        <a *ngIf="buttonLink.startsWith('http')" [href]="buttonLink" target="_blank" rel="noopener noreferrer" class="btn btn-primary hero-button">
+          {{ buttonText }}
+        </a>
+        <!-- Enlace interno -->
+        <a *ngIf="!buttonLink.startsWith('http')" [routerLink]="buttonLink" class="btn btn-primary hero-button">
+          {{ buttonText }}
+        </a>
+      </ng-container>
     </ng-container>
   
   
