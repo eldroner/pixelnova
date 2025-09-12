@@ -2,7 +2,7 @@
   title="Optimización SEO para tu negocio"
   description="Mejoramos tu posicionamiento en buscadores para aumentar la visibilidad y atraer más clientes."
   buttonText="Solicita más información"
-  buttonLink="/contact"
+  (buttonClick)="scrollToForm()"
   backgroundImage="assets/img/seo-teclado-azul.jpg">
 </app-hero>
 
@@ -64,8 +64,44 @@
         <app-spacer [height]="'10px'"></app-spacer>
       </app-text-container>
 
-      <div class="text-center mt-5 mb-4">
-        <app-button text="Consulta nuestros planes SEO" link="/contact" color="primary"></app-button>
+      <!-- Formulario de Contacto -->
+      <div class="mt-5 mb-4" id="form-seo">
+        <div class="card shadow-lg border-0 rounded-4 mx-auto">
+          <div class="card-body p-4">
+            <h2 class="text-center mb-4">Solicita más información</h2>
+
+            <form (ngSubmit)="sendEmail()">
+              <!-- Nombre -->
+              <div class="mb-3">
+                <label for="name" class="form-label">Nombre</label>
+                <input type="text" class="form-control rounded-3" id="name" [(ngModel)]="form.name" name="name" required>
+              </div>
+
+              <!-- Email -->
+              <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control rounded-3" id="email" [(ngModel)]="form.email" name="email" required>
+              </div>
+
+              <!-- Teléfono (Opcional) -->
+              <div class="mb-3">
+                <label for="phone" class="form-label">Teléfono (Opcional)</label>
+                <input type="tel" class="form-control rounded-3" id="phone" [(ngModel)]="form.phone" name="phone">
+              </div>
+
+              <!-- Mensaje -->
+              <div class="mb-3">
+                <label for="message" class="form-label">Mensaje</label>
+                <textarea class="form-control rounded-3" id="message" rows="4" [(ngModel)]="form.message" name="message" required></textarea>
+              </div>
+
+              <!-- Botón Enviar -->
+              <button type="submit" class="btn btn-primary w-100 py-2 fw-bold rounded-3">
+                Enviar Mensaje
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
 
