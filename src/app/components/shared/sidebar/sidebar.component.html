@@ -2,7 +2,10 @@
     <h3>{{ title }}</h3>
     <ul *ngIf="items && items.length > 0" class="sidebar-list">
       <li *ngFor="let item of items">
-        <a [href]="item.link" target="_blank">
+        <a *ngIf="item.link.startsWith('http') || item.link.startsWith('tel')" [href]="item.link" target="_blank" rel="noopener noreferrer">
+          {{ item.title }}
+        </a>
+        <a *ngIf="!item.link.startsWith('http') && !item.link.startsWith('tel')" [routerLink]="item.link">
           {{ item.title }}
         </a>
       </li>

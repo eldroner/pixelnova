@@ -22,7 +22,6 @@ import { RrssComponent } from './components/pages/services/rrss/rrss.component';
 import { SeoComponent } from './components/pages/services/seo/seo.component';
 import { AdminGuard } from './guards/admin.guard';
 import { BookingManagerComponent } from './components/pages/booking-manager/booking-manager.component';
-import { PublicidadOnlineComponent } from './components/pages/services/publicidad-online/publicidad-online.component';
 
 
 export const routes: Routes = [
@@ -53,6 +52,5 @@ export const routes: Routes = [
   { path: 'services/rrss', component: RrssComponent },
   { path: 'services/seo', component: SeoComponent },
   { path: 'services/booking-manager', component: BookingManagerComponent },
-  { path: 'services/publicidad-online', component: PublicidadOnlineComponent },
   { path: '**', redirectTo: '' }
 ];

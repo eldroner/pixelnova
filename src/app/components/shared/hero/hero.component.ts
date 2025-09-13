@@ -6,7 +6,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-hero',
-  imports: [CommonModule, ButtonComponent, RouterModule],
+  imports: [CommonModule, RouterModule],
   standalone: true,
   templateUrl: './hero.component.html',
   styleUrls: ['./hero.component.scss']

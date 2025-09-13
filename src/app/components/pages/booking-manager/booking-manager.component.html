@@ -14,16 +14,7 @@
     <!-- Sidebar Izquierdo -->
     <!-- Sidebar Izquierdo (Tendencias de Marketing) -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="¿Te ayudamos con algo?" [items]="[
-        { title: 'Inicio', link: '/' },
-        { title: 'Desarrollo de sitios web', link: 'services/webs' },
-        { title: 'Funciones para tu web', link: 'services/component' },
-        { title: 'Soporte integral 24/7', link: 'services/support' },
-        { title: 'Mantenimiento de sitios web', link: 'services/web-upgrade' },
-        { title: 'Gestión de redes sociales', link: 'services/rrss' },
-        { title: 'El Legado de los Nuestros', link: 'memorial' },
-        { title: 'Contacta con Pixelnova', link: 'contact' }
-      ]"></app-sidebar>
+      <app-sidebar name="ayuda"></app-sidebar>
     </div>
 
     <!-- Contenido Principal -->
@@ -90,7 +81,7 @@
 
     <!-- Sidebar Derecho -->
     <div class="col-lg-2 d-none d-lg-block">
-      <app-sidebar title="Enlaces de interés" [items]="sidebarRightItems"></app-sidebar>
+      <app-sidebar name="interes"></app-sidebar>
     </div>
 
   </div>
