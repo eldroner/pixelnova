@@ -1,0 +1,12 @@
+* text=auto eol=lf
+
+# Scripts
+*.sh   text eol=lf
+*.bat  text eol=crlf
+
+# Binarios
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
