@@ -1,8 +1,18 @@
-<IfModule mod_rewrite.c>
-    RewriteEngine On
-    RewriteBase /
-    RewriteRule ^index\.html$ - [L]
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule . /index.html [L]
-</IfModule>
+Options -MultiViews
+RewriteEngine On
+RewriteBase /
+# Nunca reescribir estáticos
+RewriteCond %{REQUEST_URI} \.(?:js|mjs|css|png|jpe?g|gif|svg|ico|webp|map|wasm|txt|json|woff2?|ttf|eot)$ [NC]
+RewriteRule ^ - [L]
+# Sirve si existe
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+# Fallback SPA
+RewriteRule ^ index.html [L]
+# MIME (por si acaso)
+AddType text/javascript .js .mjs
+AddType text/css .css
+AddType application/wasm .wasm
+
+
