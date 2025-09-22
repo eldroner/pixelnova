@@ -5,6 +5,9 @@ import { RouterLink } from '@angular/router';
 import { ParagraphComponent } from '../../../shared/text/paragraph/paragraph.component';
 import { TitleComponent } from '../../../shared/text/title/title.component';
 import { SubtitleComponent } from '../../../shared/text/subtitle/subtitle.component';
+import { HeroComponent } from '../../../shared/hero/hero.component';
+import { SidebarComponent } from '../../../shared/sidebar/sidebar.component';
+import { SpacerComponent } from '../../../shared/spacer/spacer.component';
 
 @Component({
   selector: 'app-taxi-calculator-page',
@@ -15,6 +18,9 @@ import { SubtitleComponent } from '../../../shared/text/subtitle/subtitle.compon
     ParagraphComponent,
     TitleComponent,
     SubtitleComponent,
+    HeroComponent,
+    SidebarComponent,
+    SpacerComponent,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   templateUrl: './taxi-calculator-page.component.html',

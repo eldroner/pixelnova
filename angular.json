@@ -28,7 +28,7 @@
               { "glob": ".htaccess", "input": "src", "output": "/" },
               {
                 "glob": "**/*",
-                "input": "../../taxi-calculator/dist/taxi-calculator/browser",
+                "input": "../../taxi-calculator-project/taxi-calculator/dist/taxi-calculator/browser",
                 "output": "taxi-calculator-assets/browser"
               }
             ],
@@ -54,9 +54,7 @@
                   "with": "src/environments/environment.prod.ts"
                 }
               ],
-              "server": "src/main.server.ts",
-              "prerender": false,
-              "ssr": { "entry": "server.ts" }
+              "prerender": false
             },
             "development": {
               "optimization": false,

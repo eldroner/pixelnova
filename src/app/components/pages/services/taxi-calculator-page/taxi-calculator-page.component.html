@@ -1,15 +1,47 @@
-<div class="container my-5">
-  <div class="row justify-content-center">
-    <div class="col-lg-8 text-center">
-      <app-title [text]="'Calculadora de <span style=color:#007bff;>Tarifas Taxi</span>'"></app-title>
-      <app-paragraph [text]="'Una calculadora de tarifas personalizable para taxistas, con precios por tramos, recargos por pasajeros, equipaje, nocturnidad, fin de semana y festivos.'"></app-paragraph>
-    </div>
-  </div>
+<app-hero 
+  title="Calculadora de Tarifas de Taxi: Precios Precisos para tu Carrera"
+  description="Calcula el coste de tu trayecto en taxi de forma rápida y sencilla. Nuestra herramienta avanzada te ofrece una estimación precisa, incluyendo todos los suplementos."
+  buttonText="Contacta"
+  buttonLink="/contact"
+  backgroundImage="assets/img/support.jpg">
+</app-hero>
 
-  <div class="row justify-content-center mt-5">
-    <div class="col-lg-6">
-      <!-- Aquí se incrustará el Web Component de la calculadora -->
-      <taxi-calculator driver-id="driver123"></taxi-calculator>
+<app-spacer [height]="'20px'"></app-spacer>
+
+<div class="container">
+  <div class="row align-items-stretch">
+    
+    <!-- Sidebar Izquierdo -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar name="ayuda"></app-sidebar>
     </div>
+
+    <!-- 📌 Contenido Principal -->
+    <div class="col-lg-8 col-md-12">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-4 font-weight-bold">
+                    Calculadora de <span style="color:#007bff;">Tarifas de Taxi</span>
+                </h1>
+                <h2 class="h4">
+                    Estima el coste de tu carrera con precisión.
+                </h2>
+                <app-paragraph [text]="'Nuestra calculadora de tarifas de taxi te permite obtener una estimación precisa del coste de tu trayecto. Introduce los detalles de tu carrera y la herramienta calculará el precio final, aplicando automáticamente los suplementos correspondientes a equipaje, horarios nocturnos, festivos y número de pasajeros. Es una solución ideal tanto para clientes que desean conocer el precio de antemano como para profesionales del taxi que necesitan una herramienta de cálculo fiable y personalizable.'"></app-paragraph>
+            </div>
+        </div>
+        
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-8">
+                <!-- Aquí se incrustará el Web Component de la calculadora -->
+                <taxi-calculator driver-id="driver123"></taxi-calculator>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Derecho -->
+    <div class="col-lg-2 d-none d-lg-block">
+      <app-sidebar name="interes"></app-sidebar>
+    </div>
+
   </div>
 </div>
