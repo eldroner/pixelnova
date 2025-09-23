@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import emailjs from '@emailjs/browser';
 import { WeatherComponent } from "../../shared/weatherform/weatherform.component";
 import { HeroComponent } from "../../shared/hero/hero.component";
 import { SidebarComponent } from "../../shared/sidebar/sidebar.component";
 import { SeoService } from '../../../services/seo.service';
-import { AemetService } from '../../../services/aemet.service'; // ✅ Importamos el servicio
+import { AemetService } from '../../../services/aemet.service';
+import { HttpClient } from '@angular/common/http'; // Import HttpClient
+import { environment } from '../../../../environments/environment'; // Import environment
 
 @Component({
   selector: 'app-contact',
@@ -24,7 +25,7 @@ export class ContactComponent implements OnInit {
     message: ''
   };
 
-  constructor(private seoService: SeoService, private aemetService: AemetService) {} // ✅ Inyectamos AemetService
+  constructor(private seoService: SeoService, private aemetService: AemetService, private http: HttpClient) {} // Inject HttpClient
 
   ngOnInit(): void {
     this.seoService.updateSeo(
@@ -36,24 +37,21 @@ export class ContactComponent implements OnInit {
     );
   }
 
-  // ✅ Ahora usamos el servicio AemetService para enfocar el input
   enfocarCampoMunicipio() {
     this.aemetService.enfocarCampoMunicipio();
   }
 
   sendEmail() {
-    const serviceID = 'service_8ye06ka'; // Reemplaza con tu Service ID de EmailJS
-    const templateID = 'template_otwkf2m'; // Reemplaza con tu Template ID de EmailJS
-    const publicKey = 'pkQl3ciKlncnQMXk3'; // Reemplaza con tu Public Key de EmailJS
-
-    emailjs.send(serviceID, templateID, this.form, publicKey)
-      .then(() => {
-        alert('✅ Mensaje enviado con éxito.');
-        this.form = { name: '', email: '', phone: '', message: '' }; // Resetear formulario
-      })
-      .catch((err) => {
-        console.error('❌ Error al enviar el mensaje:', err);
-        alert('❌ Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+    this.http.post<any>(`${environment.apiUrl}/api/email/send-contact`, this.form)
+      .subscribe({
+        next: () => {
+          alert('✅ Mensaje enviado con éxito.');
+          this.form = { name: '', email: '', phone: '', message: '' }; // Resetear formulario
+        },
+        error: (err) => {
+          console.error('❌ Error al enviar el mensaje:', err);
+          alert('❌ Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+        }
       });
   }
 }

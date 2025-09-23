@@ -1,7 +1,8 @@
 import { Component, Inject, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import emailjs from '@emailjs/browser';
+import { HttpClient } from '@angular/common/http'; // Import HttpClient
+import { environment } from '../../../../../environments/environment'; // Import environment
 
 import { HeroComponent } from "../../../shared/hero/hero.component";
 import { SpacerComponent } from "../../../shared/spacer/spacer.component";
@@ -39,7 +40,7 @@ export class SeoComponent {
     message: ''
   };
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(@Inject(PLATFORM_ID) private platformId: Object, private http: HttpClient) {} // Inject HttpClient
 
   scrollToForm() {
     if (isPlatformBrowser(this.platformId)) {
@@ -51,19 +52,16 @@ export class SeoComponent {
   }
 
   sendEmail() {
-    // TODO: Reemplazar 'template_otwkf2m' con el ID de la nueva plantilla de EmailJS para SEO.
-    const serviceID = 'service_8ye06ka'; // Este ID suele ser el mismo para todo el servicio.
-    const templateID = 'template_6l473l5'; // ¡IMPORTANTE! Cambiar por el template que envía a seo@pixelnova.es
-    const publicKey = 'pkQl3ciKlncnQMXk3'; // Esta es tu clave pública.
-
-    emailjs.send(serviceID, templateID, this.form, publicKey)
-      .then(() => {
-        alert('✅ Mensaje enviado con éxito.');
-        this.form = { name: '', email: '', phone: '', message: '' }; // Resetear formulario
-      })
-      .catch((err) => {
-        console.error('❌ Error al enviar el mensaje:', err);
-        alert('❌ Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+    this.http.post<any>(`${environment.apiUrl}/api/email/send-contact`, this.form)
+      .subscribe({
+        next: () => {
+          alert('✅ Mensaje enviado con éxito.');
+          this.form = { name: '', email: '', phone: '', message: '' }; // Resetear formulario
+        },
+        error: (err) => {
+          console.error('❌ Error al enviar el mensaje:', err);
+          alert('❌ Hubo un problema al enviar el mensaje. Inténtalo de nuevo.');
+        }
       });
   }
 }
