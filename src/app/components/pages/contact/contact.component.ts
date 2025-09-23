@@ -42,7 +42,7 @@ export class ContactComponent implements OnInit {
   }
 
   sendEmail() {
-    this.http.post<any>(`${environment.apiUrl}/api/email/send-contact`, this.form)
+    this.http.post<any>(`${environment.apiUrl}/api/email/send-contact`, { ...this.form, source: 'consulta' })
       .subscribe({
         next: () => {
           alert('✅ Mensaje enviado con éxito.');

@@ -52,7 +52,7 @@ export class SeoComponent {
   }
 
   sendEmail() {
-    this.http.post<any>(`${environment.apiUrl}/api/email/send-contact`, this.form)
+    this.http.post<any>(`${environment.apiUrl}/api/email/send-contact`, { ...this.form, source: 'SEO' })
       .subscribe({
         next: () => {
           alert('✅ Mensaje enviado con éxito.');
