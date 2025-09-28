@@ -1,6 +1,6 @@
 <app-hero 
-  title="Calculadora de Tarifas de Taxi: Precios Precisos para tu Carrera"
-  description="Calcula el coste de tu trayecto en taxi de forma rápida y sencilla. Nuestra herramienta avanzada te ofrece una estimación precisa, incluyendo todos los suplementos."
+  title="Calculadora de Tarifas para VTC y Transporte Privado"
+  description="Ofrece a tus clientes una estimación de precios clara y por adelantado. Nuestra herramienta es ideal para empresas de VTC que buscan transparencia y eficiencia."
   buttonText="Contacta"
   buttonLink="/contact"
   backgroundImage="assets/img/support.jpg">
@@ -8,7 +8,7 @@
 
 <app-spacer [height]="'20px'"></app-spacer>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row align-items-stretch">
     
     <!-- Sidebar Izquierdo -->
@@ -18,24 +18,88 @@
 
     <!-- 📌 Contenido Principal -->
     <div class="col-lg-8 col-md-12">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1 class="display-4 font-weight-bold">
-                    Calculadora de <span style="color:#007bff;">Tarifas de Taxi</span>
-                </h1>
-                <h2 class="h4">
-                    Estima el coste de tu carrera con precisión.
-                </h2>
-                <app-paragraph [text]="'Nuestra calculadora de tarifas de taxi te permite obtener una estimación precisa del coste de tu trayecto. Introduce los detalles de tu carrera y la herramienta calculará el precio final, aplicando automáticamente los suplementos correspondientes a equipaje, horarios nocturnos, festivos y número de pasajeros. Es una solución ideal tanto para clientes que desean conocer el precio de antemano como para profesionales del taxi que necesitan una herramienta de cálculo fiable y personalizable.'"></app-paragraph>
+
+        <!-- Sección de Características Configurables -->
+        <div class="features-section my-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 text-center">
+                    <h1 class="display-4 font-weight-bold">Potencia y <span style="color:#007bff;">Flexibilidad</span> a tu Medida</h1>
+                </div>
+            </div>
+            <div class="row g-4 mt-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-flag-fill fs-2 text-primary"></i>
+                            <h5 class="card-title mt-3">Tarifa Base</h5>
+                            <p class="card-text">Configura el precio inicial de cada trayecto (bajada de bandera) según tus tarifas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-sign-turn-right-fill fs-2 text-primary"></i>
+                            <h5 class="card-title mt-3">Precio por Distancia</h5>
+                            <p class="card-text">Define el coste exacto por kilómetro recorrido, ajustable para diferentes zonas o tarifas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-clock-history fs-2 text-primary"></i>
+                            <h5 class="card-title mt-3">Precio por Tiempo</h5>
+                            <p class="card-text">Establece un precio por minuto para el tiempo de espera o cuando el vehículo está detenido.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-moon-stars-fill fs-2 text-primary"></i>
+                            <h5 class="card-title mt-3">Suplementos Especiales</h5>
+                            <p class="card-text">Añade recargos automáticos para horarios nocturnos, fines de semana y días festivos.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-calendar-check-fill fs-2 text-primary"></i>
+                            <h5 class="card-title mt-3">Calendario de Festivos</h5>
+                            <p class="card-text">Gestión de festivos nacionales, autonómicos y locales para la aplicación automática de tarifas.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card h-100 text-center shadow-sm">
+                        <div class="card-body">
+                            <i class="bi bi-geo-alt-fill fs-2 text-primary"></i>
+                            <h5 class="card-title mt-3">Tarifas Fijas</h5>
+                            <p class="card-text">Crea tarifas predefinidas para trayectos comunes, como rutas al aeropuerto o estaciones.</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-        
-        <div class="row justify-content-center mt-4">
-            <div class="col-lg-8">
+
+        <!-- Layout de Calculadora y Párrafo -->
+        <div class="row mt-5 align-items-center">
+            <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="text-start">
+                    <h2 class="h4 mb-3">
+                        Ofrece una estimación de precio antes de contactar el servicio, generando un plus de confianza.
+                    </h2>
+                    <app-paragraph [text]="'Nuestra calculadora de tarifas para VTC y empresas de transporte te permite ofrecer una estimación precisa del coste del trayecto. Introduce los detalles de la carrera y la herramienta calculará el precio final, aplicando automáticamente los suplementos que necesites. Es una solución ideal para empresas que desean dar transparencia a sus clientes y una herramienta de cálculo fiable y personalizable para sus operaciones.'" [padding]="false"></app-paragraph>
+                </div>
+            </div>
+            <div class="col-lg-6">
                 <!-- Aquí se incrustará el Web Component de la calculadora -->
                 <taxi-calculator driver-id="driver123"></taxi-calculator>
             </div>
         </div>
+
     </div>
 
     <!-- Sidebar Derecho -->
